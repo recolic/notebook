@@ -14,7 +14,7 @@ curl https://recolic.net/setup/ | bash
 
 currently using uswest server by DO, docker image is hosted by Amazon ECR (600163736385.dkr.ecr.us-west-2.amazonaws.com). 
 
-Get login info:
+Get login info (valid for 12h)
 ```
 aws ecr get-login --no-include-email --region us-west-2
 ```
