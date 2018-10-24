@@ -31,6 +31,8 @@ docker push 600163736385.dkr.ecr.us-west-2.amazonaws.com/$1
 exit $?
 ```
 
+# DO NOT FORGET WRITING DOCKER-RUN INTO rc.local
+
 ## recolic.net
 
 fresh deployment
