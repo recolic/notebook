@@ -81,8 +81,10 @@ mig: copy /docker_data out, commit and push docker(nothing may changed).
 docker commit rweb 600163736385.dkr.ecr.us-west-2.amazonaws.com/mail.recolic.net
 docker push 600163736385.dkr.ecr.us-west-2.amazonaws.com/mail.recolic.net
 
-rsync -avz /var/lib/mysql $newServerIp:/docker_data/mysql
-rsync -avz /var/vmail $newServerIp:/docker_data/vmail
+rsync -avz /var/lib/mysql/ $newServerIp:/docker_data/mysql
+rsync -avz /var/vmail/ $newServerIp:/docker_data/vmail
+#       -------------^---^-------------
+# Be caution to the slash|
 ```
 
 passwd:
