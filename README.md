@@ -2,7 +2,7 @@
 
 Some note about deploying my website and other things. 
 
-I'm just making it public for convenience. **Commands here won't succeed without authorization.**
+I'm just making it public for convenience. **Please leave if you are not me. Commands here won't succeed without authorization.**
 
 ## firstly setup new vm
 
