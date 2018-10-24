@@ -19,7 +19,7 @@ Get login info:
 aws ecr get-login --no-include-email --region us-west-2
 ```
 
-docker-push.sh
+docker-push.sh (deprecated)
 ```
 #!/bin/bash
 
@@ -36,12 +36,12 @@ exit $?
 fresh deployment
 ```
 mkdir -p /var/www.recolic.net-tmp
-docker run -tid -p 80:80 -p 443:443 -v /var/www.recolic.net-tmp:/var/www/html/tmp --name r 600163736385.dkr.ecr.us-west-2.amazonaws.com/www.recolic.net /entry.sh
+docker run -tid -p 80:80 -p 443:443 -v /var/www.recolic.net-tmp:/var/www/html/tmp --name rweb 600163736385.dkr.ecr.us-west-2.amazonaws.com/www.recolic.net /entry.sh
 ```
 
 mig (just commit and push)
 ```
-docker commit r 600163736385.dkr.ecr.us-west-2.amazonaws.com/www.recolic.net
+docker commit rweb 600163736385.dkr.ecr.us-west-2.amazonaws.com/www.recolic.net
 ./docker-push.sh www.recolic.net
 ```
 
@@ -50,7 +50,7 @@ docker commit r 600163736385.dkr.ecr.us-west-2.amazonaws.com/www.recolic.net
 fresh deploy
 ```
 mkdir -p /docker_data
-docker run -tid --privileged -p 80:80 -p 443:443 -p 110:110 -p 995:995 -p 143:143 -p 993:993 -p 25:25 -p 465:465 -p 587:587 -v /docker_data/vmail:/var/vmail -v /docker_data/mysql:/var/lib/mysql -v /docker_data/clamav:/var/lib/clamav --name r --hostname func.mail.recolic.net 600163736385.dkr.ecr.us-west-2.amazonaws.com/mail.recolic.net /entry.sh
+docker run -tid --privileged -p 80:80 -p 443:443 -p 110:110 -p 995:995 -p 143:143 -p 993:993 -p 25:25 -p 465:465 -p 587:587 -v /docker_data/vmail:/var/vmail -v /docker_data/mysql:/var/lib/mysql -v /docker_data/clamav:/var/lib/clamav --name rweb --hostname func.mail.recolic.net 600163736385.dkr.ecr.us-west-2.amazonaws.com/mail.recolic.net /entry.sh
 ```
 
 mig: copy /docker_data out, commit and push docker(nothing may changed).
