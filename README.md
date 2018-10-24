@@ -51,7 +51,7 @@ docker run -tid -p 80:80 -p 443:443 -v /var/www.recolic.net-tmp:/var/www/html/tm
 mig (just commit and push)
 ```
 docker commit rweb 600163736385.dkr.ecr.us-west-2.amazonaws.com/www.recolic.net
-./docker-push.sh www.recolic.net
+docker push 600163736385.dkr.ecr.us-west-2.amazonaws.com/www.recolic.net
 ```
 
 ## mail.recolic.net
@@ -63,3 +63,7 @@ docker run -tid --privileged -p 80:80 -p 443:443 -p 110:110 -p 995:995 -p 143:14
 ```
 
 mig: copy /docker_data out, commit and push docker(nothing may changed).
+```
+docker commit rweb 600163736385.dkr.ecr.us-west-2.amazonaws.com/mail.recolic.net
+docker push 600163736385.dkr.ecr.us-west-2.amazonaws.com/mail.recolic.net
+```
