@@ -36,7 +36,7 @@ exit $?
 fresh deployment
 ```
 mkdir -p /var/www.recolic.net-tmp
-sudo docker run -tid -p 80:80 -p 443:443 -v /var/www.recolic.net-tmp:/var/www/html/tmp --name r 600163736385.dkr.ecr.us-west-2.amazonaws.com/www.recolic.net /entry.sh
+docker run -tid -p 80:80 -p 443:443 -v /var/www.recolic.net-tmp:/var/www/html/tmp --name r 600163736385.dkr.ecr.us-west-2.amazonaws.com/www.recolic.net /entry.sh
 ```
 
 mig (just commit and push)
