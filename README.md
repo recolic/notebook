@@ -50,7 +50,7 @@ docker commit r 600163736385.dkr.ecr.us-west-2.amazonaws.com/www.recolic.net
 fresh deploy
 ```
 mkdir -p /docker_data
-docker run --privileged -v /docker_data/vmail:/var/vmail -v /docker_data/mysql:/var/lib/mysql -v /docker_data/clamav:/var/lib/clamav -tid --name r --hostname func.mail.recolic.net 600163736385.dkr.ecr.us-west-2.amazonaws.com/mail.recolic.net /entry.sh
+docker run -tid --privileged -p 80:80 -p 443:443 -p 110:110 -p 995:995 -p 143:143 -p 993:993 -p 25:25 -p 465:465 -p 587:587 -v /docker_data/vmail:/var/vmail -v /docker_data/mysql:/var/lib/mysql -v /docker_data/clamav:/var/lib/clamav --name r --hostname func.mail.recolic.net 600163736385.dkr.ecr.us-west-2.amazonaws.com/mail.recolic.net /entry.sh
 ```
 
 mig: copy /docker_data out, commit and push docker(nothing may changed).
