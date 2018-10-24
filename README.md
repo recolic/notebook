@@ -33,6 +33,12 @@ exit $?
 
 # DO NOT FORGET WRITING DOCKER-RUN INTO rc.local
 
+# DO NOT USE DOCKER-ATTACH
+
+```
+docker exec -ti rweb /bin/bash
+```
+
 ## recolic.net
 
 fresh deployment
