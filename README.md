@@ -81,3 +81,7 @@ mig: copy /docker_data out, commit and push docker(nothing may changed).
 docker commit rweb 600163736385.dkr.ecr.us-west-2.amazonaws.com/mail.recolic.net
 docker push 600163736385.dkr.ecr.us-west-2.amazonaws.com/mail.recolic.net
 ```
+
+passwd:
+postmaster -> passwd(mail.recolic.net)
+root, admin -> passwd(recolic.net)
