@@ -15,3 +15,9 @@ https://www.2faka.com/item/3D3F41C99626
 https://www.ldfaka.com/details/13C24C93
 
 这人卖的贼贵 别碰 http://www.admin333.com/Shop-3750115878.html
+
+https://www.2faka.com/store/C7C0988A45DF
+
+https://6aka.com/shop/1610#/buy
+
+https://www.ldfaka.com/details/6563926A
