@@ -1,5 +1,6 @@
 # Eleme card sellers
 
+如果你是商家，并且你会使用github。欢迎使用pull request更新你的链接。
 
 http://www.imfaka.com/links/51B42648
 
