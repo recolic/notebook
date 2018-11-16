@@ -19,5 +19,3 @@ https://www.ldfaka.com/details/13C24C93
 https://www.2faka.com/store/C7C0988A45DF
 
 https://6aka.com/shop/1610#/buy
-
-https://www.ldfaka.com/details/6563926A
