@@ -12,10 +12,12 @@ https://www.youka.la/links/84D50D467F4912FA
 
 https://www.2faka.com/item/3D3F41C99626
 
-https://www.ldfaka.com/details/13C24C93
+失效 https://www.ldfaka.com/details/13C24C93
 
 这人卖的贼贵 别碰 http://www.admin333.com/Shop-3750115878.html
 
 https://www.2faka.com/store/C7C0988A45DF
+
+https://www.qimengfaka.com/store/57F7F37746CB
 
 https://6aka.com/shop/1610#/buy
