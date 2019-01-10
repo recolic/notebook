@@ -6,14 +6,6 @@ http://www.imfaka.com/links/51B42648
 
 https://www.zlfaka.com/links/C60177A8
 
-https://www.ldfaka.com/links/489CAC70
-
-https://www.youka.la/links/84D50D467F4912FA
-
-https://www.2faka.com/item/3D3F41C99626
-
-失效 https://www.ldfaka.com/details/13C24C93
-
 这人卖的贼贵 别碰 http://www.admin333.com/Shop-3750115878.html
 
 https://www.2faka.com/store/C7C0988A45DF
@@ -21,3 +13,9 @@ https://www.2faka.com/store/C7C0988A45DF
 https://www.qimengfaka.com/store/57F7F37746CB
 
 https://6aka.com/shop/1610#/buy
+
+新商家，便宜
+
+https://www.bxfaka.com/links/6FA3A650
+
+https://www.ldfaka.com/links/D83BA3A5
