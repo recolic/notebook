@@ -90,3 +90,53 @@ rsync -avz /docker_data/vmail/ $newServerIp:/docker_data/vmail
 passwd:
 postmaster -> passwd(mail.recolic.net)
 root, admin -> passwd(recolic.net)
+
+## openvpn-server
+
+build from stretch (modified from kylemanna)
+```
+git clone https://github.com/kylemanna/docker-openvpn.git
+# remove the line: VOLUME ["/etc/openvpn"]
+docker build --pull --tag recolic/openvpn -f Dockerfile .
+
+docker run -ti -p 1194:1194/udp --cap-add=NET_ADMIN --name rvpn recolic/openvpn
+#### Now you're in container
+#### ovpn_genconfig -u udp://ovpn.recolic.net
+#### ovpn_initpki
+#### vi /add_cli.sh
+#### ctrl-P-Q
+
+docker commit rvpn recolic/openvpn
+docker exec -ti rvpn /add_cli.sh recolic
+# add more users
+docker tag recolic/openvpn:latest 600163736385.dkr.ecr.us-west-2.amazonaws.com/openvpn-server:latest
+docker push 600163736385.dkr.ecr.us-west-2.amazonaws.com/openvpn-server:latest
+```
+
+/add_cli.sh
+```
+#!/bin/bash
+
+[[ $1 == '' ]] && echo "Usage: $0 clientName" && exit 1
+
+echo 'Use CA password genpasswd(ovpn.recolic.net)'
+client="$1"
+
+easyrsa build-client-full "$client" nopass &&
+    ovpn_getclient "$client"
+```
+
+fresh deploy && mig (nodata!)
+```
+docker run -tid -p 1194:1194/udp --cap-add=NET_ADMIN --name rvpn --privileged 600163736385.dkr.ecr.us-west-2.amazonaws.com/openvpn-server ovpn_run
+```
+
+push your changes(after adding some users)
+```
+docker commit rvpn 600163736385.dkr.ecr.us-west-2.amazonaws.com/openvpn-server
+docker push 600163736385.dkr.ecr.us-west-2.amazonaws.com/openvpn-server
+```
+
+
+
+
