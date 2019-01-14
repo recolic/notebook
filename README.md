@@ -106,9 +106,9 @@ docker run -ti -p 1194:1194/udp --cap-add=NET_ADMIN --name rvpn recolic/openvpn
 #### vi /add_cli.sh
 #### ctrl-P-Q
 
-docker commit rvpn recolic/openvpn
 docker exec -ti rvpn /add_cli.sh recolic
 # add more users
+docker commit rvpn recolic/openvpn
 docker tag recolic/openvpn:latest 600163736385.dkr.ecr.us-west-2.amazonaws.com/openvpn-server:latest
 docker push 600163736385.dkr.ecr.us-west-2.amazonaws.com/openvpn-server:latest
 ```
