@@ -141,13 +141,13 @@ docker push 600163736385.dkr.ecr.us-west-2.amazonaws.com/openvpn-server
 
 build docker image
 ```
-docker build --pull -f Dockerfile --tag tm --build-arg GIT_REPO_TM_WEB="https://path/to/your/tm.git" .
+docker build -f Dockerfile --tag tm --build-arg GIT_REPO_TM_WEB="https://path/to/your/tm.git" .
 docker tag tm 600163736385.dkr.ecr.us-west-2.amazonaws.com/tm
 ```
 
 deploy (using /srv as datadir)
 ```
-docker run -tid -v /srv/tm/src:/app/src -v /srv/tm/log:/app/log -v /srv/tm/keys:/app/keys -p 0.0.0.0:3080:80 --name rtm 600163736385.dkr.ecr.us-west-2.amazonaws.com/tm
+docker run -tid -v /srv/tm/log:/app/log -v /srv/tm/keys:/app/keys -p 0.0.0.0:3080:80 --name rtm 600163736385.dkr.ecr.us-west-2.amazonaws.com/tm
 # Then use nginx to proxy_pass port 3080.
 ```
 
