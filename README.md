@@ -144,7 +144,7 @@ build docker image
 docker build -f Dockerfile --pull --tag recolic/tm .
 ```
 
-deploy
+deploy (using /srv as datadir)
 ```
 docker run -tid -v /srv/tm/log:/app/log -v /srv/tm/keys:/app/keys -p 0.0.0.0:3080:80 --name rtm recolic/tm /app/entry.sh https://path/to/your/private/tm.git
 # Then use nginx to proxy_pass port 3080.
@@ -155,5 +155,23 @@ exec
 docker exec -ti rtm /bin/bash
 ```
 
+## git.recolic.net
 
+deploy (using /srv as datadir)
+```
+docker run --detach \
+  --hostname git.recolic.net \
+  --publish 20443:443 --publish 2080:80 --publish 0.0.0.0:22:22 \
+  --name rgit \
+  --restart always \
+  --volume /srv/gitlab/config:/etc/gitlab \
+  --volume /srv/gitlab/logs:/var/log/gitlab \
+  --volume /srv/gitlab/data:/var/opt/gitlab \
+  gitlab/gitlab-ce:latest
+```
+
+exec
+```
+docker exec -ti rgit /bin/bash
+```
 
