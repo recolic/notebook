@@ -31,7 +31,7 @@ do not use docker attach.
 docker exec -ti rweb /bin/bash
 ```
 
-# DO NOT FORGET WRITING DOCKER-RUN INTO rc.local
+# DO NOT FORGET WRITING DOCKER-START INTO rc.local
 
 
 
