@@ -137,6 +137,23 @@ docker commit rvpn 600163736385.dkr.ecr.us-west-2.amazonaws.com/openvpn-server
 docker push 600163736385.dkr.ecr.us-west-2.amazonaws.com/openvpn-server
 ```
 
+## tm.recolic.net
+
+build docker image
+```
+docker build -f Dockerfile --pull --tag recolic/tm .
+```
+
+deploy
+```
+docker run -tid -v /srv/tm/log:/app/log -v /srv/tm/keys:/app/keys -p 0.0.0.0:3080:80 --name rtm recolic/tm /app/entry.sh https://path/to/your/private/tm.git
+# Then use nginx to proxy_pass port 3080.
+```
+
+exec
+```
+docker exec -ti rtm /bin/bash
+```
 
 
 
