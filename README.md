@@ -193,3 +193,11 @@ Run docker image:
 docker run -d --restart=always --name rmd-agent -m 100m -p 8080:8080 recolic/push-to-markdown-agent
 ```
 
+## drive.recolic.net
+
+data dir: `/srv/nextcloud`.
+
+```
+docker run -d -p 8080:80 --name rweb -v /srv/nextcloud/nextcloud:/var/www/html -v /srv/nextcloud/apps:/var/www/html/custom_apps -v /srv/nextcloud/config:/var/www/html/config -v /srv/nextcloud/data:/var/www/html/data -v /srv/nextcloud/theme:/var/www/html/themes/rdef nextcloud
+```
+
