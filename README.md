@@ -40,7 +40,7 @@ docker exec -ti rweb /bin/bash
 fresh deployment
 ```
 mkdir -p /var/www.recolic.net-tmp
-docker run -tid -p 80:80 -p 443:443 -v /var/www.recolic.net-tmp:/var/www/html/tmp --name rweb 600163736385.dkr.ecr.us-west-2.amazonaws.com/www.recolic.net /entry.sh
+docker run -tid -p 80:80 -p 443:443 -v /var/www.recolic.net-tmp:/var/www/html/tmp --name rweb --restart=always 600163736385.dkr.ecr.us-west-2.amazonaws.com/www.recolic.net /entry.sh
 ```
 
 mig (just commit and push)
@@ -73,7 +73,7 @@ done
 fresh deploy
 ```
 mkdir -p /docker_data
-docker run -tid --privileged -p 80:80 -p 443:443 -p 110:110 -p 995:995 -p 143:143 -p 993:993 -p 25:25 -p 465:465 -p 587:587 -v /docker_data/vmail:/var/vmail -v /docker_data/mysql:/var/lib/mysql -v /docker_data/clamav:/var/lib/clamav --name rweb --hostname func.mail.recolic.net 600163736385.dkr.ecr.us-west-2.amazonaws.com/mail.recolic.net /entry.sh
+docker run -tid --privileged -p 80:80 -p 443:443 -p 110:110 -p 995:995 -p 143:143 -p 993:993 -p 25:25 -p 465:465 -p 587:587 -v /docker_data/vmail:/var/vmail -v /docker_data/mysql:/var/lib/mysql -v /docker_data/clamav:/var/lib/clamav --name rweb --restart=always --hostname func.mail.recolic.net 600163736385.dkr.ecr.us-west-2.amazonaws.com/mail.recolic.net /entry.sh
 ```
 
 mig: copy /docker_data out, commit and push docker(nothing may changed).
@@ -128,7 +128,7 @@ easyrsa build-client-full "$client" nopass &&
 
 fresh deploy && mig (nodata!)
 ```
-docker run -tid -p 1194:1194/udp --cap-add=NET_ADMIN --name rvpn --privileged 600163736385.dkr.ecr.us-west-2.amazonaws.com/openvpn-server ovpn_run
+docker run -tid -p 1194:1194/udp --cap-add=NET_ADMIN --name rvpn --privileged --restart=always 600163736385.dkr.ecr.us-west-2.amazonaws.com/openvpn-server ovpn_run
 ```
 
 push your changes(after adding some users)
@@ -147,7 +147,7 @@ docker tag tm 600163736385.dkr.ecr.us-west-2.amazonaws.com/tm
 
 deploy (using /srv as datadir)
 ```
-docker run -tid -v /srv/tm/log:/app/log -v /srv/tm/keys:/app/keys -p 0.0.0.0:3080:80 --name rtm 600163736385.dkr.ecr.us-west-2.amazonaws.com/tm
+docker run -tid -v /srv/tm/log:/app/log -v /srv/tm/keys:/app/keys -p 0.0.0.0:3080:80 --name rtm --restart=always 600163736385.dkr.ecr.us-west-2.amazonaws.com/tm
 # Then use nginx to proxy_pass port 3080.
 ```
 
@@ -198,6 +198,6 @@ docker run -d --restart=always --name rmd-agent -m 100m -p 8080:8080 recolic/pus
 data dir: `/srv/nextcloud`.
 
 ```
-docker run -d -p 8080:80 --name rweb -v /srv/nextcloud/nextcloud:/var/www/html -v /srv/nextcloud/apps:/var/www/html/custom_apps -v /srv/nextcloud/config:/var/www/html/config -v /srv/nextcloud/data:/var/www/html/data -v /srv/nextcloud/theme:/var/www/html/themes/rdef nextcloud
+docker run -d -p 8080:80 --name rweb --restart=always -v /srv/nextcloud/nextcloud:/var/www/html -v /srv/nextcloud/apps:/var/www/html/custom_apps -v /srv/nextcloud/config:/var/www/html/config -v /srv/nextcloud/data:/var/www/html/data -v /srv/nextcloud/theme:/var/www/html/themes/rdef nextcloud
 ```
 
