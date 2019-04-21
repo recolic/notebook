@@ -5,7 +5,7 @@ link: http://fbuy.me/mAZIu
 delivery instruction: 
 
 ```
-Enter 1122U with password code `0910`, go straight (left hand side), and Apt 222 is on your right.
+My real phone is 510-229-0551. Enter 1122U with password code `0910`, go straight (left hand side), and Apt 222 is on your right. My real phone is 510-229-0551. 
 ```
 
 tmp11 tmp12 tmp13 tmp1 tmp2 tmp3 used
