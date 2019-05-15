@@ -39,11 +39,12 @@ docker exec -ti rweb /bin/bash
 
 fresh deployment
 ```
-mkdir -p /var/www.recolic.net-tmp
-docker run -tid -p 80:80 -p 443:443 -v /var/www.recolic.net-tmp:/var/www/html/tmp --name rweb --restart=always 600163736385.dkr.ecr.us-west-2.amazonaws.com/www.recolic.net /entry.sh
+# deprecated
+#mkdir -p /var/www.recolic.net-tmp
+#docker run -tid -p 80:80 -p 443:443 -v /var/www.recolic.net-tmp:/var/www/html/tmp --name rweb --restart=always 600163736385.dkr.ecr.us-west-2.amazonaws.com/www.recolic.net /entry.sh
 ```
 
-mig (just commit and push)
+update config or certificate
 ```
 docker commit rweb 600163736385.dkr.ecr.us-west-2.amazonaws.com/www.recolic.net
 docker push 600163736385.dkr.ecr.us-west-2.amazonaws.com/www.recolic.net
@@ -66,6 +67,13 @@ for fl in "$@"
 do
     do_push $fl
 done
+```
+
+201905 update: move all /var out.
+
+```
+mkdir -p /srv/html
+docker run -tid -p 80:80 -p 443:443 -v /srv/html:/var/www/html --name rweb --restart=always 600163736385.dkr.ecr.us-west-2.amazonaws.com/www.recolic.net /entry.sh
 ```
 
 ## mail.recolic.net
@@ -199,5 +207,12 @@ data dir: `/srv/nextcloud`.
 
 ```
 docker run -d -p 8080:80 --name rweb --restart=always -v /srv/nextcloud/nextcloud:/var/www/html -v /srv/nextcloud/apps:/var/www/html/custom_apps -v /srv/nextcloud/config:/var/www/html/config -v /srv/nextcloud/data:/var/www/html/data -v /srv/nextcloud/theme:/var/www/html/themes/rdef nextcloud
+```
+
+## rserver-monitor
+
+```
+touch /srv/html/status.html
+docker run -d --name rmon --restart=always -v /srv/html/status.html:/app/status.html recolic/rserver-status
 ```
 
