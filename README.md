@@ -220,8 +220,15 @@ docker run -d --name rmon --restart=always -v /srv/html/status.html:/app/status.
 
 datadir: /srv/mongo
 
+with `/srv/mongo/mongod.conf`:
+
 ```
-docker run --name rdb --restart=always -v /srv/mongo:/data/db -d mongo:3.0 --smallfiles
-docker run --name rocketchat --link rdb:db --restart=always -p 3000:3000 --env ROOT_URL=http://localhost -d rocket.chat
+replication:
+  replSetName: "rs01"
+```
+
+```
+docker run --name rdb --restart=always -v /srv/mongo:/data/db -v /srv/mongo/mongod.conf:/etc/mongod.conf -d mongo:latest --smallfiles --config /etc/mongod.conf
+docker run --name rocketchat --link rdb:db --restart=always -p 3000:3000 --env ROOT_URL=http://localhost --env 'MONGO_OPLOG_URL=mongodb://db:27017/local?replSet=rs01' -d rocket.chat
 ```
 
