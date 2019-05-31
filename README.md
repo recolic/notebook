@@ -216,3 +216,12 @@ touch /srv/html/status.html
 docker run -d --name rmon --restart=always -v /srv/html/status.html:/app/status.html recolic/rserver-status
 ```
 
+## rocket chat
+
+datadir: /srv/mongo
+
+```
+docker run --name rdb --restart=always -v /srv/mongo:/data/db -d mongo:3.0 --smallfiles
+docker run --name rocketchat --link rdb:db --restart=always -p 3000:3000 --env ROOT_URL=http://localhost -d rocket.chat
+```
+
