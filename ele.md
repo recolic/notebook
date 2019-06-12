@@ -14,6 +14,12 @@ tmp11 tmp12 tmp13 tmp1 tmp2 tmp3 used
 
 如果你是商家，并且你会使用github。欢迎使用pull request更新你的链接。
 
+人工马 
+http://www.ldfaka.com/links/8B1DA67EC376FDCD
+
+下面是旧商家 大多失效。
+--------------------------
+
 http://www.imfaka.com/links/51B42648
 
 https://www.zlfaka.com/links/C60177A8
