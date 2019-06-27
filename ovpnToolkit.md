@@ -74,3 +74,47 @@ socat udp-listen:9999,reuseaddr,fork TCP:127.0.0.1:9998
 #netcat -l -u -p 9999 < fifo | netcat localhost 9998 > fifo
 ```
 
+## NEW: real obfs
+
+- client side proxy
+```
+[Unit]
+Description=obfsP
+
+[Service]
+TimeoutStartSec=0
+ExecStart=/usr/bin/obfsproxy-c --log-file=/var/log/obfsproxy.log --log-min-severity=info obfs2 --shared-secret=222222222222222 socks 0.0.0.0:10809
+
+[Install]
+WantedBy=multi-user.target
+
+
+```
+
+- server side proxy
+```
+
+[Unit]
+Description=obfsProxy
+
+[Service]
+TimeoutStartSec=0
+ExecStart=/usr/bin/obfsproxy-c --log-file=/var/log/obfsproxy.log --log-min-severity=info obfs2 --dest=127.0.0.1:9999 --shared-secret=1111111111111111 server 0.0.0.0:9989
+
+[Install]
+WantedBy=multi-user.target
+```
+
+- ovpn
+```
+client
+proto tcp
+## obfs
+socks-proxy-retry
+socks-proxy pi.recolic 10809
+remote base.tw1.recolic.net 9989
+#remote pi.recolic 9999
+dev tun
+resolv-retry infinite
+...
+```
