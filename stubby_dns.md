@@ -2,7 +2,7 @@
 
 ## server addr
 
-base.cn2.recolic.net, dns.recolic.org, dns.recolic.net, 123.206.117.183
+base.cn2.recolic.net, dns.cn.recolic.org, dns.cn.recolic.net, 123.206.117.183
 
 ## config backup:
 
