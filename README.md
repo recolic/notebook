@@ -37,11 +37,12 @@ docker exec -ti rweb /bin/bash
 
 ## recolic.net
 
-fresh deployment
+fresh deploy:
+201905 update: move all /var out.
+
 ```
-# deprecated
-#mkdir -p /var/www.recolic.net-tmp
-#docker run -tid -p 80:80 -p 443:443 -v /var/www.recolic.net-tmp:/var/www/html/tmp --name rweb --restart=always 600163736385.dkr.ecr.us-west-2.amazonaws.com/www.recolic.net /entry.sh
+mkdir -p /srv/html
+docker run -tid -p 80:80 -p 443:443 -v /srv/html:/var/www/html --name rweb --restart=always 600163736385.dkr.ecr.us-west-2.amazonaws.com/www.recolic.net /entry.sh
 ```
 
 update config or certificate
@@ -67,13 +68,6 @@ for fl in "$@"
 do
     do_push $fl
 done
-```
-
-201905 update: move all /var out.
-
-```
-mkdir -p /srv/html
-docker run -tid -p 80:80 -p 443:443 -v /srv/html:/var/www/html --name rweb --restart=always 600163736385.dkr.ecr.us-west-2.amazonaws.com/www.recolic.net /entry.sh
 ```
 
 ## mail.recolic.net
