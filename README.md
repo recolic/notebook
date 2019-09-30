@@ -170,6 +170,11 @@ exec
 docker exec -ti rgit /bin/bash
 ```
 
+frontend cert issue:
+```
+./acme.sh --issue -d git.recolic.net -d tm.recolic.net -d hustdb.recolic.net -d git.recolic.org -d tm.recolic.org -d hustdb.recolic.org --dns dns_cf
+```
+
 ## push-to-markdown agent
 
 I use this tool to send testing result from GitlabCI-runner to markdown.
