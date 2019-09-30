@@ -51,23 +51,10 @@ docker commit rweb 600163736385.dkr.ecr.us-west-2.amazonaws.com/www.recolic.net
 docker push 600163736385.dkr.ecr.us-west-2.amazonaws.com/www.recolic.net
 ```
 
-new netpush.sh
+cert issue:
 ```
-#!/bin/bash
-
-[[ $1 == '' ]] && echo 'Put some file into https://recolic.net/tmp/. Usage: netpush <filename>' && exit 1
-
-function do_push () {
-    _path=$1
-    _name=`basename $1`
-    scp $_path root@recolic.net:/var/www.recolic.net-tmp/$_name &&
-    echo 'Pushed to https://recolic.net/tmp/'"$_name"
-}
-
-for fl in "$@"
-do
-    do_push $fl
-done
+./acme.sh --issue -d recolic.net -d www.recolic.net -d dl.recolic.net -d recolic.org -d www.recolic.org -d dl.recolic.org --dns dns_cf
+./acme.sh --issue -d recolic.net -d www.recolic.net -d dl.recolic.net -d recolic.org -d www.recolic.org -d dl.recolic.org --dns dns_cf --keylength ec-384
 ```
 
 ## mail.recolic.net
@@ -90,8 +77,13 @@ rsync -avz /docker_data/vmail/ $newServerIp:/docker_data/vmail
 ```
 
 passwd:
-postmaster -> passwd(mail.recolic.net)
-root, admin -> passwd(recolic.net)
+postmaster -> passwd(mail.recolic.net / org)
+root, admin -> passwd(recolic.net / org)
+
+cert issue:
+```
+./acme.sh --issue -d mail.recolic.net -d imap.recolic.net -d pop3.recolic.net -d smtp.recolic.net -d mail.recolic.org -d imap.recolic.org -d pop3.recolic.org -d smtp.recolic.org --dns dns_cf
+```
 
 ## openvpn-server
 
