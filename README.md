@@ -175,7 +175,9 @@ frontend cert issue:
 ./acme.sh --issue -d git.recolic.net -d tm.recolic.net -d hustdb.recolic.net -d git.recolic.org -d tm.recolic.org -d hustdb.recolic.org --dns dns_cf
 ```
 
-## push-to-markdown agent
+## push-to-markdown agent [closed, no data]
+
+** DEPRECATED! Use a better recolic.net/go **
 
 I use this tool to send testing result from GitlabCI-runner to markdown.
 
@@ -207,7 +209,7 @@ touch /srv/html/status.html
 docker run -d --name rmon --restart=always -v /srv/html/status.html:/app/status.html recolic/rserver-status
 ```
 
-## rocket chat
+## rocket chat [closed, data on drive machine]
 
 datadir: /srv/mongo
 
