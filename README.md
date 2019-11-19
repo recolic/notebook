@@ -38,7 +38,7 @@ docker exec -ti rweb /bin/bash
 |port|service|
 |-----|-----|
 |3091|www|
-|?|mail|
+|3092(https!)|mail|
 |3080|tm|
 |3081|baidupan_proxy|
 |3000|rocket|
@@ -61,40 +61,43 @@ docker run -tid -p 3091:80 -v /srv/html:/var/www/html --name rwww --restart=alwa
 
 update config or certificate
 ```
-docker commit -m 'daily checkpoint' rweb 600163736385.dkr.ecr.us-west-2.amazonaws.com/www.recolic.net
+docker commit -m 'daily checkpoint' rwww 600163736385.dkr.ecr.us-west-2.amazonaws.com/www.recolic.net
 docker push 600163736385.dkr.ecr.us-west-2.amazonaws.com/www.recolic.net
 ```
 
-cert issue:
+cert issue: (note that currently mail and www are on same machine. )
 ```
-./acme.sh --issue -d recolic.net -d www.recolic.net -d dl.recolic.net -d recolic.org -d www.recolic.org -d dl.recolic.org --dns dns_cf
-./acme.sh --issue -d recolic.net -d www.recolic.net -d dl.recolic.net -d recolic.org -d www.recolic.org -d dl.recolic.org --dns dns_cf --keylength ec-384
+./acme.sh --issue -d recolic.net -d www.recolic.net -d dl.recolic.net -d mail.recolic.net -d recolic.org -d www.recolic.org -d dl.recolic.org -d mail.recolic.org --dns dns_cf
+./acme.sh --issue -d recolic.net -d www.recolic.net -d dl.recolic.net -d mail.recolic.net -d recolic.org -d www.recolic.org -d dl.recolic.org -d mail.recolic.org --dns dns_cf --keylength ec-384
+
+# For mail.recolic.net container, it runs imap/smtp/pop3...
+./acme.sh --issue -d mail.recolic.net -d imap.recolic.net -d pop3.recolic.net -d smtp.recolic.net -d mail.recolic.org -d imap.recolic.org -d pop3.recolic.org -d smtp.recolic.org --dns dns_cf
 ```
 
 ## mail.recolic.net
 
 fresh deploy
 ```
-mkdir -p /docker_data
-docker run -tid --privileged -p 80:80 -p 443:443 -p 110:110 -p 995:995 -p 143:143 -p 993:993 -p 25:25 -p 465:465 -p 587:587 -v /docker_data/vmail:/var/vmail -v /docker_data/mysql:/var/lib/mysql -v /docker_data/clamav:/var/lib/clamav --name rweb --restart=always --hostname func.mail.recolic.net 600163736385.dkr.ecr.us-west-2.amazonaws.com/mail.recolic.net /entry.sh
+mkdir -p /srv/iredmail
+docker run -tid --privileged -p 3092:443 -p 110:110 -p 995:995 -p 143:143 -p 993:993 -p 25:25 -p 465:465 -p 587:587 -v /srv/iredmail/vmail:/var/vmail -v /srv/iredmail/mysql:/var/lib/mysql -v /srv/iredmail/clamav:/var/lib/clamav -v /root/.acme.sh/mail.recolic.net/mail.recolic.net.key:/etc/ssl/private/iRedMail.key -v /root/.acme.sh/mail.recolic.net/fullchain.cer:/etc/ssl/certs/iRedMail.crt --name rmail --restart=always --hostname func.mail.recolic.net 600163736385.dkr.ecr.us-west-2.amazonaws.com/mail.recolic.net /entry.sh
 ```
 
-mig: copy /docker_data out, commit and push docker(nothing may changed).
+mig: copy /srv/iredmail out, commit and push docker(nothing may changed).
 ```
-docker commit rweb 600163736385.dkr.ecr.us-west-2.amazonaws.com/mail.recolic.net
+docker commit rmail 600163736385.dkr.ecr.us-west-2.amazonaws.com/mail.recolic.net
 docker push 600163736385.dkr.ecr.us-west-2.amazonaws.com/mail.recolic.net
 
-rsync -avz /docker_data/mysql/ $newServerIp:/docker_data/mysql
-rsync -avz /docker_data/vmail/ $newServerIp:/docker_data/vmail
-#           -----------------^-------------
-# Be caution to the slash|
+rsync -avz /srv/iredmail/mysql/ $newServerIp:/srv/iredmail/mysql
+rsync -avz /srv/iredmail/vmail/ $newServerIp:/srv/iredmail/vmail
+#           ------------------^-------------
+# Be caution to the slash     |
 ```
 
 passwd:
 postmaster -> passwd(mail.recolic.net / org)
 root, admin -> passwd(recolic.net / org)
 
-cert issue:
+cert issue: (used **only inside container**)
 ```
 ./acme.sh --issue -d mail.recolic.net -d imap.recolic.net -d pop3.recolic.net -d smtp.recolic.net -d mail.recolic.org -d imap.recolic.org -d pop3.recolic.org -d smtp.recolic.org --dns dns_cf
 ```
