@@ -33,21 +33,35 @@ docker exec -ti rweb /bin/bash
 
 # DO NOT FORGET WRITING DOCKER-START INTO rc.local
 
+## proxi-ed http port usage:
+
+|port|service|
+|-----|-----|
+|3091|www|
+|?|mail|
+|3080|tm|
+|3081|baidupan_proxy|
+|3000|rocket|
+|3083|drive|
+|10000|v2ray|
+|2080|git|
+|8080|test_only|
 
 
 ## recolic.net
 
 fresh deploy:
 201905 update: move all /var out.
+201911 update: remove https, remove zhixiang, logs, reconstructed.
 
 ```
 mkdir -p /srv/html
-docker run -tid -p 80:80 -p 443:443 -v /srv/html:/var/www/html --name rweb --restart=always 600163736385.dkr.ecr.us-west-2.amazonaws.com/www.recolic.net /entry.sh
+docker run -tid -p 3091:80 -v /srv/html:/var/www/html --name rwww --restart=always 600163736385.dkr.ecr.us-west-2.amazonaws.com/www.recolic.net /entry.sh
 ```
 
 update config or certificate
 ```
-docker commit rweb 600163736385.dkr.ecr.us-west-2.amazonaws.com/www.recolic.net
+docker commit -m 'daily checkpoint' rweb 600163736385.dkr.ecr.us-west-2.amazonaws.com/www.recolic.net
 docker push 600163736385.dkr.ecr.us-west-2.amazonaws.com/www.recolic.net
 ```
 
@@ -141,7 +155,7 @@ docker tag tm 600163736385.dkr.ecr.us-west-2.amazonaws.com/tm
 
 deploy (using /srv as datadir)
 ```
-docker run -tid -v /srv/tm/log:/app/log -v /srv/tm/keys:/app/keys -p 0.0.0.0:3080:80 --name rtm --restart=always 600163736385.dkr.ecr.us-west-2.amazonaws.com/tm
+docker run -tid -v /srv/tm/log:/app/log -v /srv/tm/keys:/app/keys -p 3080:80 --name rtm --restart=always 600163736385.dkr.ecr.us-west-2.amazonaws.com/tm
 # Then use nginx to proxy_pass port 3080.
 ```
 
