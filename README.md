@@ -60,6 +60,10 @@ docker exec -ti rweb /bin/bash
 |25581|snakesocks|
 |466|shadowsocksR|
 |588|shadowsocksR|
+|30999|FRPS server|
+|30998|FRPS monitor|
+|30997|FRPC console|
+|30500-30899|FRP server dynamic ports|
 
 
 ## recolic.net
