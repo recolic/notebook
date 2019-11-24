@@ -47,6 +47,20 @@ docker exec -ti rweb /bin/bash
 |2080|git|
 |8080|test_only|
 
+## reserved port on all recolic servers:
+
+|port|service|
+|-----|-----|
+|80|nginx-only rproxy http|
+|443|nginx-only rproxy https|
+|25580|shadowsocks|
+|3128|http_proxy|
+|1080|socks5|
+|10808|socks5|
+|25581|snakesocks|
+|466|shadowsocksR|
+|588|shadowsocksR|
+
 
 ## recolic.net
 
