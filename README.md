@@ -260,6 +260,22 @@ docker run --name rdb --restart=always -v /srv/mongo:/data/db -v /srv/mongo/mong
 docker run --name rocketchat --link rdb:db --restart=always -p 3000:3000 --env ROOT_URL=http://localhost --env 'MONGO_OPLOG_URL=mongodb://db:27017/local?replSet=rs01' -d rocket.chat
 ```
 
+> Note: old command maybe missing ` -v /srv/rocket:/app/uploads`
+
+- [ROCKET.CHAT new version: use docker-compose](https://rocket.chat/docs/installation/docker-containers/docker-compose/)
+
+fresh deploy:
+
+```
+mkdir /srv/rocket && cd /srv/rocket
+curl -L https://raw.githubusercontent.com/RocketChat/Rocket.Chat/develop/docker-compose.yml -o docker-compose.yml
+docker-compose up -d mongo
+#wait
+docker-compose up -d mongo-init-replica
+#wait
+docker-compose up -d rocketchat
+```
+
 ## EFB telegram bot [closed, unstable]
 
 FROM: https://github.com/tinyRatP/Docker-Hub.git , also archived at drive machine.
