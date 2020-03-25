@@ -244,7 +244,7 @@ touch /srv/html/status.html
 docker run -d --name rmon --restart=always -v /srv/html/status.html:/app/status.html recolic/rserver-status
 ```
 
-## rocket chat [closed, data on drive machine]
+## rocket chat [closed, 2019 data on drive machine, 2020 version running]
 
 datadir: /srv/mongo
 
@@ -260,3 +260,10 @@ docker run --name rdb --restart=always -v /srv/mongo:/data/db -v /srv/mongo/mong
 docker run --name rocketchat --link rdb:db --restart=always -p 3000:3000 --env ROOT_URL=http://localhost --env 'MONGO_OPLOG_URL=mongodb://db:27017/local?replSet=rs01' -d rocket.chat
 ```
 
+## EFB telegram bot [closed, unstable]
+
+FROM: https://github.com/tinyRatP/Docker-Hub.git , also archived at drive machine.
+
+```
+docker-compose up -d
+```
