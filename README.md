@@ -42,6 +42,7 @@ docker exec -ti rweb /bin/bash
 |3080|tm|
 |3081|baidupan_proxy|
 |3000|rocket|
+|3003|riot|
 |3083|drive|
 |10000|v2ray|
 |2080|git|
