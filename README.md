@@ -56,10 +56,17 @@ docker exec -ti rweb /bin/bash
 |-----|-----|
 |80|nginx-only rproxy http|
 |443|nginx-only rproxy https|
-|25580|shadowsocks|
+|81|secondary-http|
+|444|secondary-https|
+|22|ssh|
+|4022|secondary-ssh|
+|25566|secondary-ssh|
+|5700-5710|VNC|
+|3389|RDP|
 |3128|http_proxy|
 |1080|socks5|
 |10808|socks5|
+|25580|shadowsocks|
 |25581|snakesocks|
 |466|shadowsocksR|
 |588|shadowsocksR|
@@ -67,7 +74,6 @@ docker exec -ti rweb /bin/bash
 |30998|FRPS monitor|
 |30997|FRPC console|
 |30500-30899|FRP server dynamic ports|
-
 
 ## recolic.net
 
