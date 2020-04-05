@@ -38,12 +38,13 @@ docker exec -ti rweb /bin/bash
 |port|service|
 |-----|-----|
 |3091|www|
-|3092(https!)|mail|
+|3092(https)|mail|
 |3080|tm|
 |3081|baidupan_proxy|
 |3000|rocket|
 |3003|riot.web|
 |3002|riot.backend|
+|3004(https)|zulip|
 |3083|drive|
 |10000|v2ray|
 |2080|git|
