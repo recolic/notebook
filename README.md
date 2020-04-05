@@ -43,7 +43,7 @@ docker exec -ti rweb /bin/bash
 |3081|baidupan_proxy|
 |3000|rocket|
 |3003|riot.web|
-|3002|riot.synapse|
+|3002|riot.backend|
 |3083|drive|
 |10000|v2ray|
 |2080|git|
@@ -285,3 +285,31 @@ FROM: https://github.com/tinyRatP/Docker-Hub.git , also archived at drive machin
 ```
 docker-compose up -d
 ```
+
+## Zulip [closed, unstable]
+
+nginx conf and docker-compose conf archived at tw1 machine. Zulip eats massive RAM of the server. Not recommended.
+
+docker-compose conf is basing on https://github.com/zulip/docker-zulip.git , and changes vol path, ports (3004:443).
+
+- fresh deploy
+
+```
+docker-compose up -d
+```
+
+However, you still need to run docker-exec to set the following commands:
+
+1. Initial admin account (create initial organization). `manage.py generate_realm_creation_link`
+
+2. TEST the email service, https://zulip.readthedocs.io/en/latest/production/email.html#troubleshooting
+
+3. Mobile notification, https://zulip.readthedocs.io/en/latest/production/mobile-push-notifications.html
+
+All data backed up in tw1 machine.
+
+## Matrix + Riot.im
+
+> https://git.recolic.net/root/matrix-riot-docker
+
+
