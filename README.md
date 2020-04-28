@@ -41,11 +41,12 @@ docker exec -ti rweb /bin/bash
 |3092(https)|mail|
 |3080|tm|
 |3081|baidupan_proxy|
+|3083|drive|
 |3000|rocket|
 |3003|riot.web|
 |3002|riot.backend|
 |3004(https)|zulip|
-|3083|drive|
+|3007|wishbox|
 |10000|v2ray|
 |2080|git|
 |8080|test_only|
@@ -318,5 +319,6 @@ All data backed up in tw1 machine.
 ## Matrix + Riot.im
 
 > https://git.recolic.net/root/matrix-riot-docker
+
 
 
