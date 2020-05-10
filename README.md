@@ -76,6 +76,12 @@ docker exec -ti rweb /bin/bash
 |30997|FRPC console|
 |30500-30899|FRP server dynamic ports|
 
+## tw1 migration (gcp)
+
+run `ssh-keygen -A` by serial after setup the new machine.
+
+--------
+
 ## recolic.net
 
 fresh deploy:
