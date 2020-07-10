@@ -110,7 +110,7 @@ cert issue: (note that currently mail and www are on same machine. )
 
 ## mail.recolic.net
 
-fresh deploy
+fresh deploy (invalid certificate is ok, since frontend nginx has `proxy_ssl_verify off;`)
 ```
 mkdir -p /srv/iredmail
 docker run -tid --privileged -p 3092:443 -p 110:110 -p 995:995 -p 143:143 -p 993:993 -p 25:25 -p 465:465 -p 587:587 -v /srv/iredmail/vmail:/var/vmail -v /srv/iredmail/mysql:/var/lib/mysql -v /srv/iredmail/clamav:/var/lib/clamav -v /root/.acme.sh/mail.recolic.net/mail.recolic.net.key:/etc/ssl/private/iRedMail.key -v /root/.acme.sh/mail.recolic.net/fullchain.cer:/etc/ssl/certs/iRedMail.crt --name rmail --restart=always --hostname func.mail.recolic.net 600163736385.dkr.ecr.us-west-2.amazonaws.com/mail.recolic.net /entry.sh
