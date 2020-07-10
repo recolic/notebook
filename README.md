@@ -67,6 +67,7 @@ docker exec -ti rweb /bin/bash
 |3128|http_proxy|
 |1080|socks5|
 |10808|socks5|
+|25551|shadowsocks|
 |25580|shadowsocks|
 |25581|snakesocks|
 |466|shadowsocksR|
