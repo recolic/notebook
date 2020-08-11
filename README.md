@@ -136,10 +136,14 @@ passwd:
 postmaster -> passwd(mail.recolic.net / org)
 root, admin -> passwd(recolic.net / org)
 
+<del>
 cert issue: (used **only inside container**)
 ```
 ./acme.sh --issue -d mail.recolic.net -d imap.recolic.net -d pop3.recolic.net -d smtp.recolic.net -d mail.recolic.org -d imap.recolic.org -d pop3.recolic.org -d smtp.recolic.org --dns dns_cf
 ```
+    </del>
+    
+maybe I should write a script, to re-create the container every 3 month (to use the latest cert)
 
 ## openvpn-server
 
