@@ -335,5 +335,17 @@ All data backed up in tw1 machine.
 
 > https://git.recolic.net/root/matrix-riot-docker
 
+## new Shadowsocks server setup 2020
+
+```
+wget https://golang.org/dl/go1.15.linux-amd64.tar.gz -O - | tar -xz -C /usr/local
+cp /usr/local/go/bin/go /usr/bin
+go get -v github.com/shadowsocks/go-shadowsocks2
+```
+
+- /etc/rc.local:
+```
+nohup /root/go/bin/go-shadowsocks2 -s 'ss://chacha20-ietf-poly1305:>>>>>>>>>>>>>>>>>>>ADD_PASSWORD<<<<<<<<<<<<<<<<<<<<@:25551' -verbose >> /var/log/ss.log 2>&1 & disown 
+```
 
 
