@@ -359,7 +359,7 @@ useradd vbox ; mkdir /home/vbox ; chown vbox:vbox /home/vbox ; usermod -a -G vbo
 passwd vbox # vbox
 
 docker run --name vbox_http --restart=always -p 8080:80 \
-    -e ID_HOSTPORT=hms.recolic:18083 -e ID_NAME=hms.recolic -e ID_USER=vbox -e ID_PW='vbox' \
+    -e ID_HOSTPORT=10.100.100.101:18083 -e ID_NAME=hms.recolic -e ID_USER=vbox -e ID_PW='vbox' -e CONF_browserRestrictFolders="/mnt/fsdisk/nfs/rpc_downloads,/home" \
     -d joweisberg/phpvirtualbox
     # version 6.1.x
 ```
