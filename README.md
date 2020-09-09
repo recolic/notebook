@@ -349,3 +349,23 @@ nohup /root/go/bin/go-shadowsocks2 -s 'ss://chacha20-ietf-poly1305:>>>>>>>>>>>>>
 ```
 
 gen url: https://zhiyuan-l.github.io/SS-Config-Generator/
+
+## VM server at HMS
+
+- setup
+
+```
+useradd vbox ; mkdir /home/vbox ; chown vbox:vbox /home/vbox ; usermod -a -G vboxusers vbox ; usermod -g vboxusers vbox
+passwd vbox # vbox
+
+docker run --name vbox_http --restart=always -p 8080:80 \
+    -e ID_HOSTPORT=hms.recolic:18083 -e ID_NAME=hms.recolic -e ID_USER=vbox -e ID_PW='vbox' \
+    -d joweisberg/phpvirtualbox
+    # version 6.1.x
+```
+
+- daemon (on every boot)
+
+```
+nohup sudo -u vbox /usr/bin/vboxwebsrv --host 0.0.0.0 & disown
+```
