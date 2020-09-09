@@ -77,7 +77,8 @@ docker exec -ti rweb /bin/bash
 |30997|FRPC console|
 |30500-30899|FRP server dynamic ports|
 |9399|Virtualbox web interface|
-|9000-9389|Virtualbox dynamic ports|
+|9000-9389|Virtualbox dynamic ports (RDP)|
+|31000-31499|Virtualbox dynamic ports (Other use)|
 
 ## tw1 migration (gcp)
 
