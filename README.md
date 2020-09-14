@@ -14,21 +14,17 @@ Get login info (valid for 12h)
 aws ecr get-login --no-include-email --region us-west-2
 ```
 
-docker-push.sh (deprecated)
-```
-#!/bin/bash
-
-[[ $1 == '' ]] && echo "Usage: $0 <image_name>[:latest]" && exit 1
-
-docker tag $1 600163736385.dkr.ecr.us-west-2.amazonaws.com/$1 &&
-docker push 600163736385.dkr.ecr.us-west-2.amazonaws.com/$1
-
-exit $?
-```
-
 do not use docker attach. 
 ```
 docker exec -ti rweb /bin/bash
+```
+
+**acme.sh and nginx**: Add nginx-reload to crontab to refresh certificate. 
+
+```
+2 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null
+# nginx reload certificate once a month, at 6 AM UTC+8, means 22:00 UTC. 
+0 22 1 * * systemctl restart nginx
 ```
 
 # DO NOT FORGET WRITING DOCKER-START INTO rc.local
