@@ -23,8 +23,12 @@ docker exec -ti rweb /bin/bash
 
 ```
 2 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null
+
 # nginx reload certificate once a month, at 6 AM UTC+8, means 22:00 UTC. 
 0 22 1 * * systemctl restart nginx
+
+# If necessary:
+10 22 1 * * docker restart rmail
 ```
 
 # DO NOT FORGET WRITING DOCKER-START INTO rc.local
