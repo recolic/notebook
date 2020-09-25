@@ -114,7 +114,9 @@ cert issue: (note that currently mail and www are on same machine. )
 
 ## mail.recolic.net
 
-fresh deploy (invalid certificate is ok, since frontend nginx has `proxy_ssl_verify off;`)
+fresh deploy should use this installer in docker: https://docs.iredmail.org/install.iredmail.on.debian.ubuntu.html#set-a-fully-qualified-domain-name-fqdn-hostname-on-your-server
+
+mig (invalid certificate is ok, since frontend nginx has `proxy_ssl_verify off;`)
 ```
 mkdir -p /srv/iredmail
 docker run -tid --privileged -p 3092:443 -p 110:110 -p 995:995 -p 143:143 -p 993:993 -p 25:25 -p 465:465 -p 587:587 -v /srv/iredmail/vmail:/var/vmail -v /srv/iredmail/mysql:/var/lib/mysql -v /srv/iredmail/clamav:/var/lib/clamav -v /root/.acme.sh/mail.recolic.net/mail.recolic.net.key:/etc/ssl/private/iRedMail.key -v /root/.acme.sh/mail.recolic.net/fullchain.cer:/etc/ssl/certs/iRedMail.crt --name rmail --restart=always --hostname func.mail.recolic.net 600163736385.dkr.ecr.us-west-2.amazonaws.com/mail.recolic.net /entry.sh
@@ -146,9 +148,9 @@ cert issue: (used **only inside container**)
 ```
 ./acme.sh --issue -d mail.recolic.net -d imap.recolic.net -d pop3.recolic.net -d smtp.recolic.net -d mail.recolic.org -d imap.recolic.org -d pop3.recolic.org -d smtp.recolic.org --dns dns_cf
 ```
-    </del>
+</del>
     
-maybe I should write a script, to re-create the container every 3 month (to use the latest cert)
+crontab should restart docker container every 3 month, to renew email server certificate. 
 
 ## openvpn-server
 
