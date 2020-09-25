@@ -124,6 +124,8 @@ Fresh deploy should disable iRedMail greylisting, and enable reject_sender_login
 
 and disable clamav. 
 
+and do this patch to allow facebook: https://docs.iredmail.org/upgrade.iredmail.0.9.9-1.0.html#fixed-fix-improper-helo-rule-which-blocks-new-facebook-servers
+
 mig: copy /srv/iredmail out, commit and push docker(nothing may changed).
 ```
 docker commit rmail 600163736385.dkr.ecr.us-west-2.amazonaws.com/mail.recolic.net
