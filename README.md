@@ -400,4 +400,4 @@ then `mkdir htmly && chmod 777 htmly && cd htmly && wget https://github.com/danp
 
 Then everything is done. Admin password is `recolic, genpasswd(recolic.net, v4)`
 
-
+> Warning: installer.php not working on my prod environment. Seems like URL prefix error. Please download source code zip, and modify `config/*` manually. 
