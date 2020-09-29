@@ -376,3 +376,28 @@ docker run --name vbox_http --restart=always -p 9399:80 \
 ```
 nohup sudo -u vbox /usr/bin/vboxwebsrv --host 0.0.0.0 & disown
 ```
+
+## blog (htmly), included in www.recolic.net docker image
+
+htmly is flat-file-d, so just add nginx config: 
+
+```
+    location /htmly/ {
+        try_files $uri $uri/ /htmly/index.php?$args;
+    }
+  location ~ /htmly/config/ {
+     deny all;
+  }
+  location ~ \.php$ {
+        fastcgi_pass			unix:/run/php-fpm/php-fpm.sock;
+        fastcgi_index  index.php;
+        fastcgi_param  SCRIPT_FILENAME   $document_root$fastcgi_script_name;
+        include        fastcgi_params;
+  }
+```
+
+then `mkdir htmly && chmod 777 htmly && cd htmly && wget https://github.com/danpros/htmly/releases/download/v2.7.5/installer.php`. 
+
+Then everything is done. Admin password is `recolic, genpasswd(recolic.net, v4)`
+
+
