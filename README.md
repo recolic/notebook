@@ -362,6 +362,8 @@ nohup sudo -u vbox /usr/bin/vboxwebsrv --host 0.0.0.0 & disown
 
 - fresh deploy
 
+https://github.com/recolic/htmly
+
 htmly is flat-file-d, so just add nginx config: 
 
 ```
