@@ -114,19 +114,7 @@ cert issue: (note that currently mail and www are on same machine. )
 
 ## mail.recolic.net
 
-fresh deploy should use this installer in docker: https://docs.iredmail.org/install.iredmail.on.debian.ubuntu.html#set-a-fully-qualified-domain-name-fqdn-hostname-on-your-server
-
-mig (invalid certificate is ok, since frontend nginx has `proxy_ssl_verify off;`)
-```
-mkdir -p /srv/iredmail
-docker run -tid --privileged -p 3092:443 -p 110:110 -p 995:995 -p 143:143 -p 993:993 -p 25:25 -p 465:465 -p 587:587 -v /srv/iredmail/vmail:/var/vmail -v /srv/iredmail/mysql:/var/lib/mysql -v /srv/iredmail/clamav:/var/lib/clamav -v /root/.acme.sh/mail.recolic.net/mail.recolic.net.key:/etc/ssl/private/iRedMail.key -v /root/.acme.sh/mail.recolic.net/fullchain.cer:/etc/ssl/certs/iRedMail.crt --name rmail --restart=always --hostname func.mail.recolic.net 600163736385.dkr.ecr.us-west-2.amazonaws.com/mail.recolic.net /entry.sh
-```
-
-Fresh deploy should disable iRedMail greylisting, and enable reject_sender_login_mismatch . https://docs.iredmail.org/manage.iredapd.html
-
-and disable clamav. 
-
-and do this patch to allow facebook: https://docs.iredmail.org/upgrade.iredmail.0.9.9-1.0.html#fixed-fix-improper-helo-rule-which-blocks-new-facebook-servers
+too complicated. Refer to this article: https://recolic.net/blog/2020/10/self-build-iredmail-in-docker
 
 mig: copy /srv/iredmail out, commit and push docker(nothing may changed).
 ```
@@ -140,15 +128,8 @@ rsync -avz /srv/iredmail/vmail/ $newServerIp:/srv/iredmail/vmail
 ```
 
 passwd:
-postmaster -> passwd(mail.recolic.net / org)
-root, admin -> passwd(recolic.net / org)
-
-<del>
-cert issue: (used **only inside container**)
-```
-./acme.sh --issue -d mail.recolic.net -d imap.recolic.net -d pop3.recolic.net -d smtp.recolic.net -d mail.recolic.org -d imap.recolic.org -d pop3.recolic.org -d smtp.recolic.org --dns dns_cf
-```
-</del>
+postmaster -> passwd(mail.recolic.net)
+root, admin -> passwd(recolic.net)
     
 crontab should restart docker container every 3 month, to renew email server certificate. 
 
