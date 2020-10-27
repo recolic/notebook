@@ -410,3 +410,6 @@ cupsctl --remote-admin --remote-any --share-printers
 
 Enable and start `avahi-daemon.service` and `org.cups.cupsd.service`. 
 
+- PPD file for HP 1020
+
+https://github.com/koenkooi/foo2zjs/blob/master/PPD/HP-LaserJet_1020.ppd
