@@ -32,3 +32,19 @@ sudo qemu-system-x86_64 t2.img -m 1G --enable-kvm -nic tap,ifname=veth1,script=n
 sudo qemu-system-x86_64 t1.img -m 1G --enable-kvm -net nic,macaddr=10:11:11:11:11:11 -net tap,ifname=vnic0,script=no,downscript=no
 qemu-system-x86_64 -cdrom ~/Downloads/android-x86_64-7.1-r2.iso  -boot order=d -drive file=rand.img,format=raw -m 4G
 ```
+
+
+## FAQ: Guest machine unable to DHCP on IPv4?
+
+With wireshark, I realized that my Host::br0 is not forwarding broadcast packets (DHCP). My DHCP packets appears on Host::br0, but disappears on Host::enp3s0. 
+
+Solution: https://unix.stackexchange.com/questions/272146/packets-not-moving-through-linux-ethernet-bridge
+
+```
+# do not query iptables for package routing
+echo 0 > /proc/sys/net/bridge/bridge-nf-call-iptables
+
+# no additional processing for multicast packages
+echo 0 > /sys/devices/virtual/net/br0/bridge/multicast_querier
+echo 0 > /sys/devices/virtual/net/br0/bridge/multicast_snooping
+```
