@@ -391,3 +391,22 @@ Then everything is done. Admin password is `recolic, genpasswd(recolic.net, v4)`
 
 all files inside /srv/html. Migrate together with www.recolic.net. 
 
+## LAN printer (CUPS)
+
+- build from stretch (from archwiki)
+
+```
+pacman -S cups avahi nss-mdns
+```
+
+edit /etc/nsswitch.conf: find the `hosts` line, add `mdns_minimal [NOTFOUND=return]` BEFORE `resolve ... dns`. 
+
+To allow LAN to access the web interface, do
+
+```sh
+vim /etc/cups/cupsd.conf # EDIT: listen 0.0.0.0:631
+cupsctl --remote-admin --remote-any --share-printers
+```
+
+Enable and start `avahi-daemon.service` and `org.cups.cupsd.service`. 
+
