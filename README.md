@@ -413,3 +413,8 @@ Enable and start `avahi-daemon.service` and `org.cups.cupsd.service`.
 - PPD file for HP 1020
 
 https://github.com/koenkooi/foo2zjs/blob/master/PPD/HP-LaserJet_1020.ppd
+
+- FAQ: 
+
+1. Filter failed: Please read /var/log/cups/error.log to find the actual error. 
+2. In error.log, foo2zjs-wrapper: command not found: Install aur package `foo2zjs-nightly`. 
