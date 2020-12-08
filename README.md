@@ -434,5 +434,6 @@ sudo gitlab-runner start
 
 apt install -y docker.io
 sudo gitlab-runner register
+# remove the `locked` tag from gitlab manually
 ```
 
