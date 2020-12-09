@@ -1,5 +1,4 @@
 
-
 ##  bridge hust wireless
 
 ```
@@ -28,3 +27,17 @@ udp_forwarder -l 0.0.0.0:9999 -r 35.201.233.28:9998 -b r***************n
 set openvpn server to client:9999
 ```
 
+## gnome
+
+```
+gsettings set org.gnome.desktop.media-handling automount false
+gsettings set org.gnome.desktop.media-handling automount-open false
+gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-left "['<Shift><Alt>Left']"
+gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-right "['<Shift><Alt>Right']"
+gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-up "['<Shift><Alt>Up']"
+gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-down "['<Shift><Alt>Down']"
+gsettings set org.gnome.desktop.wm.keybindings move-to-monitor-left "['<Super><Shift>Left']"
+gsettings set org.gnome.desktop.wm.keybindings move-to-monitor-right "['<Super><Shift>Right']"
+gsettings set org.gnome.desktop.wm.keybindings move-to-monitor-up "['<Super><Shift>Up']"
+gsettings set org.gnome.desktop.wm.keybindings move-to-monitor-down "['<Super><Shift>Down']"
+```
