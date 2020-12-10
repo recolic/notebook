@@ -462,6 +462,8 @@ sudo docker run -d --restart=always --name webvirtmgr-console -v /srv/webvirt:/d
 
 - Setup Host machine
 
+Arch packages: `ebtables bridge-utils dnsmasq openbsd-netcat libvirt edk2-ovmf dmidecode`
+
 Read [archwiki](https://wiki.archlinux.org/index.php/Libvirt) and set libvirtd.conf:
 
 ```
