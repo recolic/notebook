@@ -50,6 +50,9 @@ docker exec -ti rweb /bin/bash
 |10000|v2ray|
 |2080|git|
 |8080|test_only|
+|6088|Android ADB Web|
+|6081|WebVirtMgr|
+|6080|WebVirtMgr(VNC-Proxy)|
 
 ## reserved port on all recolic servers:
 
@@ -437,3 +440,38 @@ sudo gitlab-runner register
 # remove the `locked` tag from gitlab manually
 ```
 
+## WebVirtMgr
+
+- Setup Web Portal
+
+First run (setup database):
+
+```
+# Web Portal
+sudo docker run -d --name webvirtmgr -v /srv/webvirt:/data/ -e WEBVIRTMGR_ADMIN_USERNAME=admin -e WEBVIRTMGR_ADMIN_EMAIL=admin@local.domain -e WEBVIRTMGR_ADMIN_PASSWORD=password -p 3081:8000 odivlad/webvirtmgr
+```
+
+Then use
+
+```
+# Web Portal
+sudo docker run -d --restart=always --name webvirtmgr -v /srv/webvirt:/data/ -p 3081:8000 odivlad/webvirtmgr
+# VNC proxy
+sudo docker run -d --restart=always --name webvirtmgr-console -v /srv/webvirt:/data/ -p 6080:6080 odivlad/webvirtmgr webvirtmgr-console
+```
+
+- Setup Host machine
+
+Read [archwiki](https://wiki.archlinux.org/index.php/Libvirt) and set libvirtd.conf:
+
+```
+listen_tls = 0
+listen_tcp = 1
+tcp_port = "16509"
+listen_addr = "0.0.0.0"
+auth_tcp = "none"
+```
+
+If requiring auth, set `auth_tcp = "sasl"` and read <https://github.com/retspen/webvirtmgr/wiki/Setup-TCP-authorization>
+
+DO NOT use systemd service (it always crash with `--listen parameter not permitted with systemd activation sockets`). Directly run `sudo libvirtd --listen`
