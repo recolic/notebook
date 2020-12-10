@@ -475,3 +475,8 @@ auth_tcp = "none"
 If requiring auth, set `auth_tcp = "sasl"` and read <https://github.com/retspen/webvirtmgr/wiki/Setup-TCP-authorization>
 
 DO NOT use systemd service (it always crash with `--listen parameter not permitted with systemd activation sockets`). Directly run `sudo libvirtd --listen`
+
+## Android ADB web
+
+<https://github.com/say-no-to-wechat/android-web-control-docker>
+
