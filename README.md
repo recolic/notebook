@@ -65,6 +65,7 @@ docker exec -ti rweb /bin/bash
 |22|ssh|
 |4022|secondary-ssh|
 |25566|secondary-ssh|
+|25567|secondary-ssh|
 |5700-5710|VNC|
 |3389|RDP|
 |3128|http_proxy|
@@ -73,6 +74,8 @@ docker exec -ti rweb /bin/bash
 |25551|shadowsocks|
 |25580|shadowsocks|
 |25581|snakesocks|
+|25554|openvpn|
+|1194|openvpn|
 |466|shadowsocksR|
 |588|shadowsocksR|
 |30999|FRPS server|
@@ -82,6 +85,7 @@ docker exec -ti rweb /bin/bash
 |9399|Virtualbox web interface|
 |9000-9389|Virtualbox dynamic ports (RDP)|
 |31000-31499|Virtualbox dynamic ports (Other use)|
+|30400-30499|Generic dynamic ports (Other use)|
 
 ## tw1 migration (gcp)
 
