@@ -257,6 +257,8 @@ data dir: `/srv/nextcloud`.
 docker run -d -p 3083:80 --name rdrive --restart=always -v /srv/nextcloud/nextcloud:/var/www/html -v /srv/nextcloud/apps:/var/www/html/custom_apps -v /srv/nextcloud/config:/var/www/html/config -v /srv/nextcloud/data:/var/www/html/data -v /srv/nextcloud/theme:/var/www/html/themes/rdef nextcloud
 ```
 
+upgrade: at most one BIG-version each time. just stop and run with new image version. 
+
 ## rserver-monitor
 
 ```
