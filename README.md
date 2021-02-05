@@ -266,7 +266,7 @@ touch /srv/html/status.html
 docker run -d --name rmon --restart=always -v /srv/html/status.html:/app/status.html recolic/rserver-status
 ```
 
-## rocket chat [closed, 2019 data on drive machine, 2020 version running]
+## rocket chat [closed, data on drive machine]
 
 datadir: /srv/mongo
 
@@ -328,7 +328,7 @@ However, you still need to run docker-exec to set the following commands:
 
 All data backed up in tw1 machine.
 
-## Matrix + Riot.im
+## Matrix + Riot.im (closed)
 
 > https://git.recolic.net/root/matrix-riot-docker
 
@@ -347,7 +347,7 @@ nohup /root/go/bin/go-shadowsocks2 -s 'ss://chacha20-ietf-poly1305:>>>>>>>>>>>>>
 
 gen url: https://zhiyuan-l.github.io/SS-Config-Generator/
 
-## VM server at HMS
+## VM server at HMS (deprecated, use webvirtmgr+KVM)
 
 - setup
 
