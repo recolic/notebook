@@ -423,6 +423,8 @@ Enable and start `avahi-daemon.service` and `org.cups.cupsd.service`.
 
 https://github.com/koenkooi/foo2zjs/blob/master/PPD/HP-LaserJet_1020.ppd
 
+HP1020 should use CUPS 2.3.3-3 (ArchLinux) and should not upgrade. 
+
 - FAQ: 
 
 1. Filter failed: Please read /var/log/cups/error.log to find the actual error. 
