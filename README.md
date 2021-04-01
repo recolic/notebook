@@ -396,6 +396,13 @@ Then everything is done. Admin password is `recolic, genpasswd(recolic.net, v4)`
 
 > Warning: installer.php not working on my prod environment. Seems like URL prefix error. Please download source code zip, and modify `config/*` manually. 
 
+- patch
+
+```html
+<meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://disqus.com">
+<meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://c.disquscdn.com">
+```
+
 - migrate
 
 all files inside /srv/html. Migrate together with www.recolic.net. 
