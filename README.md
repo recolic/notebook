@@ -398,9 +398,36 @@ Then everything is done. Admin password is `recolic, genpasswd(recolic.net, v4)`
 
 - patch
 
-```html
-<meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://disqus.com">
-<meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://c.disquscdn.com">
+modify functions.php to make disqus working:
+
+```
+// Disqus on post.
+function disqus($title = null, $url = null)
+{
+    $comment = config('comment.system');
+    $disqus = config('disqus.shortname');
+    $script = <<<EOF
+    <script type="text/javascript">
+        var getAbsolutePath = function(href) { 
+            var link = document.createElement('a');
+            link.href = href;
+            return link.href;
+        };
+    var disqus_config = function () {
+    this.page.url = getAbsolutePath('{$url}');  // Replace PAGE_URL with your page's canonical URL variable
+    };
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://{$disqus}.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+    </script>
+EOF;
+    if (!empty($disqus) && $comment == 'disqus') {
+        return $script;
+    }
+}
 ```
 
 - migrate
