@@ -22,7 +22,7 @@ docker exec -ti rweb /bin/bash
 **acme.sh and nginx**: Add nginx-reload to crontab to refresh certificate. 
 
 ```
-2 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null
+2 0 * * * /srv/conf/acme-sh/acme.sh --cron --home "/srv/conf/acme-sh" > /dev/null
 
 # nginx reload certificate once a month, at 6 AM UTC+8, means 22:00 UTC. 
 0 22 1 * * systemctl restart nginx
