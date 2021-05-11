@@ -457,14 +457,14 @@ Enable and start `avahi-daemon.service` and `org.cups.cupsd.service`.
 
 https://github.com/koenkooi/foo2zjs/blob/master/PPD/HP-LaserJet_1020.ppd
 
-HP1020 should use CUPS 2.3.3-3 (ArchLinux) and should not upgrade. 
+HP1020 should use CUPS 2.3.3-3 (ArchLinux) and **should not upgrade**. 
 
 - FAQ: 
 
 1. Filter failed: Please read /var/log/cups/error.log to find the actual error. 
 2. In error.log, foo2zjs-wrapper: command not found: Install AUR package `foo2zjs-nightly`. 
 3. `lpinfo -v` shows `usb://unknown/printer`, or `Waiting for printer to become available` after archlinux upgrade:   
-  Please [downgrade cups/libcups to 2.3.3-3](https://wiki.archlinux.org/index.php/CUPS/Troubleshooting#Issues_Relating_to_Upgrade_2.3.3-3_-%3E_2.3.3+106+ga72b0140e-1), and downgrade cups-filters to 1.28.5-1, and hold these packages in `/etc/pacman.conf`. Switching Arch's CUPS upstream from Apple's senescent original to the actively-developed OpenPrinting fork broke your CUPS. 
+  Please [downgrade cups/libcups to 2.3.3-3](https://wiki.archlinux.org/index.php/CUPS/Troubleshooting#Issues_Relating_to_Upgrade_2.3.3-3_-%3E_2.3.3+106+ga72b0140e-1), and downgrade cups-filters to 1.28.5-1, and set these packages as IgnorePkg in `/etc/pacman.conf`. Switching Arch's CUPS upstream from Apple's senescent original to the actively-developed OpenPrinting fork broke your CUPS. 
 4. TODO
 
 ## Gitlab runner
