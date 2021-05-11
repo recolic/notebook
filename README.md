@@ -2,8 +2,9 @@
 
 Some note about deploying my website and other things. Github is indeed a good online markdown writer.
 
-I'm just making it public for convenience. **Please leave if you are not me. Commands here won't succeed without authorization.**
+I'm just making it public for convenience. **Commands here won't succeed without authorization.**
 
+If you want to deploy a similiar service, the following content may help. But be careful, this is not a guide, this is my private notebook. 
 
 ## common
 
