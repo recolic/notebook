@@ -481,9 +481,11 @@ sudo gitlab-runner start
 #############################
 
 apt install -y docker.io
-sudo gitlab-runner register
+sudo gitlab-runner register --docker-privileged
 # remove the `locked` tag from gitlab manually
 ```
+
+> disable tls if there's any problem. https://docs.gitlab.com/ee/ci/docker/using_docker_build.html
 
 ## WebVirtMgr
 
