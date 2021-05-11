@@ -1,6 +1,6 @@
 # recolic's private notebook
 
-Some note about deploying my website and other things. Github is indeed a good online markdown writer.
+Some note about deploying my website and other services. 
 
 I'm just making it public for convenience. **Commands here won't succeed without authorization.**
 
