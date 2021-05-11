@@ -481,8 +481,16 @@ sudo gitlab-runner start
 #############################
 
 apt install -y docker.io
-sudo gitlab-runner register --docker-privileged
+sudo gitlab-runner register -n \
+  --url https://git.recolic.net/ \
+  --registration-token K9bsS-UPjjyxxLX1FVUW \
+  --executor docker \
+  --description "Give a name here" \
+  --docker-image "ubuntu" \
+  --docker-privileged
+
 # remove the `locked` tag from gitlab manually
+# Use `sudo gitlab-runner register --docker-privileged` to register manually. 
 ```
 
 > disable tls if there's any problem. https://docs.gitlab.com/ee/ci/docker/using_docker_build.html
