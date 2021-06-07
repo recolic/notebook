@@ -1,0 +1,24 @@
+# Reproduce recolic's workspace
+
+## base
+
+ArchLinux
+
+## Packages
+
+TBD
+
+## Modification
+
+- OneSh
+
+clone https://git.recolic.net/root/scripts to /home/recolic/sh, and run the bootstrap script. 
+
+- GnuPG
+
+
+
+- thunderbird
+
+Config editor: set `mail.openpgp.allow_external_gnupg` to true. 
+
