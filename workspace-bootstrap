@@ -20,5 +20,6 @@ clone https://git.recolic.net/root/scripts to /home/recolic/sh, and run the boot
 
 - thunderbird
 
-Config editor: set `mail.openpgp.allow_external_gnupg` to true. 
+Config editor: set `mail.openpgp.allow_external_gnupg` to true.   
+AccountSettings -> Composition -> WhenQuoting: start my reply above the quote, and `place my signature` below my reply. 
 
