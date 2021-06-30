@@ -99,17 +99,15 @@ run `ssh-keygen -A` by serial after setup the new machine.
 fresh deploy:
 201905 update: move all /var out.
 201911 update: remove https, remove zhixiang, logs, reconstructed.
+202106 update: re-written from stretch, simple state-less dockerfile. https://git.recolic.net/root/scripts/-/tree/one/groundup/php-nginx
+
+Put the website into /srv/html, and make sure `/srv/html/.config/nginx.conf` exists. 
 
 ```
-mkdir -p /srv/html
-docker run -tid -p 3091:80 -v /srv/html:/var/www/html --name rwww --restart=always 600163736385.dkr.ecr.us-west-2.amazonaws.com/www.recolic.net /entry.sh
+docker run -tid -p 3091:80 -v /srv/html:/var/www/html --name rwww --restart=always recolic/php-nginx /entry.sh
 ```
 
-update config or certificate
-```
-docker commit -m 'daily checkpoint' rwww 600163736385.dkr.ecr.us-west-2.amazonaws.com/www.recolic.net
-docker push 600163736385.dkr.ecr.us-west-2.amazonaws.com/www.recolic.net
-```
+The docker image contains no config or certificate since 20210630. 
 
 cert issue: (note that currently mail and www are on same machine. )
 ```
