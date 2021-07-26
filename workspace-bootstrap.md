@@ -1,40 +1,54 @@
 # Reproduce recolic's workspace
 
-## Server side (Ring0)
+> If you're in fucking China, change all `recolic.net` to breakwall domain (such as recolic.cc). 
+
+## Server mode (Ring0)
 
 > Run everything as root
 
 - Install ArchLinux
 
-Extra: `pacman -S fish dhcpcd vim sudo`
-
-- thunderbird
-
-Config editor: set `mail.openpgp.allow_external_gnupg` to true.   
-AccountSettings -> Composition -> WhenQuoting: start my reply above the quote, and `place my signature` below my reply. 
+Extra: `pacman -S --noconfirm fish dhcpcd vim sudo openssh`
 
 ## GUI Workspace
 
 ```
-useradd -m recolic
+useradd --create-home --shell /usr/bin/fish recolic
 passwd recolic
-```
 
-```
 echo 'recolic ALL=(ALL) NOPASSWD: ALL' | sudo EDITOR='tee -a' visudo
+pacman -S --noconfirm gnome networkmanager
+systemctl enable gdm NetworkManager
+reboot
 ```
 
-> Now, run everything below as recolic
+> Now, reboot and enter gnome terminal, run everything below as recolic, in fish, in /home/recolic
 
 ```
-sudo pacman -S --noconfirm gnome base-devel thunderbird firefox telegram-desktop docker
-# TODO: setup gpg ssh
-git clone https://git.recolic.net/root/scripts /home/recolic/sh
+sudo pacman -S --noconfirm base-devel thunderbird firefox telegram-desktop docker    pcsclite ccid
+
+sudo systemctl enable pcscd.service --now
+gpg --keyserver keyserver.ubuntu.com --recv-keys E3933636
+echo -e 'SSH_AGENT_PID\tDEFAULT=' >> ~/.pam_environment
+echo -e 'SSH_AUTH_SOCK\tDEFAULT="${XDG_RUNTIME_DIR}/gnupg/S.gpg-agent.ssh"' >> ~/.pam_environment
+set -g SSH_AUTH_SOCK $XDG_RUNTIME_DIR/gnupg/S.gpg-agent.ssh # make it work for this shell
+echo enable-ssh-support > ~/.gnupg/gpg-agent.conf
+echo 93AC57E30E88111EC71D9215A1B436AFE705C71C > ~/.gnupg/sshcontrol
+gpg-connect-agent reloadagent /bye
+set -g GPG_TTY (tty)
+gpg-connect-agent updatestartuptty /bye
+
+git clone git@git.recolic.net:/root/scripts.git /home/recolic/sh
 ```
 
-- gnome
+- gnome configure
+
+TODO: move this section to scripts/README.md
 
 ```
+# TODO: install extension
+
+gsettings set org.gnome.desktop.interface enable-hot-corners false
 gsettings set org.gnome.desktop.media-handling automount false
 gsettings set org.gnome.desktop.media-handling automount-open false
 gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-left "['<Shift><Alt>Left']"
@@ -46,5 +60,11 @@ gsettings set org.gnome.desktop.wm.keybindings move-to-monitor-right "['<Super><
 gsettings set org.gnome.desktop.wm.keybindings move-to-monitor-up "['<Super><Shift>Up']"
 gsettings set org.gnome.desktop.wm.keybindings move-to-monitor-down "['<Super><Shift>Down']"
 ```
+
+- thunderbird
+
+Config editor: set `mail.openpgp.allow_external_gnupg` to true.   
+AccountSettings -> Composition -> WhenQuoting: start my reply above the quote, and `place my signature` below my reply. 
+
 
 
