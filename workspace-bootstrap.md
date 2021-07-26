@@ -1,33 +1,38 @@
+# Reproduce recolic's workspace
 
-##  bridge hust wireless
+## Server side (Ring0)
 
-```
-sudo iw wlp1s0 disconnect; and sudo iw dev wlp1s0 connect HUST_WIRELESS 2437
-```
+> Run everything as root
 
-## ovpn udp forwarder
+- Install ArchLinux
 
-the naive script is good. script hosted [here](https://gist.github.com/recolic/5d0cf1bed2ca454e5e8edc7ac24431ba). do not read the horrible code (not written by me), just compile and use it. works on mips gcc.
+Extra: `pacman -S fish dhcpcd vim sudo`
 
-- server
+- thunderbird
 
-```
-./forward -l 0.0.0.0:9998 -r 127.0.0.1:9999 -a r**********************n
-```
+Config editor: set `mail.openpgp.allow_external_gnupg` to true.   
+AccountSettings -> Composition -> WhenQuoting: start my reply above the quote, and `place my signature` below my reply. 
 
-- any client
+## GUI Workspace
 
 ```
-udp_forwarder -l 0.0.0.0:9999 -r 35.201.233.28:9998 -b r***************n
+useradd -m recolic
+passwd recolic
 ```
 
-- then
-
 ```
-set openvpn server to client:9999
+echo 'recolic ALL=(ALL) NOPASSWD: ALL' | sudo EDITOR='tee -a' visudo
 ```
 
-## gnome
+> Now, run everything below as recolic
+
+```
+sudo pacman -S --noconfirm gnome base-devel thunderbird firefox telegram-desktop docker
+# TODO: setup gpg ssh
+git clone https://git.recolic.net/root/scripts /home/recolic/sh
+```
+
+- gnome
 
 ```
 gsettings set org.gnome.desktop.media-handling automount false
@@ -41,3 +46,5 @@ gsettings set org.gnome.desktop.wm.keybindings move-to-monitor-right "['<Super><
 gsettings set org.gnome.desktop.wm.keybindings move-to-monitor-up "['<Super><Shift>Up']"
 gsettings set org.gnome.desktop.wm.keybindings move-to-monitor-down "['<Super><Shift>Down']"
 ```
+
+
