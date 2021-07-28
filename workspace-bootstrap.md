@@ -29,9 +29,7 @@ sudo pacman -S --noconfirm base-devel thunderbird firefox telegram-desktop docke
 
 sudo systemctl enable pcscd.service --now
 gpg --keyserver keyserver.ubuntu.com --recv-keys E3933636
-echo -e 'SSH_AGENT_PID\tDEFAULT=' >> ~/.pam_environment
-echo -e 'SSH_AUTH_SOCK\tDEFAULT="${XDG_RUNTIME_DIR}/gnupg/S.gpg-agent.ssh"' >> ~/.pam_environment
-set -g SSH_AUTH_SOCK $XDG_RUNTIME_DIR/gnupg/S.gpg-agent.ssh # make it work for this shell
+set -gx SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket) # already in fish.config
 echo enable-ssh-support > ~/.gnupg/gpg-agent.conf
 echo 93AC57E30E88111EC71D9215A1B436AFE705C71C > ~/.gnupg/sshcontrol
 gpg-connect-agent reloadagent /bye
