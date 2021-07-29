@@ -544,5 +544,5 @@ sudo libvirtd --listen
 ## Gitlab2github gitsync
 
 ```
-docker run -d --restart=always --log-opt max-size=100M --name rgitsync --env github_user_dst="recolic:ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" recolic/gitlab2github
+docker run -d --restart=always --log-opt max-size=10M --name rgitsync --env github_user_dst="recolic:ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" recolic/gitlab2github
 ```
