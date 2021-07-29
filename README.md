@@ -541,3 +541,8 @@ sudo libvirtd --listen
 
 <https://github.com/say-no-to-wechat/android-web-control-docker>
 
+## Gitlab2github gitsync
+
+```
+docker run -d --restart=always --log-opt max-size=100M --name rgitsync --env github_user_dst="recolic:ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" recolic/gitlab2github
+```
