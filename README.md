@@ -557,3 +557,7 @@ source=<https://git.recolic.net/root/aur-autobuild-mirror>
 
 Clone the repo and setup crontab. 
 
+## storage.recolic.net
+
+follow the guide at source=<https://git.recolic.net/root/scripts/-/tree/one/storage-server-backup-sh>
+
