@@ -104,7 +104,7 @@ fresh deploy:
 Put the website into /srv/html, and make sure `/srv/html/.config/nginx.conf` exists. 
 
 ```
-docker run -tid -p 3091:80 -v /srv/html:/var/www/html --name rwww --restart=always recolic/php-nginx /entry.sh
+docker run --log-opt max-size=10M -tid -p 3091:80 -v /srv/html:/var/www/html --name rwww --restart=always recolic/php-nginx /entry.sh
 ```
 
 The docker image contains no config or certificate since 20210630. 
@@ -147,7 +147,7 @@ git clone https://github.com/kylemanna/docker-openvpn.git
 # remove the line: VOLUME ["/etc/openvpn"]
 docker build --pull --tag recolic/openvpn -f Dockerfile .
 
-docker run -ti -p 1194:1194/udp --cap-add=NET_ADMIN --name rvpn recolic/openvpn
+docker run --log-opt max-size=10M -ti -p 1194:1194/udp --cap-add=NET_ADMIN --name rvpn recolic/openvpn
 #### Now you're in container
 #### ovpn_genconfig -u udp://ovpn.recolic.net
 #### ovpn_initpki
@@ -176,7 +176,7 @@ easyrsa build-client-full "$client" nopass &&
 
 fresh deploy && mig (nodata!)
 ```
-docker run -tid -p 1194:1194/udp --cap-add=NET_ADMIN --name rvpn --privileged --restart=always 600163736385.dkr.ecr.us-west-2.amazonaws.com/openvpn-server ovpn_run
+docker run --log-opt max-size=10M -tid -p 1194:1194/udp --cap-add=NET_ADMIN --name rvpn --privileged --restart=always 600163736385.dkr.ecr.us-west-2.amazonaws.com/openvpn-server ovpn_run
 ```
 
 push your changes(after adding some users)
@@ -195,7 +195,7 @@ docker tag tm 600163736385.dkr.ecr.us-west-2.amazonaws.com/tm
 
 deploy (using /srv as datadir)
 ```
-docker run -tid -v /srv/tm/log:/app/log -v /srv/tm/keys:/app/keys -p 3080:80 --name rtm --restart=always 600163736385.dkr.ecr.us-west-2.amazonaws.com/tm
+docker run --log-opt max-size=10M -tid -v /srv/tm/log:/app/log -v /srv/tm/keys:/app/keys -p 3080:80 --name rtm --restart=always 600163736385.dkr.ecr.us-west-2.amazonaws.com/tm
 # Then use nginx to proxy_pass port 3080.
 ```
 
@@ -208,7 +208,7 @@ docker exec -ti rtm /bin/bash
 
 deploy (using /srv as datadir)
 ```
-docker run --detach \
+docker run --log-opt max-size=10M --detach \
   --hostname git.recolic.net \
   --publish 20443:443 --publish 2080:80 --publish 0.0.0.0:22:22 \
   --name rgit \
@@ -245,7 +245,7 @@ Run docker image:
 
 ```
 # YOU SHOULD ALWAYS LIMIT ITS MEMORY TO PREVENT ATTACK!!!!!
-docker run -d --restart=always --name rmd-agent -m 100m -p 8080:8080 recolic/push-to-markdown-agent
+docker run --log-opt max-size=10M -d --restart=always --name rmd-agent -m 100m -p 8080:8080 recolic/push-to-markdown-agent
 ```
 
 ## drive.recolic.net
@@ -253,16 +253,18 @@ docker run -d --restart=always --name rmd-agent -m 100m -p 8080:8080 recolic/pus
 data dir: `/srv/nextcloud`.
 
 ```
-docker run -d -p 3083:80 --name rdrive --restart=always -v /srv/nextcloud/nextcloud:/var/www/html -v /srv/nextcloud/apps:/var/www/html/custom_apps -v /srv/nextcloud/config:/var/www/html/config -v /srv/nextcloud/data:/var/www/html/data -v /srv/nextcloud/theme:/var/www/html/themes/rdef nextcloud
+docker run --log-opt max-size=10M -d -p 3083:80 --name rdrive --restart=always -v /srv/nextcloud/nextcloud:/var/www/html -v /srv/nextcloud/apps:/var/www/html/custom_apps -v /srv/nextcloud/config:/var/www/html/config -v /srv/nextcloud/data:/var/www/html/data -v /srv/nextcloud/theme:/var/www/html/themes/rdef nextcloud
 ```
 
 upgrade: at most one BIG-version each time. just stop and run with new image version. 
 
 ## rserver-monitor
 
+source=<https://git.recolic.net/root/server-monitor>
+
 ```
 touch /srv/html/status.html
-docker run -d --name rmon --restart=always -v /srv/html/status.html:/app/status.html recolic/rserver-status
+docker run --log-opt max-size=10M -d --name rmon --restart=always -v /srv/html/status.html:/app/status.html recolic/rserver-status
 ```
 
 ## rocket chat [closed, data on drive machine]
@@ -277,8 +279,8 @@ replication:
 ```
 
 ```
-docker run --name rdb --restart=always -v /srv/mongo:/data/db -v /srv/mongo/mongod.conf:/etc/mongod.conf -d mongo:latest --smallfiles --config /etc/mongod.conf
-docker run --name rocketchat --link rdb:db --restart=always -p 3000:3000 --env ROOT_URL=http://localhost --env 'MONGO_OPLOG_URL=mongodb://db:27017/local?replSet=rs01' -d rocket.chat
+docker run --log-opt max-size=10M --name rdb --restart=always -v /srv/mongo:/data/db -v /srv/mongo/mongod.conf:/etc/mongod.conf -d mongo:latest --smallfiles --config /etc/mongod.conf
+docker run --log-opt max-size=10M --name rocketchat --link rdb:db --restart=always -p 3000:3000 --env ROOT_URL=http://localhost --env 'MONGO_OPLOG_URL=mongodb://db:27017/local?replSet=rs01' -d rocket.chat
 ```
 
 > Note: old command maybe missing ` -v /srv/rocket:/app/uploads`
@@ -346,7 +348,7 @@ nohup /root/go/bin/go-shadowsocks2 -s 'ss://chacha20-ietf-poly1305:>>>>>>>>>>>>>
 
 gen url: https://zhiyuan-l.github.io/SS-Config-Generator/
 
-## VM server at HMS (deprecated, use webvirtmgr+KVM)
+## Virtualbox server at HMS (deprecated, use webvirtmgr+KVM)
 
 - setup
 
@@ -354,7 +356,7 @@ gen url: https://zhiyuan-l.github.io/SS-Config-Generator/
 useradd vbox ; mkdir /home/vbox ; chown vbox:vbox /home/vbox ; usermod -a -G vboxusers vbox ; usermod -g vboxusers vbox
 passwd vbox # vbox
 
-docker run --name vbox_http --restart=always -p 9399:80 \
+docker run --log-opt max-size=10M --name vbox_http --restart=always -p 9399:80 \
     -e ID_HOSTPORT=10.100.100.101:18083 -e ID_NAME=hms.recolic -e ID_USER=vbox -e ID_PW='vbox' -e CONF_browserRestrictFolders="/mnt/fsdisk/nfs/rpc_downloads,/home" \
     -d joweisberg/phpvirtualbox
     # version 6.1.x
@@ -370,7 +372,7 @@ nohup sudo -u vbox /usr/bin/vboxwebsrv --host 0.0.0.0 & disown
 
 - fresh deploy
 
-https://github.com/recolic/htmly
+Patched: https://github.com/recolic/htmly
 
 htmly is flat-file-d, so just add nginx config: 
 
@@ -502,16 +504,16 @@ First run (setup database):
 
 ```
 # Web Portal
-sudo docker run -d --name webvirtmgr -v /srv/webvirt:/data/ -e WEBVIRTMGR_ADMIN_USERNAME=admin -e WEBVIRTMGR_ADMIN_EMAIL=admin@local.domain -e WEBVIRTMGR_ADMIN_PASSWORD=password -p 6081:8000 odivlad/webvirtmgr
+sudo docker run --log-opt max-size=10M -d --name webvirtmgr -v /srv/webvirt:/data/ -e WEBVIRTMGR_ADMIN_USERNAME=admin -e WEBVIRTMGR_ADMIN_EMAIL=admin@local.domain -e WEBVIRTMGR_ADMIN_PASSWORD=password -p 6081:8000 odivlad/webvirtmgr
 ```
 
 Then use
 
 ```
 # Web Portal
-sudo docker run -d --restart=always --name webvirtmgr -v /srv/webvirt:/data/ -p 6081:8000 odivlad/webvirtmgr
+sudo docker run --log-opt max-size=10M -d --restart=always --name webvirtmgr -v /srv/webvirt:/data/ -p 6081:8000 odivlad/webvirtmgr
 # VNC proxy
-sudo docker run -d --restart=always --name webvirtmgr-console -v /srv/webvirt:/data/ -p 6080:6080 odivlad/webvirtmgr webvirtmgr-console
+sudo docker run --log-opt max-size=10M -d --restart=always --name webvirtmgr-console -v /srv/webvirt:/data/ -p 6080:6080 odivlad/webvirtmgr webvirtmgr-console
 ```
 
 - Setup Host machine
@@ -543,6 +545,15 @@ sudo libvirtd --listen
 
 ## Gitlab2github gitsync
 
+source=<https://git.recolic.net/root/gitlab2github>
+
 ```
-docker run -d --restart=always --log-opt max-size=10M --name rgitsync --env github_user_dst="recolic:ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" recolic/gitlab2github
+docker run --log-opt max-size=10M -d --restart=always --name rgitsync --env github_user_dst="recolic:ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" recolic/gitlab2github
 ```
+
+## recolic mirror site
+
+source=<https://git.recolic.net/root/aur-autobuild-mirror>
+
+Clone the repo and setup crontab. 
+
