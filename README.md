@@ -494,6 +494,8 @@ sudo gitlab-runner register -n \
 # Use `sudo gitlab-runner register --docker-privileged` to register manually. 
 ```
 
+Docker-in-docker: Set firewall rule to prevent Internet from accessing port 2375. 
+
 > disable tls if there's any problem. https://docs.gitlab.com/ee/ci/docker/using_docker_build.html
 
 ## WebVirtMgr
