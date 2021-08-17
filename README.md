@@ -565,3 +565,9 @@ Clone the repo and setup crontab.
 
 follow the guide at source=<https://git.recolic.net/root/scripts/-/tree/one/storage-server-backup-sh>
 
+## onlyoffice server for nextcloud online office
+
+```
+# The server is stateful, but no need to save it at all. 
+docker run --log-opt max-size=10M -tid --restart=always --name roffice -p 3008:80 onlyoffice/documentserver
+```
