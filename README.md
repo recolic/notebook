@@ -38,22 +38,24 @@ docker exec -ti rweb /bin/bash
 
 |port|service|
 |-----|-----|
-|3091|www|
-|3092(https)|mail|
+|2080|git|
+|3000|rocket|
+|3002|riot.backend|
+|3003|riot.web|
+|3004(https)|zulip|
+|3007|wishbox|
+|3008|onlyoffice|
 |3080|tm|
 |3081|baidupan_proxy|
 |3083|drive|
-|3000|rocket|
-|3003|riot.web|
-|3002|riot.backend|
-|3004(https)|zulip|
-|3007|wishbox|
-|10000|v2ray|
-|2080|git|
-|8080|test_only|
-|6088|Android ADB Web|
-|6081|WebVirtMgr|
+|3091|www|
+|3092(https)|mail|
 |6080|WebVirtMgr(VNC-Proxy)|
+|6081|WebVirtMgr|
+|6088|Android ADB Web|
+|8080|test_only|
+|8448(https)|matrix.api|
+|10000|v2ray|
 
 ## reserved port on all recolic servers:
 
