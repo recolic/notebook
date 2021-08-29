@@ -84,6 +84,15 @@ config redirect
 	option src_dport '30400-30499'
 
 config redirect
+	option src 'wan'
+	option target 'DNAT'
+	option dest_ip '10.100.100.101'
+	option dest 'lan'
+	option dest_port '30500-30999'
+	option name 'hms-frps-30500-30999'
+	option src_dport '30500-30999'
+
+config redirect
 	option dest_port '10808'
 	option src 'wan'
 	option name 'hms.recolic-10808'
