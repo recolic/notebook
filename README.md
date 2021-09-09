@@ -444,4 +444,10 @@ Clone the repo and setup crontab.
 
 follow the guide at source=<https://git.recolic.net/root/scripts/-/tree/one/storage-server-backup-sh>
 
+## dedicated v2ray
 
+usually, I run v2ray with a real web server, usually drive.recolic.net or git.recolic.net. However, sometimes, we want to setup v2ray on a dedicated toy cock. 
+
+```
+curl -O https://raw.githubusercontent.com/jinwyp/one_click_script/master/trojan_v2ray_install.sh && chmod +x ./trojan_v2ray_install.sh && ./trojan_v2ray_install.sh
+```
