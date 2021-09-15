@@ -23,7 +23,7 @@ docker exec -ti rweb /bin/bash
 Every server saves `acme.sh`, `nginx.conf`, `crontab.log`, `cert.sh`, `startup.sh` into `/srv/conf`. Every server has an nginx, which redirects 
 all HTTPS traffic to `http://localhost:xxxx`. 
 
-## docker-ipv6 support
+## docker-ipv6 support (NAT mode)
 
 Requires docker > 20.10.2, edit `/etc/docker/daemon.json`: 
 
@@ -32,7 +32,7 @@ Requires docker > 20.10.2, edit `/etc/docker/daemon.json`:
   "experimental": true,
   "ip6tables": true,
   "ipv6": true,
-  "fixed-cidr-v6": "2400:8902::f03c:92ff:febe:6c0d/64",
+  "fixed-cidr-v6": "fd00:dead:beef::/48",
   "log-driver": "json-file",
   "log-opts": {
     "max-size": "100m"
