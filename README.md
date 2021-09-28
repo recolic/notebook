@@ -453,3 +453,11 @@ usually, I run v2ray with a real web server, usually drive.recolic.net or git.re
 ```
 curl -O https://raw.githubusercontent.com/jinwyp/one_click_script/master/trojan_v2ray_install.sh && chmod +x ./trojan_v2ray_install.sh && ./trojan_v2ray_install.sh
 ```
+
+## browser in docker
+
+刷网课用的中文智慧树
+```
+docker run -d -p 5913:5800 jlesage/firefox
+apk add wqy-zenhei --update-cache --repository http://nl.alpinelinux.org/alpine/edge/testing --allow-untrusted
+```
