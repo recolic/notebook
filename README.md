@@ -312,6 +312,8 @@ EOF;
 }
 ```
 
+for 'gridzone' theme, search for `.entry code` in style.css, and remove its background. Just to make it looks better... 
+
 - migrate
 
 all files inside /srv/html. Migrate together with www.recolic.net. 
