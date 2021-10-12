@@ -61,6 +61,12 @@ gsettings set org.gnome.desktop.wm.keybindings switch-windows "['<Primary>Tab']"
 gsettings set org.gnome.desktop.wm.keybindings switch-windows-backward "['<Primary><Shift>Tab']"
 gsettings set org.gnome.desktop.wm.keybindings switch-applications "['<Super>Tab', '<Alt>Tab']"
 gsettings set org.gnome.desktop.wm.keybindings switch-applications-backward "['<Shift><Super>Tab', '<Shift><Alt>Tab']"
+gsettings set org.gnome.settings-daemon.plugins.media-keys window-screenshot-clip "['disabled']"
+gsettings set org.gnome.settings-daemon.plugins.media-keys area-screenshot-clip "['<Primary>Print']"
+gsettings set org.gnome.settings-daemon.plugins.media-keys window-screenshot "['disabled']"
+gsettings set org.gnome.settings-daemon.plugins.media-keys screenshot-clip "['<Primary><Shift>Print']"
+gsettings set org.gnome.settings-daemon.plugins.media-keys area-screenshot "['Print']"
+gsettings set org.gnome.settings-daemon.plugins.media-keys screenshot "['<Shift>Print']"
 ```
 
 - thunderbird
