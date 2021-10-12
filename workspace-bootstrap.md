@@ -25,7 +25,7 @@ reboot
 > Now, reboot and enter gnome terminal, run everything below as recolic, in fish, in /home/recolic
 
 ```
-sudo pacman -S --noconfirm base-devel thunderbird firefox telegram-desktop docker    pcsclite ccid
+sudo pacman -S --noconfirm base-devel thunderbird firefox telegram-desktop docker    pcsclite ccid git
 
 sudo systemctl enable pcscd.service --now
 gpg --keyserver keyserver.ubuntu.com --recv-keys E3933636
@@ -46,6 +46,7 @@ TODO: move this section to scripts/README.md
 ```
 # TODO: install extensions
 # TODO: touchpad tap-to-click
+# TODO: add recolic-aur to pacman.conf and install gnome-terminal-transparency
 
 gsettings set org.gnome.desktop.interface enable-hot-corners false
 gsettings set org.gnome.desktop.media-handling automount false
