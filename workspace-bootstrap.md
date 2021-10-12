@@ -44,7 +44,8 @@ git clone git@git.recolic.net:/root/scripts.git /home/recolic/sh
 TODO: move this section to scripts/README.md
 
 ```
-# TODO: install extension
+# TODO: install extensions
+# TODO: touchpad tap-to-click
 
 gsettings set org.gnome.desktop.interface enable-hot-corners false
 gsettings set org.gnome.desktop.media-handling automount false
