@@ -25,7 +25,7 @@ reboot
 > Now, reboot and enter gnome terminal, run everything below as recolic, in fish, in /home/recolic
 
 ```
-sudo pacman -S --noconfirm base-devel thunderbird firefox telegram-desktop docker    pcsclite ccid git
+sudo pacman -S --noconfirm base-devel thunderbird firefox telegram-desktop docker    pcsclite ccid    git inetutils wget
 
 sudo systemctl enable pcscd.service --now
 gpg --keyserver keyserver.ubuntu.com --recv-keys E3933636
