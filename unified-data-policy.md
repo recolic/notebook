@@ -34,7 +34,7 @@
 |---|---|---|---|---|
 |M|Always 2-factor, by GPG master key or super key|First-party|Level 4|extraDisk/.backup/typeM|
 |MX|Always, by cold key and super key|First-party|Level 4|extraDisk/.backup/typeM|
-|N2|Always|First-party or Third-party|Level 2|~/extraDisk/.backup|
+|N2|Always|First-party or Third-party|Level 3|~/extraDisk/.backup|
 |N1|Always|First-party or Third-party|Level 1|normal encrypted devices|
 |D|Optional|First-party or Third-party|Level 2|nfs/rpc\_downloads|
 |I|Optional|First-party or Third-party|Level 1|normal devices|
