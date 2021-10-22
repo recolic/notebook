@@ -30,11 +30,13 @@ sudo pacman -S --noconfirm base-devel thunderbird firefox telegram-desktop docke
 sudo systemctl enable pcscd.service --now
 gpg --keyserver keyserver.ubuntu.com --recv-keys E3933636
 set -gx SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket) # already in fish.config
-echo enable-ssh-support > ~/.gnupg/gpg-agent.conf
+echo pinentry-timeout 0 > ~/.gnupg/gpg-agent.conf
+echo pinentry-program /usr/bin/pinentry-gnome3 >> ~/.gnupg/gpg-agent.conf
+echo enable-ssh-support >> ~/.gnupg/gpg-agent.conf
 echo 93AC57E30E88111EC71D9215A1B436AFE705C71C > ~/.gnupg/sshcontrol
 gpg-connect-agent reloadagent /bye
-set -g GPG_TTY (tty)
-gpg-connect-agent updatestartuptty /bye
+#set -g GPG_TTY (tty)
+#gpg-connect-agent updatestartuptty /bye
 
 git clone git@git.recolic.net:/root/scripts.git /home/recolic/sh
 ```
