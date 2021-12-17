@@ -221,6 +221,52 @@ docker run --log-opt max-size=10M -d -p 3083:80 --name rdrive --restart=always -
 
 upgrade: at most one BIG-version each time. just stop and run with new image version. 
 
+- customize
+
+I strongly recommend you to disable the "Text" app, and enable "Plain Text Editor" and "Markdown Editor". The builtin Text app doesn't support table in markdown... 
+
+This is my active app list: 
+
+```
+Accessibility
+Activity
+Automated PDF conversion
+Calendar
+Comments
+Contacts Interaction
+Deleted files
+Federation
+File sharing
+First run wizard
+GitHub integration
+GitLab integration
+Log Reader
+Markdown Editor
+Monitoring
+Nextcloud announcements
+Notifications
+Password policy
+PDF viewer
+Plain text editor
+Privacy
+Right click
+Share by mail
+Social sharing via email
+Support
+Tasks
+Theming
+Usage survey
+User status
+Versions
+Video player
+Weather status
+```
+
+|If you|Want|Don't want|
+|---|---|---|
+|Task management|Use `2do` android app|disable Calendar and Tasks|
+|Startup dashboard|Enable dashboard|Disable GitHub integration,GitLab integration,Weather Status|
+
 ## rserver-monitor
 
 source=<https://git.recolic.net/root/server-monitor>
