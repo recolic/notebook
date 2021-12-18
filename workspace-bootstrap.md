@@ -2,17 +2,12 @@
 
 > If you're in fucking China, change all `recolic.net` to breakwall domain (such as recolic.cc). 
 
-## Server mode (Ring0)
-
-> Run everything as root
-
-- Install ArchLinux
-
-Extra: `pacman -S --noconfirm fish dhcpcd vim sudo openssh`
-
 ## GUI Workspace
 
+> After installing Arch Linux, run as root
+
 ```
+pacman -S --noconfirm fish dhcpcd vim sudo openssh
 useradd --create-home --shell /usr/bin/fish recolic
 passwd recolic
 
@@ -25,10 +20,12 @@ reboot
 > Now, reboot and enter gnome terminal, run everything below **as recolic**, in fish, in /home/recolic
 
 ```
-sudo pacman -S --noconfirm base-devel thunderbird firefox telegram-desktop docker    pcsclite ccid    git inetutils wget
+sudo pacman -S --noconfirm base-devel thunderbird firefox telegram-desktop docker shadowsocks-libev proxychains xclip adobe-source-han-sans-cn-fonts      pcsclite ccid    git inetutils wget
 
 git config --global user.email "root@recolic.net"
 git config --global user.name "Recolic K"
+sudo systemctl enable bluetooth --now
+
 sudo systemctl enable pcscd.service --now
 gpg --keyserver keyserver.ubuntu.com --recv-keys E3933636
 set -gx SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket) # already in fish.config
@@ -50,9 +47,9 @@ git clone git@git.recolic.net:/root/scripts.git /home/recolic/sh
 
 ```
 # TODO: install extensions
-#      launch new instance
-#      system monitor
-#      workspace matrix
+#      launch new instance (builtin)
+#      system-monitor-next
+#      wsmatrix
 # TODO: add recolic-aur to pacman.conf and install gnome-terminal-transparency
 
 gsettings set org.gnome.desktop.peripherals.touchpad tap-to-click true
