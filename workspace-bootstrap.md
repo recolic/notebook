@@ -22,34 +22,40 @@ systemctl enable gdm NetworkManager
 reboot
 ```
 
-> Now, reboot and enter gnome terminal, run everything below as recolic, in fish, in /home/recolic
+> Now, reboot and enter gnome terminal, run everything below **as recolic**, in fish, in /home/recolic
 
 ```
 sudo pacman -S --noconfirm base-devel thunderbird firefox telegram-desktop docker    pcsclite ccid    git inetutils wget
 
+git config --global user.email "root@recolic.net"
+git config --global user.name "Recolic K"
 sudo systemctl enable pcscd.service --now
 gpg --keyserver keyserver.ubuntu.com --recv-keys E3933636
 set -gx SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket) # already in fish.config
 echo pinentry-timeout 0 > ~/.gnupg/gpg-agent.conf
-echo "#pinentry-program /usr/bin/pinentry-gnome3" >> ~/.gnupg/gpg-agent.conf
+echo "pinentry-program /usr/bin/pinentry-gnome3" >> ~/.gnupg/gpg-agent.conf
 echo enable-ssh-support >> ~/.gnupg/gpg-agent.conf
 echo 93AC57E30E88111EC71D9215A1B436AFE705C71C > ~/.gnupg/sshcontrol
 gpg-connect-agent reloadagent /bye
+## For non-GUI setup: 
 #set -g GPG_TTY (tty)
 #gpg-connect-agent updatestartuptty /bye
 
+# User-interactive required. 
 git clone git@git.recolic.net:/root/scripts.git /home/recolic/sh
+~/sh/_setup_system_management.sh
 ```
 
 - gnome configure
 
-TODO: move this section to scripts/README.md
-
 ```
 # TODO: install extensions
-# TODO: touchpad tap-to-click
+#      launch new instance
+#      system monitor
+#      workspace matrix
 # TODO: add recolic-aur to pacman.conf and install gnome-terminal-transparency
 
+gsettings set org.gnome.desktop.peripherals.touchpad tap-to-click true
 gsettings set org.gnome.desktop.interface enable-hot-corners false
 gsettings set org.gnome.desktop.media-handling automount false
 gsettings set org.gnome.desktop.media-handling automount-open false
