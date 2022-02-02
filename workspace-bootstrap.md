@@ -12,6 +12,7 @@ useradd --create-home --shell /usr/bin/fish recolic
 passwd recolic
 
 echo 'recolic ALL=(ALL) NOPASSWD: ALL' | sudo EDITOR='tee -a' visudo
+echo 'kernel.sysrq=1' >> /etc/sysctl.d/99-sysctl.conf 
 pacman -S --noconfirm gnome networkmanager
 systemctl enable gdm NetworkManager
 reboot
