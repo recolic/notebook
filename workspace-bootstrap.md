@@ -53,6 +53,8 @@ git clone git@git.recolic.net:/root/scripts.git /home/recolic/sh
 #      wsmatrix
 # TODO: add recolic-aur to pacman.conf and install gnome-terminal-transparency
 
+gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-ac-type nothing
+gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-battery-type nothing
 gsettings set org.gnome.desktop.privacy remember-recent-files false
 gsettings set org.gnome.desktop.peripherals.touchpad tap-to-click true
 gsettings set org.gnome.desktop.interface enable-hot-corners false
