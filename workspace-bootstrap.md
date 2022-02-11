@@ -21,7 +21,7 @@ reboot
 > Now, reboot and enter gnome terminal, run everything below **as recolic**, in fish, in /home/recolic
 
 ```
-sudo pacman -S --noconfirm base-devel thunderbird firefox telegram-desktop docker shadowsocks-libev proxychains xclip adobe-source-han-sans-cn-fonts      pcsclite ccid    git inetutils wget
+sudo pacman -S --noconfirm base-devel thunderbird nextcloud-client firefox telegram-desktop docker shadowsocks-libev proxychains xclip adobe-source-han-sans-cn-fonts      pcsclite ccid    git inetutils wget
 
 git config --global user.email "root@recolic.net"
 git config --global user.name "Recolic K"
@@ -80,10 +80,21 @@ gsettings set org.gnome.settings-daemon.plugins.media-keys area-screenshot "['Pr
 gsettings set org.gnome.settings-daemon.plugins.media-keys screenshot "['<Shift>Print']"
 ```
 
-- thunderbird
+- OPT: nextcloud
+
+Login Nextcloud, and make sure `~/.config/autostart/com.nextcloud.desktopclient.nextcloud.desktop` exists, and wait for initial sync.   
+Then: 
+
+```
+cd
+rmdir Documents Pictures
+ln -s Nextcloud/documents Documents
+ln -s Nextcloud/pictures Pictures
+```
+
+- OPT: thunderbird
 
 Config editor: set `mail.openpgp.allow_external_gnupg` to true.   
 AccountSettings -> Composition -> WhenQuoting: start my reply above the quote, and `place my signature` below my reply. 
-
 
 
