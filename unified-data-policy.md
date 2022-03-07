@@ -44,3 +44,4 @@
 |Sensitive|MX,M,N2|N1|
 |Non-sensitive|D|I|
 
+All device storing / processing unencrypted sensitive data, must either using Fully-Open-Source-Software, or be disconnected from Internet and destroyed afterward. 
