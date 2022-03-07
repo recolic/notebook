@@ -290,7 +290,7 @@ go get -v github.com/shadowsocks/go-shadowsocks2
 
 - /etc/rc.local:
 ```
-nohup /root/go/bin/go-shadowsocks2 -s 'ss://chacha20-ietf-poly1305:>>>>>>>>>>>>>>>>>>>ADD_PASSWORD<<<<<<<<<<<<<<<<<<<<@:25551' -verbose >> /var/log/ss.log 2>&1 & disown 
+nohup /root/go/bin/go-shadowsocks2 -udp -s 'ss://chacha20-ietf-poly1305:>>>>>>>>>>>>>>>>>>>ADD_PASSWORD<<<<<<<<<<<<<<<<<<<<@:25551' -verbose >> /var/log/ss.log 2>&1 & disown 
 ```
 
 gen url: https://zhiyuan-l.github.io/SS-Config-Generator/
