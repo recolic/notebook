@@ -19,5 +19,6 @@ socat:
 
 ```
 socat tcp-listen:444,fork,reuseaddr tcp:microsoft.com:443
+socat udp-listen:444,fork,reuseaddr udp:microsoft.com:443
 ```
 
