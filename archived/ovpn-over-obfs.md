@@ -1,5 +1,13 @@
 # OpenVPN recolic's toolkit
 
+## udp2raw fakeTCP
+
+Add `mssfix 1250` in client config, to solve this error. 
+
+```
+huge packet,data len=1422 (>=1375).strongly suggested to set a smaller mtu at upper level,to get rid of this warn
+```
+
 ## udp forwarder (fake obfs)
 
 https://gist.github.com/recolic/5d0cf1bed2ca454e5e8edc7ac24431ba
