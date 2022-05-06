@@ -256,7 +256,6 @@ Tasks
 Theming
 Usage survey
 User status
-Versions
 Video player
 Weather status
 ```
