@@ -229,7 +229,6 @@ This is my active app list:
 
 ```
 Accessibility
-Activity
 Automated PDF conversion
 Calendar
 Comments
