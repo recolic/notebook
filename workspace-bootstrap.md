@@ -41,7 +41,6 @@ gpg-connect-agent reloadagent /bye
 
 # User-interactive required. 
 git clone git@git.recolic.net:/root/scripts.git /home/recolic/sh
-~/sh/_setup_system_management.sh
 ```
 
 - gnome configure
@@ -80,16 +79,13 @@ gsettings set org.gnome.settings-daemon.plugins.media-keys area-screenshot "['Pr
 gsettings set org.gnome.settings-daemon.plugins.media-keys screenshot "['<Shift>Print']"
 ```
 
-- OPT: nextcloud
+- nextcloud
 
 Login Nextcloud, and make sure `~/.config/autostart/com.nextcloud.desktopclient.nextcloud.desktop` exists, and wait for initial sync.   
-Then: 
+Then run: 
 
 ```
-cd
-rmdir Documents Pictures
-ln -s Nextcloud/documents Documents
-ln -s Nextcloud/pictures Pictures
+~/NextCloud/workspace/setup-management.fish
 ```
 
 - OPT: thunderbird
