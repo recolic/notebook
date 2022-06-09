@@ -95,4 +95,7 @@ Then run:
 Config editor: set `mail.openpgp.allow_external_gnupg` to true.   
 AccountSettings -> Composition -> WhenQuoting: start my reply above the quote, and `place my signature` below my reply. 
 
+- OPT: libreoffice
+
+Select `Tools>Options>LibreOffice Writer>Formatting Aids` from the menu. For Image/Anchor you can select: `As Character` .
 
