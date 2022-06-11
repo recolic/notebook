@@ -5,6 +5,7 @@
 OpenWRT /etc/config/firewall, user-defined section only
 
 ```
+[other config ...]
 
 config include
 	option path '/etc/firewall.user'
@@ -94,49 +95,42 @@ config redirect
 
 ```
 
-## DHCP static leases
+## DHCP static leases and DNS
 
 DHCP pool: 10.100.100.120 - 10.100.100.220, router 10.100.100.1
 
 ```
-RECOLICHMS
-2C:56:DC:08:42:73
-10.100.100.101
-none
-none
-none
-RECOLICPC
-24:4B:FE:8D:BF:84
-10.100.100.34
-none
-none
-none
-RECOLICHMS.wifi
-DC:85:DE:F8:8E:71
-10.100.100.104
-none
-none
-none
-LadlodRouter
-7C:B5:40:74:FD:CE
-10.100.100.122
-none
-none
-none
-```
+[other config ...]
 
-## DNS
-
-router /etc/hosts
-
-```
-10.100.100.101 hms.recolic
-10.100.100.101 nfs.recolic
-10.100.100.34 pc.recolic
-10.100.100.1 openwrt.recolic
-
-# Used by DNSSD printer broadcast
-10.100.100.101 RECOLICHMS
+config host      
+        option name 'RECOLICPC'
+        option dns '1'   
+        option mac '24:4B:FE:8D:BF:84'
+        option ip '10.100.100.34'
+                      
+config host                
+        option name 'RECOLICHMS'            
+        option dns '1'                               
+        option mac '2C:56:DC:08:42:73'
+        option ip '10.100.100.101'
+           
+config host                    
+        option name 'LadlodRouter'
+        option dns '1'                
+        option mac '7C:B5:40:74:FD:CE'
+        option ip '10.100.100.122'
+           
+config domain                   
+        option name 'pc.recolic'
+        option ip '10.100.100.34'     
+                                  
+config domain
+        option name 'hms.recolic'
+        option ip '10.100.100.101'
+                      
+config domain                         
+        option name 'RECOLICHMS'  
+        option ip '10.100.100.101'
 ```
 
 
