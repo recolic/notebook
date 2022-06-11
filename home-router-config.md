@@ -92,23 +92,6 @@ config redirect
 	option name 'hms-frps-30500-30999'
 	option src_dport '30500-30999'
 
-config redirect
-	option dest_port '10808'
-	option src 'wan'
-	option name 'hms.recolic-10808'
-	option src_dport '10808'
-	option target 'DNAT'
-	option dest_ip '10.100.100.101'
-	option dest 'lan'
-
-config redirect
-	option dest_port '1080'
-	option src 'wan'
-	option name 'hms.recolic-1080-to-10809'
-	option src_dport '10809'
-	option target 'DNAT'
-	option dest_ip '10.100.100.101'
-	option dest 'lan'
 ```
 
 ## DHCP static leases
