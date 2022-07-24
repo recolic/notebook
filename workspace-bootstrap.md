@@ -21,7 +21,7 @@ reboot
 > Now, reboot and enter gnome terminal, run everything below **as recolic**, in fish, in /home/recolic
 
 ```
-sudo pacman -S --noconfirm base-devel thunderbird nextcloud-client firefox telegram-desktop docker shadowsocks-libev proxychains xclip adobe-source-han-sans-cn-fonts      pcsclite ccid    git inetutils wget
+sudo pacman -S --noconfirm base-devel thunderbird nextcloud-client firefox telegram-desktop docker shadowsocks-libev v2ray proxychains xclip adobe-source-han-sans-cn-fonts      pcsclite ccid    git inetutils wget
 
 git config --global user.email "root@recolic.net"
 git config --global user.name "Recolic K"
@@ -41,6 +41,8 @@ gpg-connect-agent reloadagent /bye
 
 # User-interactive required. 
 git clone git@git.recolic.net:/root/scripts.git /home/recolic/sh
+
+# TODO: add custom source
 ```
 
 - gnome configure
