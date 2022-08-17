@@ -15,6 +15,11 @@ echo 'recolic ALL=(ALL) NOPASSWD: ALL' | sudo EDITOR='tee -a' visudo
 echo 'kernel.sysrq=1' >> /etc/sysctl.d/99-sysctl.conf 
 pacman -S --noconfirm gnome networkmanager
 systemctl enable gdm NetworkManager
+
+echo '[recolic-aur]
+SigLevel = Optional TrustAll
+Server = https://drive.recolic.cc/mirrors/recolic-aur' >> /etc/pacman.conf
+
 reboot
 ```
 
@@ -42,7 +47,6 @@ gpg-connect-agent reloadagent /bye
 # User-interactive required. 
 git clone git@git.recolic.net:/root/scripts.git /home/recolic/sh
 
-# TODO: add custom source
 ```
 
 - gnome configure
