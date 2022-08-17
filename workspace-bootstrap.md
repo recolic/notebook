@@ -44,18 +44,15 @@ gpg-connect-agent reloadagent /bye
 #set -g GPG_TTY (tty)
 #gpg-connect-agent updatestartuptty /bye
 
-# User-interactive required. 
-git clone git@git.recolic.net:/root/scripts.git /home/recolic/sh
+# User-interactive required, optional
+# git clone git@git.recolic.net:/root/scripts.git /home/recolic/sh
 
 ```
 
 - gnome configure
 
 ```
-# TODO: install extensions
-#      launch new instance (builtin)
-#      system-monitor-next
-#      wsmatrix
+# gnome extension will be managed by nextcloud sync
 # TODO: add recolic-aur to pacman.conf and install gnome-terminal-transparency
 
 gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-ac-type nothing
