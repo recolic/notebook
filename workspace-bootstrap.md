@@ -27,6 +27,7 @@ reboot
 
 ```
 sudo pacman -S --noconfirm base-devel thunderbird nextcloud-client firefox telegram-desktop docker shadowsocks-libev v2ray proxychains xclip adobe-source-han-sans-cn-fonts      pcsclite ccid    git inetutils wget
+# sudo apt install pcscd scdaemon gnupg2 pcsc-tools -y
 
 git config --global user.email "root@recolic.net"
 git config --global user.name "Recolic K"
