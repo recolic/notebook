@@ -91,7 +91,7 @@ Login Nextcloud, and make sure `~/.config/autostart/com.nextcloud.desktopclient.
 Then run: 
 
 ```
-~/NextCloud/workspace/setup-management.fish
+~/Nextcloud/workspace/setup-management.fish
 ```
 
 - OPT: thunderbird
