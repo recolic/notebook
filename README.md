@@ -53,6 +53,7 @@ Requires docker > 20.10.2, edit `/etc/docker/daemon.json`:
 |3004(https)|zulip|
 |3007|wishbox|
 |3008|onlyoffice|
+|3009|owncast|
 |3080|tm|
 |3081|baidupan_proxy|
 |3083|drive|
@@ -87,6 +88,7 @@ Requires docker > 20.10.2, edit `/etc/docker/daemon.json`:
 |25581|snakesocks|
 |25554|openvpn|
 |1194|openvpn|
+|1935|RTMP stream|
 |466|shadowsocksR|
 |588|shadowsocksR|
 |30999|FRPS server|
