@@ -54,6 +54,7 @@ Requires docker > 20.10.2, edit `/etc/docker/daemon.json`:
 |3007|wishbox|
 |3008|onlyoffice|
 |3009|owncast|
+|3010|cloudreve|
 |3080|tm|
 |3081|baidupan_proxy|
 |3083|drive|
@@ -460,6 +461,7 @@ Clone the repo and setup crontab.
 
 follow the guide at source=<https://git.recolic.net/root/scripts/-/tree/one/storage-server-backup-sh>
 
+<!--
 ## dedicated v2ray
 
 usually, I run v2ray with a real web server, usually drive.recolic.net or git.recolic.net. However, sometimes, we want to setup v2ray on a dedicated toy cock. 
@@ -467,4 +469,31 @@ usually, I run v2ray with a real web server, usually drive.recolic.net or git.re
 ```
 curl -O https://raw.githubusercontent.com/jinwyp/one_click_script/master/trojan_v2ray_install.sh && chmod +x ./trojan_v2ray_install.sh && ./trojan_v2ray_install.sh
 ```
+-->
 
+## owncast
+
+I only use owncast for temporary streaming, so there is no need to preserve its data at all. Regard it as stateless service. 
+
+```
+# fresh deploy
+mkdir /srv/owncast
+docker run -v /srv/owncast:/app/data -p 3009:8080 -p 1935:1935 -d --restart=always --name rcast gabekangas/owncast
+```
+
+## cloudreve
+
+This storage server is specially designed for river. 
+
+```
+# fresh deploy
+mkdir -vp /srv/cloudreve/uploads /srv/cloudreve/avatar ; touch /srv/cloudreve/conf.ini /srv/cloudreve/cloudreve.db
+
+docker run -d --restart=always --name=rdrive2 --log-opt max-size=10M \
+-p 3010:5212 \
+--mount type=bind,source=/srv/cloudreve/conf.ini,target=/cloudreve/conf.ini \
+--mount type=bind,source=/srv/cloudreve/cloudreve.db,target=/cloudreve/cloudreve.db \
+-v /srv/cloudreve/uploads:/cloudreve/uploads \
+-v /srv/cloudreve/avatar:/cloudreve/avatar \
+cloudreve/cloudreve:latest
+```
