@@ -97,7 +97,7 @@ Then run:
 - OPT: thunderbird
 
 Config editor: set `mail.openpgp.allow_external_gnupg` to true.   
-AccountSettings -> Composition -> WhenQuoting: start my reply above the quote, and `place my signature` below my reply. 
+AccountSettings -> Composition -> WhenQuoting: set `start my reply above the quote`, and place my signature `below my reply`. 
 
 - OPT: libreoffice
 
