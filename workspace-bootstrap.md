@@ -44,10 +44,6 @@ gpg-connect-agent reloadagent /bye
 ## For non-GUI setup: 
 #set -g GPG_TTY (tty)
 #gpg-connect-agent updatestartuptty /bye
-
-# User-interactive required, optional
-# git clone git@git.recolic.net:/root/scripts.git /home/recolic/sh
-
 ```
 
 - gnome configure
