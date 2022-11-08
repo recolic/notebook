@@ -101,6 +101,11 @@ Select `Tools>Options>LibreOffice Writer>Formatting Aids` from the menu. For Ima
 
 Select `Tools -> Autocorrect -> Autocorrect Options` from the menu, then `Localized options`, then uncheck `Replace` in both Double Quotes and Single Quotes. 
 
+- OPT: firefox
+
+Sync UI customization: <https://support.mozilla.org/en-US/questions/1292568>
+
 - OPT: microsoft devbox setup
 
 Refer to <https://git.recolic.net/root/ms-scripts/-/blob/master/notes/workspace-bootstrap-ms.md>
+
