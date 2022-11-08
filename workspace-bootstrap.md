@@ -103,7 +103,14 @@ Select `Tools -> Autocorrect -> Autocorrect Options` from the menu, then `Locali
 
 - OPT: firefox
 
-Sync UI customization: <https://support.mozilla.org/en-US/questions/1292568>
+Visit `about:config` and set/add the following entries: 
+
+```
+browser.tabs.tabmanager.enabled = false
+services.sync.prefs.sync.browser.uiCustomization.state = true
+```
+
+> Ref: <https://support.mozilla.org/en-US/questions/1292568>
 
 - OPT: microsoft devbox setup
 
