@@ -60,6 +60,7 @@ Requires docker > 20.10.2, edit `/etc/docker/daemon.json`:
 |3083|drive|
 |3091|www|
 |3092(https)|mail|
+|3093|doorlock api server|
 |6080|WebVirtMgr(VNC-Proxy)|
 |6081|WebVirtMgr|
 |6088|Android ADB Web|
