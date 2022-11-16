@@ -28,3 +28,4 @@ socat udp-listen:444,fork,reuseaddr udp:microsoft.com:443
 python3 -m pip install --user uploadserver
 python3 -m uploadserver -b ::0
 ```
+Then access localhost:8000/upload with browser
