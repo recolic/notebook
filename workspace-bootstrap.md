@@ -47,6 +47,15 @@ gpg-connect-agent reloadagent /bye
 #gpg-connect-agent updatestartuptty /bye
 ```
 
+- nextcloud
+
+Login Nextcloud, and make sure `~/.config/autostart/com.nextcloud.desktopclient.nextcloud.desktop` exists, and wait for initial sync.   
+Then run: 
+
+```
+fish ~/Nextcloud/workspace/setup-management.fish
+```
+
 - gnome configure
 
 ```
@@ -82,14 +91,7 @@ gsettings set org.gnome.settings-daemon.plugins.media-keys area-screenshot "['Pr
 gsettings set org.gnome.settings-daemon.plugins.media-keys screenshot "['<Shift>Print']"
 ```
 
-- nextcloud
-
-Login Nextcloud, and make sure `~/.config/autostart/com.nextcloud.desktopclient.nextcloud.desktop` exists, and wait for initial sync.   
-Then run: 
-
-```
-~/Nextcloud/workspace/setup-management.fish
-```
+**After Nextcloud sync complete**, enable your plugins and config your plugins.
 
 - OPT: thunderbird
 
