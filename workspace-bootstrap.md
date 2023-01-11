@@ -30,7 +30,7 @@ sudo pacman -Sy --noconfirm base-devel thunderbird nextcloud-client firefox tele
 # sudo apt install pcscd scdaemon gnupg2 pcsc-tools -y
 sudo pacman -Sy recolic-aur/gnome-terminal-transparency
 
-git config --global user.email "root@recolic.net"
+git config --global user.email "git@me.recolic.net"
 git config --global user.name "Recolic K"
 sudo systemctl enable bluetooth --now
 
