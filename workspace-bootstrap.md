@@ -34,6 +34,10 @@ git config --global user.email "git@me.recolic.net"
 git config --global user.name "Recolic K"
 sudo systemctl enable bluetooth --now
 
+echo "GTK_IM_MODULE=fcitx" >> $HOME/.pam_environment
+echo "QT_IM_MODULE=fcitx" >> $HOME/.pam_environment
+echo "XMODIFIERS=@im=fcitx" >> $HOME/.pam_environment
+
 sudo systemctl enable pcscd.service --now
 gpg --keyserver keyserver.ubuntu.com --recv-keys E3933636
 set -gx SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket) # already in fish.config
