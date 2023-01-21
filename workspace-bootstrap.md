@@ -30,8 +30,6 @@ sudo pacman -Sy --noconfirm base-devel thunderbird nextcloud-client firefox tele
 # sudo apt install pcscd scdaemon gnupg2 pcsc-tools -y
 sudo pacman -Sy recolic-aur/gnome-terminal-transparency recolic-aur/oreo-cursors-git recolic-aur/pikaur
 
-git config --global user.email "git@me.recolic.net"
-git config --global user.name "Recolic K"
 sudo systemctl enable bluetooth --now
 
 echo "GTK_IM_MODULE=fcitx" >> $HOME/.pam_environment
