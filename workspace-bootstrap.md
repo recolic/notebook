@@ -106,6 +106,8 @@ Select `Tools>Options>LibreOffice Writer>Formatting Aids` from the menu. For Ima
 
 Select `Tools -> Autocorrect -> Autocorrect Options` from the menu, then `Localized options`, then uncheck `Replace` in both Double Quotes and Single Quotes. 
 
+`Tools -> Options -> LibreOffice Calc -> General -> Measurement unit`, change to `Centimeter`
+
 - OPT: firefox
 
 Visit `about:config` and set/add the following entries: 
