@@ -379,8 +379,10 @@ sudo gitlab-runner install --user=gitlab-runner --working-directory=/home/gitlab
 sudo gitlab-runner start
 
 #############################
+# This docker is broken. DO NOT use this command. Refer to https://github.com/docker/for-linux/issues/219#issuecomment-1012948526 for more info.
+## apt install -y docker.io
+curl -fsSL https://get.docker.com -o get-docker.sh && sudo sh get-docker.sh
 
-apt install -y docker.io
 sudo gitlab-runner register -n \
   --url https://git.recolic.net/ \
   --registration-token K9bsS-UPjjyxxLX1FVUW \
