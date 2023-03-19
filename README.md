@@ -379,7 +379,7 @@ sudo gitlab-runner install --user=gitlab-runner --working-directory=/home/gitlab
 sudo gitlab-runner start
 
 #############################
-# This docker is broken. DO NOT use this command. Refer to https://github.com/docker/for-linux/issues/219#issuecomment-1012948526 for more info.
+# Ubuntu-docker is outdated. Refer to https://github.com/docker/for-linux/issues/219#issuecomment-1012948526 for more info.
 ## apt install -y docker.io
 apt install -y apt-utils && curl -fsSL https://get.docker.com -o get-docker.sh && sudo sh get-docker.sh
 
@@ -395,7 +395,8 @@ sudo gitlab-runner register -n \
 # Use `sudo gitlab-runner register --docker-privileged` to register manually. 
 ```
 
-Docker-in-docker: Set firewall rule to prevent Internet from accessing port 2375. 
+Docker-in-docker: Set firewall rule to prevent Internet from accessing port 2375.  
+[Sample of CI file](https://git.recolic.net/root/server-monitor/-/blob/master/.gitlab-ci.yml)
 
 > disable tls if there's any problem. https://docs.gitlab.com/ee/ci/docker/using_docker_build.html
 
