@@ -34,8 +34,8 @@
 |---|---|---|---|---|
 |M|Always, by GPG master key or super key|First-party|Level 4|extraDisk/.backup/typeM|
 |MX|Always, by cold key and super key|First-party|Level 4|extraDisk/.backup/typeM/gpg-masterkey.tar.gz.gpg|
-|N2|Always, if stored by Third-party|First-party or Third-party|Level 3|~/extraDisk/.backup|
-|N1|Always, if stored by Third-party|First-party or Third-party|Level 1|normal encrypted devices|
+|N2|Only if accessed by untrusted device|First-party or Third-party|Level 3|~/extraDisk/.backup, online services|
+|N1|Always, by device encryption|First-party or Third-party|Level 1|normal encrypted devices|
 |D|Optional|First-party or Third-party|Level 2|nfs/rpc\_downloads|
 |I|Optional|First-party or Third-party|Level 1|normal devices|
 
