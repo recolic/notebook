@@ -501,3 +501,9 @@ docker run -d --restart=always --name=rdrive2 --log-opt max-size=10M \
 -v /srv/cloudreve/avatar:/cloudreve/avatar \
 cloudreve/cloudreve:latest
 ```
+
+## samba share
+
+```
+docker run -tid --publish 445:445 --publish 137:137 --publish 138:138 --publish 139:139 --volume /mnt/fsdisk/nfs:/srv --name smbshare --restart=always jenserat/samba-publicshare
+```
