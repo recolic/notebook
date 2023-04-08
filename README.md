@@ -444,6 +444,8 @@ sudo systemctl enable --now virtlogd
 sudo libvirtd --listen
 ```
 
+now you can login and add a connection, type is TCP, IP is hms IP, use a random username/password. Don't forget to set iptables on hms to prevent unauthorized access.
+
 ## Android ADB web
 
 <https://github.com/say-no-to-wechat/android-web-control-docker>
