@@ -407,6 +407,7 @@ Docker-in-docker: Set firewall rule to prevent Internet from accessing port 2375
 First run (setup database):
 
 ```
+mkdir /data
 # Web Portal
 sudo docker run --log-opt max-size=10M -d --name webvirtmgr -v /srv/webvirt:/data/ -e WEBVIRTMGR_ADMIN_USERNAME=admin -e WEBVIRTMGR_ADMIN_EMAIL=admin@local.domain -e WEBVIRTMGR_ADMIN_PASSWORD=password -p 6081:8000 odivlad/webvirtmgr
 ```
