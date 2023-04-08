@@ -444,7 +444,15 @@ sudo systemctl enable --now virtlogd
 sudo libvirtd --listen
 ```
 
-now you can login and add a connection, type is TCP, IP is hms IP, use a random username/password. Don't forget to set iptables on hms to prevent unauthorized access.
+- web portal config
+
+now you can login and add a connection, type is TCP, IP is hms IP, use a random username/password. 
+
+Don't forget to set iptables on hms to prevent unauthorized access.
+
+Add two storage pool, `/mnt/fsdisk/kvm/disks` and `/mnt/fsdisk/kvm/images`. 
+
+Add the dedicated NIC for VMs, don't forget to run `~/kvm-setup-bridge.sh` in OS `startup.sh`.
 
 ## Android ADB web
 
