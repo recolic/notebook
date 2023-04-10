@@ -9,21 +9,25 @@
 ```
 pacman -S --noconfirm fish dhcpcd vim sudo openssh
 useradd --create-home --shell /usr/bin/fish recolic
-passwd recolic
-
 echo 'recolic ALL=(ALL) NOPASSWD: ALL' | sudo EDITOR='tee -a' visudo
 echo 'kernel.sysrq=1' >> /etc/sysctl.d/99-sysctl.conf 
 pacman -S --noconfirm gnome networkmanager
 systemctl enable gdm NetworkManager
-
 echo '[recolic-aur]
 SigLevel = Optional TrustAll
 Server = https://drive.recolic.cc/mirrors/recolic-aur' >> /etc/pacman.conf
+grep -v SystemMaxUse= /etc/systemd/journald.conf | grep -v SystemMaxFileSize= > /tmp/tmp.jdconf
+echo 'SystemMaxUse=150M' >> /tmp/tmp.jdconf
+echo 'SystemMaxFileSize=30M' >> /tmp/tmp.jdconf
+sudo cp /tmp/tmp.jdconf /etc/systemd/journald.conf
+
+### Require Input
+passwd recolic
 
 reboot
 ```
 
-> Now, reboot and enter gnome terminal, run everything below **as recolic**, in fish, in /home/recolic
+> Now, reboot and enter gnome terminal, run everything below **as recolic**, in **fish**
 
 ```
 sudo pacman -Sy --noconfirm base-devel thunderbird nextcloud-client firefox telegram-desktop docker shadowsocks-libev v2ray proxychains xclip adobe-source-han-sans-cn-fonts      pcsclite ccid    git inetutils wget ttf-fira-code htop tmux dos2unix nfs-utils python-pip gnome-tweaks fcitx5-im
