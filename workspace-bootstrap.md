@@ -108,7 +108,9 @@ AccountSettings -> Composition -> WhenQuoting: set `start my reply above the quo
 
 Select `Tools>Options>LibreOffice Writer>Formatting Aids` from the menu. For Image/Anchor you can select: `As Character` .
 
-Select `Tools -> Autocorrect -> Autocorrect Options` from the menu, then `Localized options`, then uncheck `Replace` in both Double Quotes and Single Quotes. 
+Select `Tools -> Autocorrect -> Autocorrect Options` from the menu, then `Localized options`, uncheck everything. 
+
+Select `Tools -> Autocorrect -> Autocorrect Options` from the menu, then `Options`, uncheck everything. 
 
 `Tools -> Options -> LibreOffice Calc -> General -> Measurement unit`, change to `Centimeter`
 
