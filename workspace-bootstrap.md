@@ -7,11 +7,11 @@
 > After installing Arch Linux, run as root
 
 ```
-pacman -S --noconfirm fish dhcpcd vim sudo openssh
+pacman -Sy --noconfirm fish dhcpcd vim sudo openssh
 useradd --create-home --shell /usr/bin/fish recolic
 echo 'recolic ALL=(ALL) NOPASSWD: ALL' | sudo EDITOR='tee -a' visudo
 echo 'kernel.sysrq=1' >> /etc/sysctl.d/99-sysctl.conf 
-pacman -S --noconfirm gnome networkmanager
+pacman -Sy --noconfirm gnome networkmanager
 systemctl enable gdm NetworkManager
 echo '[recolic-aur]
 SigLevel = Optional TrustAll
@@ -24,7 +24,6 @@ sudo cp /tmp/tmp.jdconf /etc/systemd/journald.conf
 ### Require Input
 passwd recolic
 
-reboot
 ```
 
 > Now, reboot and enter gnome terminal, run everything below **as recolic**, in **fish**
