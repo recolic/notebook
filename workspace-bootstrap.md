@@ -16,10 +16,9 @@ systemctl enable gdm NetworkManager
 echo '[recolic-aur]
 SigLevel = Optional TrustAll
 Server = https://drive.recolic.cc/mirrors/recolic-aur' >> /etc/pacman.conf
-grep -v SystemMaxUse= /etc/systemd/journald.conf | grep -v SystemMaxFileSize= > /tmp/tmp.jdconf
-echo 'SystemMaxUse=150M' >> /tmp/tmp.jdconf
-echo 'SystemMaxFileSize=30M' >> /tmp/tmp.jdconf
-sudo cp /tmp/tmp.jdconf /etc/systemd/journald.conf
+sed -i 's/^[# ]*ParallelDownloads =[ 0-9A-Za-z]*$/ParallelDownloads = 5/g' /etc/pacman.conf
+sed -i 's/^[# ]*SystemMaxUse=[ 0-9A-Za-z]*$/SystemMaxUse=150M/g' /etc/systemd/journald.conf
+sed -i 's/^[# ]*SystemMaxFileSize=[ 0-9A-Za-z]*$/SystemMaxFileSize=30M/g' /etc/systemd/journald.conf
 
 ### Require Input
 passwd recolic
