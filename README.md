@@ -264,7 +264,7 @@ Video player
 Weather status
 ```
 
-|If you|Want|Don't want|
+|If you want|Do|Otherwise|
 |---|---|---|
 |Task management|Use `2do` android app|disable Calendar and Tasks|
 |Startup dashboard|Enable dashboard|Disable GitHub integration,GitLab integration,Weather Status|
