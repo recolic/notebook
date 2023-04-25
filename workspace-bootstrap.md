@@ -123,6 +123,12 @@ services.sync.prefs.sync.browser.uiCustomization.state = true
 
 > Ref: <https://support.mozilla.org/en-US/questions/1292568>
 
+- OPT: CLion
+
+Must use Clion 2022.1, do not upgrade because of severe performance downgrade.
+
+Add `-fsized-deallocation` to clangd flags in `Settings | Languages & Frameworks | C/C++ | Clangd`.
+
 - OPT: microsoft devbox setup
 
 Refer to <https://git.recolic.net/root/ms-scripts/-/blob/master/notes/workspace-bootstrap-ms.md>
