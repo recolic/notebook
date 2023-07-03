@@ -28,7 +28,7 @@ passwd recolic
 > Now, reboot and enter gnome terminal, run everything below **as recolic**, in **fish**
 
 ```
-sudo pacman -Sy --noconfirm base-devel thunderbird nextcloud-client firefox telegram-desktop docker shadowsocks-libev v2ray proxychains xclip adobe-source-han-sans-cn-fonts      pcsclite ccid    git inetutils wget ttf-fira-code htop tmux dos2unix nfs-utils python-pip gnome-tweaks fcitx5-im man-db man-pages
+sudo pacman -Sy --noconfirm base-devel thunderbird nextcloud-client firefox telegram-desktop docker shadowsocks-libev v2ray proxychains xclip adobe-source-han-sans-cn-fonts      pcsclite ccid    git inetutils wget ttf-fira-code htop tmux dos2unix nfs-utils python-pip gnome-tweaks fcitx5-im man-db man-pages  kolourpaint breeze
 # sudo apt install pcscd scdaemon gnupg2 pcsc-tools -y
 sudo pacman -Sy recolic-aur/gnome-terminal-transparency recolic-aur/oreo-cursors-git recolic-aur/pikaur
 
