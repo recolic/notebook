@@ -24,7 +24,8 @@ sed -i 's/^[# ]*SystemMaxFileSize=[ 0-9A-Za-z]*$/SystemMaxFileSize=30M/g' /etc/s
 echo "options cfg80211 ieee80211_regdom=AU" >> /etc/modprobe.d/cfg80211.conf
 echo "options cfg80211 internal_regdb=y" >> /etc/modprobe.d/cfg80211.conf
 echo "options cfg80211 crda_support=y" >> /etc/modprobe.d/cfg80211.conf
-sudo pacman -S --noconfirm wireless-regdb
+pacman -S --noconfirm wireless-regdb power-profiles-daemon
+systemctl enable power-profiles-daemon
 
 ### Require Input
 passwd recolic
