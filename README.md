@@ -518,3 +518,7 @@ cloudreve/cloudreve:latest
 ```
 docker run -tid --publish 445:445 --publish 137:137 --publish 138:138 --publish 139:139 --volume /mnt/fsdisk/nfs:/srv --name smbshare --restart=always jenserat/samba-publicshare
 ```
+
+## simple http server
+
+<https://github.com/TheWaWaR/simple-http-server>
