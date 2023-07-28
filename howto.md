@@ -29,3 +29,9 @@ python3 -m pip install --user uploadserver
 python3 -m uploadserver -b ::0
 ```
 Then access localhost:8000/upload with browser
+
+## use hp4100 printer
+
+Bad solution: Install and enable avahi service, and add printer.
+
+Good solution: `sudo lpadmin -p MyPrinter -v 'ipp://10.100.100.178:631/ipp/print' -E -m everywhere`
