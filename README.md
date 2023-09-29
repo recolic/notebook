@@ -100,7 +100,7 @@ Requires docker > 20.10.2, edit `/etc/docker/daemon.json`:
 |9399|Virtualbox web interface|
 |9000-9389|Virtualbox dynamic ports (RDP)|
 |31000-31499|Virtualbox dynamic ports (Other use)|
-|30400-30499|Generic dynamic ports (Other use)|
+|30400-30499|Generic dynamic ports (Undocumented)|
 
 --------
 
