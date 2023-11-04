@@ -72,35 +72,37 @@ Requires docker > 20.10.2, edit `/etc/docker/daemon.json`:
 
 |port|service|
 |-----|-----|
-|80|nginx-only rproxy http|
-|443|nginx-only rproxy https|
-|81|secondary-http|
-|444|secondary-https|
 |22|ssh|
-|4022|secondary-ssh|
-|25566|secondary-ssh|
-|25567|secondary-ssh|
-|5700-5710|VNC|
-|3389|RDP|
-|3128|http_proxy|
-|1080|socks5|
-|10808|socks5|
-|25551|shadowsocks|
-|25580|shadowsocks|
-|25581|snakesocks|
-|25554|openvpn|
-|1194|openvpn|
-|1935|RTMP stream|
+|80|nginx-only rproxy http|
+|81|secondary-http|
+|443|nginx-only rproxy https|
+|444|secondary-https|
 |466|shadowsocksR|
 |588|shadowsocksR|
-|30999|FRPS server|
-|30998|FRPS monitor|
-|30997|FRPC console|
-|30500-30899|FRP server dynamic ports|
-|9399|Virtualbox web interface|
+|1080|socks5|
+|1194|openvpn|
+|1935|RTMP stream|
+|3128|http_proxy|
+|3389|RDP|
+|4022|secondary-ssh|
+|4662-4672,4673|ed2k,torrent|
+|5700-5710|VNC|
 |9000-9389|Virtualbox dynamic ports (RDP)|
+|9399|Virtualbox web interface|
+|10808|socks5|
+|25551|shadowsocks|
+|25554|openvpn|
+|25565|minecraft|
+|25566|secondary-ssh|
+|25567|secondary-ssh|
+|25580|shadowsocks|
+|25581|snakesocks|
+|30400-30499|Generic dynamic ports (use without doc)|
+|30500-30899|FRP server dynamic ports|
+|30997|FRPC console|
+|30998|FRPS monitor|
+|30999|FRPS server|
 |31000-31499|Virtualbox dynamic ports (Other use)|
-|30400-30499|Generic dynamic ports (Undocumented)|
 
 --------
 
