@@ -217,6 +217,8 @@ frontend cert issue:
 ./acme.sh --issue -d git.recolic.net -d tm.recolic.net -d hustdb.recolic.net -d git.recolic.org -d tm.recolic.org -d hustdb.recolic.org --dns dns_cf
 ```
 
+Must disable monitoring basing on this guide: <https://docs.gitlab.com/ee/administration/monitoring/prometheus/#configuring-prometheus>
+
 ## drive.recolic.net
 
 data dir: `/srv/nextcloud`.
