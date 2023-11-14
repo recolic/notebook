@@ -1,5 +1,5 @@
 # whitelist breakwall seller
 
-<https://hutao.cloud>
+<https://taffy.cloud/>
 
-<https://oni.surf>
+<https://user.linki-1.com>
