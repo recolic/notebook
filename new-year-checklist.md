@@ -4,3 +4,4 @@
 4. renew all domains and VPSs
 5. New monthly budget questionnaire for River
 6. Fidelity: reset all account name to current value
+7. Rotate temporary email domain (xx@tmp.recolic.cc)
