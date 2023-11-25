@@ -196,26 +196,21 @@ docker push 600163736385.dkr.ecr.us-west-2.amazonaws.com/openvpn-server
 
 deploy (using /srv as datadir)
 ```
-docker run --log-opt max-size=10M --detach \
+docker run -d --restart always --log-opt max-size=10M --name rgit \
   --hostname git.recolic.net \
-  --publish 20443:443 --publish 2080:80 --publish 0.0.0.0:22:22 \
-  --name rgit \
-  --restart always \
-  --volume /srv/gitlab/config:/etc/gitlab \
-  --volume /srv/gitlab/logs:/var/log/gitlab \
-  --volume /srv/gitlab/data:/var/opt/gitlab \
-  gitlab/gitlab-ce:latest
+  -p 20443:443 -p 2080:80 -p 0.0.0.0:22:22 \ 
+  -v /srv/gitlab/config:/etc/gitlab -v /srv/gitlab/logs:/var/log/gitlab -v /srv/gitlab/data:/var/opt/gitlab \
+  gitlab/gitlab-ce:15.11.13-ce.0
 ```
 
-exec
+debug console
 ```
 docker exec -ti rgit /bin/bash
 ```
 
-frontend cert issue:
-```
-./acme.sh --issue -d git.recolic.net -d tm.recolic.net -d hustdb.recolic.net -d git.recolic.org -d tm.recolic.org -d hustdb.recolic.org --dns dns_cf
-```
+upgrade path: <https://docs.gitlab.com/ee/update/index.html#upgrade-paths>
+
+- customize (new deployment)
 
 Must disable monitoring basing on this guide: <https://docs.gitlab.com/ee/administration/monitoring/prometheus/#configuring-prometheus>
 
@@ -224,12 +219,17 @@ Must disable monitoring basing on this guide: <https://docs.gitlab.com/ee/admini
 data dir: `/srv/nextcloud`.
 
 ```
-docker run --log-opt max-size=10M -d -p 3083:80 --name rdrive --restart=always -v /srv/nextcloud/nextcloud:/var/www/html -v /srv/nextcloud/apps:/var/www/html/custom_apps -v /srv/nextcloud/config:/var/www/html/config -v /srv/nextcloud/data:/var/www/html/data -v /srv/nextcloud/theme:/var/www/html/themes/rdef nextcloud
+docker run -d --restart always --log-opt max-size=10M --name rdrive -p 3083:80 -v /srv/nextcloud/nextcloud:/var/www/html -v /srv/nextcloud/apps:/var/www/html/custom_apps -v /srv/nextcloud/config:/var/www/html/config -v /srv/nextcloud/data:/var/www/html/data -v /srv/nextcloud/theme:/var/www/html/themes/rdef nextcloud
+```
+
+debug console:
+```
+docker exec -u 33 -ti rdrive ./occ [args...]
 ```
 
 upgrade: at most one BIG-version each time. just stop and run with new image version. 
 
-- customize
+- customize (new deployment)
 
 I strongly recommend you to disable the "Text" app, and enable "Plain Text Editor" and "Markdown Editor". The builtin Text app doesn't support table in markdown... 
 
@@ -467,7 +467,7 @@ Add the dedicated NIC for VMs, don't forget to run `~/kvm-setup-bridge.sh` in OS
 source=<https://git.recolic.net/root/gitlab2github>
 
 ```
-docker run --log-opt max-size=10M -d --restart=always --name rgitsync --env github_user_dst="recolic:ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" recolic/gitlab2github
+docker run -d --restart=always --log-opt max-size=10M --name rgitsync --env github_user_dst="recolic:ghp_..." recolic/gitlab2github
 ```
 
 ## recolic mirror site
@@ -497,7 +497,7 @@ I only use owncast for temporary streaming, so there is no need to preserve its 
 ```
 # fresh deploy
 mkdir /srv/owncast
-docker run -v /srv/owncast:/app/data -p 3009:8080 -p 1935:1935 -d --restart=always --name rcast gabekangas/owncast
+docker run -d --restart=always --log-opt max-size=10M --name rcast -v /srv/owncast:/app/data -p 3009:8080 -p 1935:1935 gabekangas/owncast
 ```
 
 ## cloudreve
