@@ -198,7 +198,7 @@ deploy (using /srv as datadir)
 ```
 docker run -d --restart always --log-opt max-size=10M --name rgit \
   --hostname git.recolic.net \
-  -p 20443:443 -p 2080:80 -p 0.0.0.0:22:22 \ 
+  -p 20443:443 -p 2080:80 -p [::]:22:22 -p 0.0.0.0:22:22 \ 
   -v /srv/gitlab/config:/etc/gitlab -v /srv/gitlab/logs:/var/log/gitlab -v /srv/gitlab/data:/var/opt/gitlab \
   gitlab/gitlab-ce:15.11.13-ce.0
 ```
@@ -282,7 +282,7 @@ touch /srv/html/status.html
 docker run --log-opt max-size=10M -d --name rmon --restart=always -v /srv/html/status.html:/app/status.html recolic/rserver-status
 ```
 
-## Matrix + Riot.im (TODO: it's outdated)
+## Matrix + Riot.im [outdated,deprecated]
 
 > https://git.recolic.net/root/matrix-riot-docker
 
@@ -338,7 +338,7 @@ for 'gridzone' theme, search for `.entry code` in style.css, and remove its back
 
 all files inside /srv/html. Migrate together with www.recolic.net. 
 
-## LAN printer (CUPS)
+## LAN printer (CUPS) [deprecated]
 
 - build from stretch (from archwiki)
 
