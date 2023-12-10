@@ -35,3 +35,11 @@ Then access localhost:8000/upload with browser
 Bad solution: Install and enable avahi service, and add printer.
 
 Good solution: `sudo lpadmin -p MyPrinter -v 'ipp://10.100.100.178:631/ipp/print' -E -m everywhere`
+
+## yt-dlp usage
+
+```
+yt-dlp --write-sub --write-auto-sub --sub-lang "en.*" "https://youtube.com/xxxxxxxxxxxxxxxxxxxx"
+```
+
+https://www.reddit.com/r/youtubedl/comments/wpq4y0/ytdlp_how_to_ensure_download_of_english_subtitles/
