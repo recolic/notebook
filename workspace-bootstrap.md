@@ -132,9 +132,11 @@ services.sync.prefs.sync.browser.uiCustomization.state = true
 
 - OPT: CLion
 
-Must use Clion 2022.1, do not upgrade because of severe performance downgrade.
+~~Must use Clion 2022.1, do not upgrade because of severe performance downgrade.
+Add `-fsized-deallocation` to clangd flags in `Settings | Languages & Frameworks | C/C++ | Clangd`.~~
 
-Add `-fsized-deallocation` to clangd flags in `Settings | Languages & Frameworks | C/C++ | Clangd`.
+
+Disable `reopen projects on startup` <https://stackoverflow.com/questions/5362036/how-to-prevent-open-last-projects-when-intellij-idea-starts>
 
 - OPT: microsoft devbox setup
 
