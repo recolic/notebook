@@ -43,3 +43,16 @@ yt-dlp --write-sub --write-auto-sub --sub-lang "en.*" "https://youtube.com/xxxxx
 ```
 
 https://www.reddit.com/r/youtubedl/comments/wpq4y0/ytdlp_how_to_ensure_download_of_english_subtitles/
+
+## GPG software for Windows noob
+
+`gpg4win` at <https://gpg4win.org/download.html>
+
+## 3HK prepaid SIM: Must install app for KYC verification, but the app doesn't work
+
+`Need My3 app for real-name registration`: It's a lie.
+
+Best solution: Just use the real KYC link. <https://www.three.com.hk/prepaid/account/tc/rnr-reg>
+
+Alternative solution: If you love the app so much, you can download the correct app manually. The appid must be `hk.com.three.my3plus`. If Play Store says not available, download apk from 3rd-party.
+
