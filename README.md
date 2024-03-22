@@ -73,9 +73,9 @@ Requires docker > 20.10.2, edit `/etc/docker/daemon.json`:
 |port|service|
 |-----|-----|
 |22|ssh|
-|80|nginx-only rproxy http|
+|80|http (nginx)|
 |81|secondary-http|
-|443|nginx-only rproxy https|
+|443|https (nginx)|
 |444|secondary-https|
 |466|shadowsocksR|
 |588|shadowsocksR|
@@ -86,7 +86,7 @@ Requires docker > 20.10.2, edit `/etc/docker/daemon.json`:
 |3389|RDP|
 |4022|secondary-ssh|
 |4662-4672,4673|ed2k,torrent|
-|5700-5710|VNC|
+|5700-5720|VNC|
 |9000-9389|Virtualbox dynamic ports (RDP)|
 |9399|Virtualbox web interface|
 |10808|socks5|
@@ -97,8 +97,10 @@ Requires docker > 20.10.2, edit `/etc/docker/daemon.json`:
 |25567|secondary-ssh|
 |25580|shadowsocks|
 |25581|snakesocks|
+|25582|msauth-vm-adb|
+|25583|msauth-http-api|
 |30400-30499|Generic dynamic ports (use without doc)|
-|30500-30899|FRP server dynamic ports|
+|30500-30899|FRPS reserved, ref frps-recolic.ini|
 |30997|FRPC console|
 |30998|FRPS monitor|
 |30999|FRPS server|
