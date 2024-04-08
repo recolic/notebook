@@ -24,11 +24,19 @@ socat udp-listen:444,fork,reuseaddr udp:microsoft.com:443
 
 ## http upload server
 
+<details>
+  <summary>Deprecated</summary>
 ```
 python3 -m pip install --user uploadserver
 python3 -m uploadserver -b ::0
+# Then access localhost:8000/upload with browser
 ```
-Then access localhost:8000/upload with browser
+</details>
+
+```
+# Installed on all recolic nodes.
+simple-http-server -u -l 8000100100
+```
 
 ## use hp4100 printer
 
@@ -56,3 +64,9 @@ Best solution: Just use the real KYC link. <https://www.three.com.hk/prepaid/acc
 
 Alternative solution: If you love the app so much, you can download the correct app manually. The appid must be `hk.com.three.my3plus`. If Play Store says not available, download apk from 3rd-party.
 
+## journal cleanup
+
+```
+journalctl --disk-usage
+journalctl --vacuum-size=20M
+```
