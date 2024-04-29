@@ -136,7 +136,7 @@ services.sync.prefs.sync.browser.uiCustomization.state = true
 Add `-fsized-deallocation` to clangd flags in `Settings | Languages & Frameworks | C/C++ | Clangd`.~~
 
 
-Disable `reopen projects on startup` <https://stackoverflow.com/questions/5362036/how-to-prevent-open-last-projects-when-intellij-idea-starts>
+[starting 2023] Disable `reopen projects on startup` <https://stackoverflow.com/questions/5362036/how-to-prevent-open-last-projects-when-intellij-idea-starts>
 
 - OPT: microsoft devbox setup
 
