@@ -41,9 +41,9 @@ sudo pacman -Sy recolic-aur/gnome-terminal-transparency recolic-aur/oreo-cursors
 
 sudo systemctl enable bluetooth --now
 
-echo "GTK_IM_MODULE=fcitx" >> $HOME/.pam_environment
-echo "QT_IM_MODULE=fcitx" >> $HOME/.pam_environment
-echo "XMODIFIERS=@im=fcitx" >> $HOME/.pam_environment
+echo "GTK_IM_MODULE=fcitx" >> /etc/environment
+echo "QT_IM_MODULE=fcitx" >> /etc/environment
+echo "XMODIFIERS=@im=fcitx" >> /etc/environment
 
 sudo systemctl enable pcscd.service --now
 gpg --keyserver keyserver.ubuntu.com --recv-keys E3933636
@@ -142,3 +142,10 @@ Disable `reopen projects on startup` <https://stackoverflow.com/questions/536203
 
 Refer to <https://git.recolic.net/root/ms-scripts/-/blob/master/notes/workspace-bootstrap-ms.md>
 
+- OPT: wayland fix
+
+Set /etc/environment
+
+```
+QT_QPA_PLATFORM=wayland
+```
