@@ -5,3 +5,5 @@
 5. New monthly budget questionnaire for River
 6. Fidelity: reset all account name to current value
 7. Rotate temporary email domain (xx@tmp.recolic.cc)
+
+2025.1 www.recolic Note: stop using RackNerd, move to Azure / OVH / Vultr / Linode choose one.
