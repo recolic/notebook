@@ -82,4 +82,7 @@ apt install ca-certificates gnupg
 apt-key adv --keyserver keyserver.ubuntu.com --recv-keys BAC6F0C353D04109
 apt update
 apt install intel-oneapi-compiler-dpcpp-cpp-and-cpp-classic
+
+source /opt/intel/oneapi/setvars.sh
+icpc -V
 ```
