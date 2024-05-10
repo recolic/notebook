@@ -70,3 +70,16 @@ Alternative solution: If you love the app so much, you can download the correct 
 journalctl --disk-usage
 journalctl --vacuum-size=20M
 ```
+
+## install intel icc
+
+```
+## Please run following as root:
+
+echo "deb https://apt.repos.intel.com/oneapi all main" >/etc/apt/sources.list.d/intel-oneapi.list
+apt update
+apt install ca-certificates gnupg
+apt-key adv --keyserver keyserver.ubuntu.com --recv-keys BAC6F0C353D04109
+apt update
+apt install intel-oneapi-compiler-dpcpp-cpp-and-cpp-classic
+```
