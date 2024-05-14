@@ -231,6 +231,8 @@ docker exec -u 33 -ti rdrive ./occ [args...]
 
 upgrade path: [Last minor-release in every BIG-version is a checkpoint.](https://docs.nextcloud.com/server/latest/admin_manual/maintenance/upgrade.html) just stop and run with new image version. 
 
+> if occ upgrade says "General error: 5 database is locked", maybe occ upgrade is already started by docker. You dont need to run it manually, just check and wait.
+
 - customize (new deployment)
 
 I strongly recommend you to disable the "Text" app, and enable "Plain Text Editor" and "Markdown Editor". The builtin Text app doesn't support table in markdown... 
