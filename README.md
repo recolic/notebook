@@ -229,7 +229,7 @@ debug console:
 docker exec -u 33 -ti rdrive ./occ [args...]
 ```
 
-upgrade: at most one BIG-version each time. just stop and run with new image version. 
+upgrade path: [Last minor-release in every BIG-version is a checkpoint.](https://docs.nextcloud.com/server/latest/admin_manual/maintenance/upgrade.html) just stop and run with new image version. 
 
 - customize (new deployment)
 
