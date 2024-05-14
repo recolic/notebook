@@ -284,10 +284,6 @@ touch /srv/html/status.html
 docker run --log-opt max-size=10M -d --name rmon --restart=always -v /srv/html/status.html:/app/status.html recolic/rserver-status
 ```
 
-## Matrix + Riot.im [outdated,deprecated]
-
-> https://git.recolic.net/root/matrix-riot-docker
-
 ## new Shadowsocks server setup 2020
 
 ```
@@ -340,39 +336,6 @@ for 'gridzone' theme, search for `.entry code` in style.css, and remove its back
 
 all files inside /srv/html. Migrate together with www.recolic.net. 
 
-## LAN printer (CUPS) [deprecated]
-
-- build from stretch (from archwiki)
-
-```
-pacman -S cups avahi nss-mdns
-```
-
-edit /etc/nsswitch.conf: find the `hosts` line, add `mdns_minimal [NOTFOUND=return]` BEFORE `resolve ... dns`. 
-
-To allow LAN to access the web interface, do
-
-```sh
-vim /etc/cups/cupsd.conf # EDIT: listen 0.0.0.0:631
-cupsctl --remote-admin --remote-any --share-printers
-```
-
-Enable and start `avahi-daemon.service` and `org.cups.cupsd.service`. 
-
-- PPD file for HP 1020
-
-https://github.com/koenkooi/foo2zjs/blob/master/PPD/HP-LaserJet_1020.ppd
-
-HP1020 should use CUPS 2.3.3-3 (ArchLinux) and **should not upgrade**. 
-
-- FAQ: 
-
-1. Filter failed: Please read /var/log/cups/error.log to find the actual error. 
-2. In error.log, foo2zjs-wrapper: command not found: Install AUR package `foo2zjs-nightly`. 
-3. `lpinfo -v` shows `usb://unknown/printer`, or `Waiting for printer to become available` after archlinux upgrade:   
-  Please [downgrade cups/libcups to 2.3.3-3](https://wiki.archlinux.org/index.php/CUPS/Troubleshooting#Issues_Relating_to_Upgrade_2.3.3-3_-%3E_2.3.3+106+ga72b0140e-1), and downgrade cups-filters to 1.28.5-1, and set these packages as IgnorePkg in `/etc/pacman.conf`. Switching Arch's CUPS upstream from Apple's senescent original to the actively-developed OpenPrinting fork broke your CUPS. 
-4. TODO
-
 ## Gitlab runner
 
 ```
@@ -406,7 +369,46 @@ Docker-in-docker: Set firewall rule to prevent Internet from accessing port 2375
 
 > disable tls if there's any problem. https://docs.gitlab.com/ee/ci/docker/using_docker_build.html
 
-## WebVirtMgr
+<details><summary>Deprecated Contents</summary>
+
+## Matrix + Riot.im [outdated,deprecated]
+
+> https://git.recolic.net/root/matrix-riot-docker
+
+## LAN printer (CUPS) [deprecated]
+
+- build from stretch (from archwiki)
+
+```
+pacman -S cups avahi nss-mdns
+```
+
+edit /etc/nsswitch.conf: find the `hosts` line, add `mdns_minimal [NOTFOUND=return]` BEFORE `resolve ... dns`. 
+
+To allow LAN to access the web interface, do
+
+```sh
+vim /etc/cups/cupsd.conf # EDIT: listen 0.0.0.0:631
+cupsctl --remote-admin --remote-any --share-printers
+```
+
+Enable and start `avahi-daemon.service` and `org.cups.cupsd.service`. 
+
+- PPD file for HP 1020
+
+https://github.com/koenkooi/foo2zjs/blob/master/PPD/HP-LaserJet_1020.ppd
+
+HP1020 should use CUPS 2.3.3-3 (ArchLinux) and **should not upgrade**. 
+
+- FAQ: 
+
+1. Filter failed: Please read /var/log/cups/error.log to find the actual error. 
+2. In error.log, foo2zjs-wrapper: command not found: Install AUR package `foo2zjs-nightly`. 
+3. `lpinfo -v` shows `usb://unknown/printer`, or `Waiting for printer to become available` after archlinux upgrade:   
+  Please [downgrade cups/libcups to 2.3.3-3](https://wiki.archlinux.org/index.php/CUPS/Troubleshooting#Issues_Relating_to_Upgrade_2.3.3-3_-%3E_2.3.3+106+ga72b0140e-1), and downgrade cups-filters to 1.28.5-1, and set these packages as IgnorePkg in `/etc/pacman.conf`. Switching Arch's CUPS upstream from Apple's senescent original to the actively-developed OpenPrinting fork broke your CUPS. 
+4. TODO
+
+## WebVirtMgr (deprecated)
 
 - Setup Web Portal
 
@@ -460,9 +462,11 @@ Add two storage pool, `/mnt/fsdisk/kvm/disks` and `/mnt/fsdisk/kvm/images`.
 
 Add the dedicated NIC for VMs, don't forget to run `~/kvm-setup-bridge.sh` in OS `startup.sh`.
 
-## Android ADB web
+## Android ADB web (deprecated)
 
 <https://github.com/say-no-to-wechat/android-web-control-docker>
+
+</details><!-- END deprecated --------------------------- -->
 
 ## Gitlab2github gitsync
 
