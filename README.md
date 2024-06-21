@@ -40,8 +40,6 @@ Requires docker > 20.10.2, edit `/etc/docker/daemon.json`:
 }
 ```
 
-# DO NOT FORGET WRITING DOCKER-START INTO rc.local
-
 ## proxi-ed http port usage:
 
 |port|service|
