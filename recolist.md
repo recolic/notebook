@@ -20,7 +20,7 @@ recoselect 3-star: 洪禧樓·老廣東海鮮酒樓(蘇州中心店); 江南雅�
 
 recoselect 2-star: 金春禧(青岛金茂灣店); 新梅華餐廳(蘇州獨墅湖店); 鼎泰豐
 
-recoselect 1-star: 沙县小吃(深圳嘉鑫辉煌时代店); 玖五京菜(武汉万象城店)
+recoselect 1-star: 玖五京菜(武汉万象城店)
 
 PRC daily: 沙县小吃; 蜜雪冰城
 
