@@ -10,9 +10,11 @@
 pacman -Sy --noconfirm fish dhcpcd vim sudo openssh
 useradd --create-home --shell /usr/bin/fish recolic
 echo 'recolic ALL=(ALL) NOPASSWD: ALL' | sudo EDITOR='tee -a' visudo
-echo 'kernel.sysrq=1' >> /etc/sysctl.d/99-sysctl.conf 
-pacman -Sy --noconfirm gnome networkmanager
+echo 'kernel.sysrq=1' >> /etc/sysctl.d/99-sysctl.conf
+
+pacman -Sy --noconfirm gnome networkmanager power-profiles-daemon
 systemctl enable gdm NetworkManager
+systemctl enable power-profiles-daemon
 
 echo '[recolic-aur]
 SigLevel = Optional TrustAll
@@ -20,12 +22,6 @@ Server = https://drive.recolic.cc/mirrors/recolic-aur' >> /etc/pacman.conf
 sed -i 's/^[# ]*ParallelDownloads =[ 0-9A-Za-z]*$/ParallelDownloads = 5/g' /etc/pacman.conf
 sed -i 's/^[# ]*SystemMaxUse=[ 0-9A-Za-z]*$/SystemMaxUse=150M/g' /etc/systemd/journald.conf
 sed -i 's/^[# ]*SystemMaxFileSize=[ 0-9A-Za-z]*$/SystemMaxFileSize=30M/g' /etc/systemd/journald.conf
-
-echo "options cfg80211 ieee80211_regdom=AU" >> /etc/modprobe.d/cfg80211.conf
-echo "options cfg80211 internal_regdb=y" >> /etc/modprobe.d/cfg80211.conf
-echo "options cfg80211 crda_support=y" >> /etc/modprobe.d/cfg80211.conf
-pacman -S --noconfirm wireless-regdb power-profiles-daemon
-systemctl enable power-profiles-daemon
 
 ### Require Input
 passwd recolic
@@ -57,6 +53,13 @@ gpg-connect-agent reloadagent /bye
 #set -g GPG_TTY (tty)
 #gpg-connect-agent updatestartuptty /bye
 ```
+
+<!--
+echo "options cfg80211 ieee80211_regdom=AU" >> /etc/modprobe.d/cfg80211.conf
+echo "options cfg80211 internal_regdb=y" >> /etc/modprobe.d/cfg80211.conf
+echo "options cfg80211 crda_support=y" >> /etc/modprobe.d/cfg80211.conf
+pacman -S --noconfirm wireless-regdb
+-->
 
 - nextcloud
 
