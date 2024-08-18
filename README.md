@@ -268,8 +268,6 @@ Usage survey
 User status
 Video player
 Weather status
-
-Default encryption module
 ```
 
 |If you want|Do|Otherwise|
