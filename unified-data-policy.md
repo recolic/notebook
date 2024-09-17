@@ -18,7 +18,7 @@
 
 - type I: public personal data, or non-important public data. 
 
-- type C2: sensitive important personal data, such as photos, game save; Encrypted type M data.
+- type C2: sensitive important personal data, such as photos, game save, server data; Encrypted type M data.
 
 - type C: sensitive non-important personal data, such as system logs, chat logs, screenshots, web history, development environment.
 
