@@ -99,6 +99,8 @@ config redirect
 
 DHCP pool: 10.100.100.120 - 10.100.100.220, router 10.100.100.1
 
+/etc/config/dhcp
+
 ```
 [other config ...]
 
