@@ -102,35 +102,32 @@ DHCP pool: 10.100.100.120 - 10.100.100.220, router 10.100.100.1
 ```
 [other config ...]
 
-config host      
-        option name 'RECOLICPC'
-        option dns '1'   
-        option mac '24:4B:FE:8D:BF:84'
-        option ip '10.100.100.34'
-                      
-config host                
-        option name 'RECOLICHMS'            
-        option dns '1'                               
-        option mac '2C:56:DC:08:42:73'
-        option ip '10.100.100.101'
-           
-config host                    
-        option name 'LadlodRouter'
-        option dns '1'                
-        option mac '7C:B5:40:74:FD:CE'
-        option ip '10.100.100.122'
-           
-config domain                   
-        option name 'pc.recolic'
-        option ip '10.100.100.34'     
-                                  
+config host
+	option name 'pc.re'
+	option dns '1'
+	option mac '24:4B:FE:8D:BF:84'
+	option ip '10.100.100.34'
+
+config host
+	option name 'hms.re'
+	option dns '1'
+	option ip '10.100.100.101'
+	option mac 'C8:4D:44:29:93:55'
+
+config host
+	option name 'rpi.re'
+	option dns '1'
+	option mac 'E4:5F:01:CD:FE:B8'
+	option ip '10.100.100.187'
+
 config domain
-        option name 'hms.recolic'
-        option ip '10.100.100.101'
-                      
-config domain                         
-        option name 'RECOLICHMS'  
-        option ip '10.100.100.101'
+	option name 'hms.recolic'
+	option ip '10.100.100.101'
+
+config host
+	option name 'HP2EB76F'
+	option ip '10.100.100.178'
+	option mac 'A8:B1:3B:2E:B7:6F'
 ```
 
 ## Traffic meter setup
