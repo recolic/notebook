@@ -16,9 +16,9 @@
 
 - type I2: non-sensitive important data, such as environent setup script, software installation packs, saved movies.
 
-- type I: public personal data, or non-important public data. 
+- type I: public personal data, or non-important public data.
 
-- type C2: sensitive important personal data, such as photos, game save, server data; Encrypted type M data.
+- type C2: sensitive important personal data, such as photos, game save, server data.
 
 - type C: sensitive non-important personal data, such as system logs, chat logs, screenshots, web history, development environment.
 
@@ -32,12 +32,12 @@
 
 |Type|Encryption|Ownership|Replication|Current\_Solution|
 |---|---|---|---|---|
-|M|Always, by GPG master key or super key|1P|Level 4|nfs/backup/C2_M|
 |MX|Always, by cold key and super key|1P|Level 4|nfs/backup/MX|
-|C2|Only on untrusted device|1P / 3P|Level 3|nfs/backup/C2_M, RecoDrive, encrypted devices|
-|C|Device-level encryption|1P / 3P|Level 1|normal encrypted devices|
+|M|Always, by GPG master key or super key|1P|Level 4|nfs/backup/C2_M|
+|C2|Only on untrusted device|1P / 3P|Level 3|nfs/backup/C2_M, RecoDrive|
+|C|Device-level encryption|1P / 3P|Level 1|any encrypted devices|
 |I2|Optional|1P / 3P|Level 2|nfs/backup/I2, RecoGit, RecoDrive|
-|I|Optional|1P / 3P|Level 1|normal devices|
+|I|Optional|1P / 3P|Level 1|any devices|
 
 |Properties|Important|Non-Important|
 |---|---|---|
