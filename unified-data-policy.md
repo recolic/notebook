@@ -44,6 +44,6 @@
 |Sensitive|MX,M,C2|C|
 |Non-sensitive|I2|I|
 
-![](./.res/reco-file-types.svg)
+![](./.res/reco-file-types.png)
 
 All device storing / processing unencrypted sensitive data, must either using Fully-Open-Source-Software, or be disconnected from Internet and destroyed afterward. 
