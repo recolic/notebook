@@ -133,4 +133,11 @@ config domain
         option ip '10.100.100.101'
 ```
 
+## Traffic meter setup
 
+```
+opkg update
+opkg install luci-app-statistics collectd-mod-ethstat collectd-mod-ipstatistics
+/etc/init.d/collectd enable
+reboot
+```
