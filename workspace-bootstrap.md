@@ -129,6 +129,7 @@ Visit `about:config` and set/add the following entries:
 ```
 browser.tabs.tabmanager.enabled = false
 services.sync.prefs.sync.browser.uiCustomization.state = true
+browser.tabs.hoverPreview.enabled = false
 ```
 
 > Ref: <https://support.mozilla.org/en-US/questions/1292568>
