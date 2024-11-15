@@ -63,8 +63,7 @@ pacman -S --noconfirm wireless-regdb
 
 - nextcloud
 
-Login Nextcloud, and make sure `~/.config/autostart/com.nextcloud.desktopclient.nextcloud.desktop` exists, and wait for initial sync.   
-Then run: 
+Login Nextcloud. **After Nextcloud sync complete**, run: 
 
 ```
 fish ~/Nextcloud/workspace/setup-management.fish
@@ -72,40 +71,7 @@ fish ~/Nextcloud/workspace/setup-management.fish
 
 - gnome configure
 
-```
-# gnome extension will be managed by nextcloud sync
-# TODO: add recolic-aur to pacman.conf and install gnome-terminal-transparency
-
-gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-ac-type nothing
-gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-battery-type nothing
-gsettings set org.gnome.settings-daemon.plugins.power idle-dim false
-gsettings set org.gnome.desktop.screensaver idle-activation-enabled false
-gsettings set org.gnome.desktop.privacy remember-recent-files false
-gsettings set org.gnome.desktop.peripherals.touchpad tap-to-click true
-gsettings set org.gnome.desktop.interface enable-hot-corners false
-gsettings set org.gnome.desktop.media-handling automount false
-gsettings set org.gnome.desktop.media-handling automount-open false
-gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-left "['<Shift><Alt>Left']"
-gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-right "['<Shift><Alt>Right']"
-gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-up "['<Shift><Alt>Up']"
-gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-down "['<Shift><Alt>Down']"
-gsettings set org.gnome.desktop.wm.keybindings move-to-monitor-left "['<Super><Shift>Left']"
-gsettings set org.gnome.desktop.wm.keybindings move-to-monitor-right "['<Super><Shift>Right']"
-gsettings set org.gnome.desktop.wm.keybindings move-to-monitor-up "['<Super><Shift>Up']"
-gsettings set org.gnome.desktop.wm.keybindings move-to-monitor-down "['<Super><Shift>Down']"
-gsettings set org.gnome.desktop.wm.keybindings switch-windows "['<Primary>Tab']"
-gsettings set org.gnome.desktop.wm.keybindings switch-windows-backward "['<Primary><Shift>Tab']"
-gsettings set org.gnome.desktop.wm.keybindings switch-applications "['<Super>Tab', '<Alt>Tab']"
-gsettings set org.gnome.desktop.wm.keybindings switch-applications-backward "['<Shift><Super>Tab', '<Shift><Alt>Tab']"
-gsettings set org.gnome.settings-daemon.plugins.media-keys window-screenshot-clip "['disabled']"
-gsettings set org.gnome.settings-daemon.plugins.media-keys area-screenshot-clip "['<Primary>Print']"
-gsettings set org.gnome.settings-daemon.plugins.media-keys window-screenshot "['disabled']"
-gsettings set org.gnome.settings-daemon.plugins.media-keys screenshot-clip "['<Primary><Shift>Print']"
-gsettings set org.gnome.settings-daemon.plugins.media-keys area-screenshot "['Print']"
-gsettings set org.gnome.settings-daemon.plugins.media-keys screenshot "['<Shift>Print']"
-```
-
-**After Nextcloud sync complete**, enable your plugins and config your plugins.
+**After Nextcloud sync complete**, enable and config your plugins.
 
 - OPT: thunderbird
 
@@ -121,18 +87,6 @@ Select `Tools -> Autocorrect -> Autocorrect Options` from the menu, then `Locali
 Select `Tools -> Autocorrect -> Autocorrect Options` from the menu, then `Options`, uncheck everything. 
 
 `Tools -> Options -> LibreOffice Calc -> General -> Measurement unit`, change to `Centimeter`
-
-- OPT: firefox
-
-Visit `about:config` and set/add the following entries: 
-
-```
-browser.tabs.tabmanager.enabled = false
-services.sync.prefs.sync.browser.uiCustomization.state = true
-browser.tabs.hoverPreview.enabled = false
-```
-
-> Ref: <https://support.mozilla.org/en-US/questions/1292568>
 
 - OPT: CLion
 
