@@ -1,6 +1,6 @@
 # Reproduce recolic's workspace
 
-> If you're in fucking China, change all `recolic.net` to breakwall domain (such as recolic.cc). 
+> If you're in fucking China, replace `recolic.net` with other domain (such as recolic.cc). 
 
 ## GUI Workspace
 
