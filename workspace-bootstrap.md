@@ -31,43 +31,22 @@ passwd recolic
 > Now, reboot and enter gnome terminal, run everything below **as recolic**, in **fish**
 
 ```
-sudo pacman -Sy --noconfirm base-devel thunderbird nextcloud-client firefox telegram-desktop docker shadowsocks-libev v2ray proxychains xclip adobe-source-han-sans-cn-fonts      pcsclite ccid    git inetutils wget ttf-fira-code htop tmux dos2unix nfs-utils python-pip gnome-tweaks fcitx5-im man-db man-pages  kolourpaint breeze
-# sudo apt install pcscd scdaemon gnupg2 pcsc-tools -y
-sudo pacman -Sy recolic-aur/gnome-terminal-transparency recolic-aur/oreo-cursors-git recolic-aur/pikaur
+sudo pacman -Sy --noconfirm nextcloud-client firefox
+```
 
-sudo systemctl enable bluetooth --now
+Login Nextcloud. **After Nextcloud sync complete**, run: 
 
-echo "GTK_IM_MODULE=fcitx" >> /etc/environment
-echo "QT_IM_MODULE=fcitx" >> /etc/environment
-echo "XMODIFIERS=@im=fcitx" >> /etc/environment
-
-sudo systemctl enable pcscd.service --now
-gpg --keyserver keyserver.ubuntu.com --recv-keys E3933636
-set -gx SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket) # already in fish.config
-echo pinentry-timeout 0 > ~/.gnupg/gpg-agent.conf
-echo "pinentry-program /usr/bin/pinentry-gnome3" >> ~/.gnupg/gpg-agent.conf
-echo enable-ssh-support >> ~/.gnupg/gpg-agent.conf
-echo 93AC57E30E88111EC71D9215A1B436AFE705C71C > ~/.gnupg/sshcontrol
-gpg-connect-agent reloadagent /bye
-## For non-GUI setup: 
-#set -g GPG_TTY (tty)
-#gpg-connect-agent updatestartuptty /bye
+```
+bash ~/Nextcloud/workspace/init.bash
 ```
 
 <!--
+# doesn't work for intel NIC
 echo "options cfg80211 ieee80211_regdom=AU" >> /etc/modprobe.d/cfg80211.conf
 echo "options cfg80211 internal_regdb=y" >> /etc/modprobe.d/cfg80211.conf
 echo "options cfg80211 crda_support=y" >> /etc/modprobe.d/cfg80211.conf
 pacman -S --noconfirm wireless-regdb
 -->
-
-- nextcloud
-
-Login Nextcloud. **After Nextcloud sync complete**, run: 
-
-```
-fish ~/Nextcloud/workspace/setup-management.fish
-```
 
 - gnome configure
 
