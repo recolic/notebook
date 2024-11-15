@@ -10,31 +10,18 @@
 pacman -Sy --noconfirm fish dhcpcd vim sudo openssh
 useradd --create-home --shell /usr/bin/fish recolic
 echo 'recolic ALL=(ALL) NOPASSWD: ALL' | sudo EDITOR='tee -a' visudo
-echo 'kernel.sysrq=1' >> /etc/sysctl.d/99-sysctl.conf
 
-pacman -Sy --noconfirm gnome networkmanager power-profiles-daemon
-systemctl enable gdm NetworkManager
-systemctl enable power-profiles-daemon
-
-echo '[recolic-aur]
-SigLevel = Optional TrustAll
-Server = https://drive.recolic.cc/mirrors/recolic-aur' >> /etc/pacman.conf
-sed -i 's/^[# ]*ParallelDownloads =[ 0-9A-Za-z]*$/ParallelDownloads = 5/g' /etc/pacman.conf
-sed -i 's/^[# ]*SystemMaxUse=[ 0-9A-Za-z]*$/SystemMaxUse=150M/g' /etc/systemd/journald.conf
-sed -i 's/^[# ]*SystemMaxFileSize=[ 0-9A-Za-z]*$/SystemMaxFileSize=30M/g' /etc/systemd/journald.conf
+pacman -Sy --noconfirm gnome networkmanager power-profiles-daemon nextcloud-client firefox
+systemctl enable gdm NetworkManager power-profiles-daemon
 
 ### Require Input
 passwd recolic
 
 ```
 
-> Now, reboot and enter gnome terminal, run everything below **as recolic**, in **fish**
+> Reboot. Log into gnome as recolic, login Nextcloud.
 
-```
-sudo pacman -Sy --noconfirm nextcloud-client firefox
-```
-
-Login Nextcloud. **After Nextcloud sync complete**, run: 
+**After Nextcloud sync complete**, run **as recolic**:
 
 ```
 bash ~/Nextcloud/workspace/init.bash
