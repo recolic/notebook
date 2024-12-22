@@ -62,7 +62,7 @@ Mobile: andOTP; FairEmail; Youtube-Revanced; QR Scanner (by TeaCapps); Editor (o
 
 Netgear with OpenWRT; Advanced Micro Devices; Plum (Keyboard)
 
-Yubico; Protectimus
+Yubico; ~~Protectimus~~; Token2
 
 </details><details><summary>Misc service provider</summary>
 
