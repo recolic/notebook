@@ -208,7 +208,7 @@ debug console
 docker exec -ti rgit /bin/bash
 ```
 
-upgrade path: <https://docs.gitlab.com/ee/update/index.html#upgrade-paths>
+upgrade path: [doc](https://docs.gitlab.com/ee/update/index.html#upgrade-paths) [Upgrade path tool](https://gitlab-com.gitlab.io/support/toolbox/upgrade-path/)
 
 - customize (new deployment)
 
