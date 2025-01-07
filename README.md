@@ -198,7 +198,7 @@ deploy (using /srv as datadir)
 ```
 docker run -d --restart always --log-opt max-size=10M --name rgit \
   --hostname git.recolic.net \
-  -p 20443:443 -p 2080:80 -p [::]:22:22 -p 0.0.0.0:22:22 \ 
+  -p 20443:443 -p 2080:80 -p [::]:22:22 -p 0.0.0.0:22:22 \
   -v /srv/gitlab/config:/etc/gitlab -v /srv/gitlab/logs:/var/log/gitlab -v /srv/gitlab/data:/var/opt/gitlab \
   gitlab/gitlab-ce:15.11.13-ce.0
 ```
@@ -208,7 +208,7 @@ debug console
 docker exec -ti rgit /bin/bash
 ```
 
-upgrade path: [doc](https://docs.gitlab.com/ee/update/index.html#upgrade-paths) [Upgrade path tool](https://gitlab-com.gitlab.io/support/toolbox/upgrade-path/)
+upgrade path: [doc](https://docs.gitlab.com/ee/update/index.html#upgrade-paths) ; [Upgrade path tool](https://gitlab-com.gitlab.io/support/toolbox/upgrade-path/)
 
 - customize (new deployment)
 
