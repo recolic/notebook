@@ -233,43 +233,6 @@ upgrade path: [Last minor-release in every BIG-version is a checkpoint.](https:/
 
 - customize (new deployment)
 
-I strongly recommend you to disable the "Text" app, and enable "Plain Text Editor" and "Markdown Editor". The builtin Text app doesn't support table in markdown... 
-
-This is my active app list: 
-
-```
-Accessibility
-Automated PDF conversion
-Calendar
-Comments
-Contacts Interaction
-Deleted files
-Federation
-File sharing
-First run wizard
-GitHub integration
-GitLab integration
-Log Reader
-Markdown Editor
-Monitoring
-Nextcloud announcements
-Notifications
-Password policy
-PDF viewer
-Plain text editor
-Privacy
-Right click
-Share by mail
-Social sharing via email
-Support
-Tasks
-Theming
-Usage survey
-User status
-Video player
-Weather status
-```
-
 |If you want|Do|Otherwise|
 |---|---|---|
 |Task management|Use `2do` android app|disable Calendar and Tasks|
