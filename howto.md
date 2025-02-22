@@ -86,3 +86,10 @@ apt install intel-oneapi-compiler-dpcpp-cpp-and-cpp-classic
 source /opt/intel/oneapi/setvars.sh
 icpc -V
 ```
+
+## aria2c seed only?
+
+```
+aria2c --bt-seed-unverified -V --seed-ratio=0.0 -d/path/to/download xxx.torrent
+aria2c --bt-seed-unverified -V --seed-ratio=0.0 -d. xxx.torrent
+```
