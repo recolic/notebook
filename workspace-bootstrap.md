@@ -1,30 +1,17 @@
 # Reproduce recolic's workspace
 
-> If you're in fucking China, replace `recolic.net` with other domain (such as recolic.cc). 
-
 ## GUI Workspace
 
-> After installing Arch Linux, run as root
+> After installing Arch Linux
 
 ```
-pacman -Sy --noconfirm fish dhcpcd vim sudo openssh
-useradd --create-home --shell /usr/bin/fish recolic
-echo 'recolic ALL=(ALL) NOPASSWD: ALL' | sudo EDITOR='tee -a' visudo
+run linuxconf mgr
+set hostname manually otherwise startup doesn't work
+set userpassword
+enable/config gnome extension
+login nextcloud for doc/pic sync
 
-pacman -Sy --noconfirm gnome networkmanager power-profiles-daemon nextcloud-client firefox
-systemctl enable gdm NetworkManager power-profiles-daemon
-
-### Require Input
-passwd recolic
-
-```
-
-> Reboot. Log into gnome as recolic, login Nextcloud.
-
-**After Nextcloud sync complete**, run **as recolic**:
-
-```
-bash ~/Nextcloud/workspace/init.bash
+TODO: move everything into linuxconf, except doc/pic/secret
 ```
 
 <!--
@@ -35,9 +22,6 @@ echo "options cfg80211 crda_support=y" >> /etc/modprobe.d/cfg80211.conf
 pacman -S --noconfirm wireless-regdb
 -->
 
-- gnome configure
-
-**After Nextcloud sync complete**, enable and config your plugins.
 
 - OPT: thunderbird
 
