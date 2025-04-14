@@ -231,13 +231,6 @@ upgrade path: [Last minor-release in every BIG-version is a checkpoint.](https:/
 
 > if occ upgrade says "General error: 5 database is locked", maybe occ upgrade is already started by docker. You dont need to run it manually, just check and wait.
 
-- customize (new deployment)
-
-|If you want|Do|Otherwise|
-|---|---|---|
-|Task management|Use `2do` android app|disable Calendar and Tasks|
-|Startup dashboard|Enable dashboard|Disable GitHub integration,GitLab integration,Weather Status|
-
 ## rserver-monitor
 
 source=<https://git.recolic.net/root/server-monitor>
