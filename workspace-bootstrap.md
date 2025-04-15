@@ -1,17 +1,14 @@
 # Reproduce recolic's workspace
 
-## GUI Workspace
+## PC / MPC / HMS / MSPC
 
 > After installing Arch Linux
 
 ```
-run linuxconf mgr
 set hostname manually otherwise startup doesn't work
-set userpassword
-enable/config gnome extension
-login nextcloud for doc/pic sync
-
-TODO: move everything into linuxconf, except doc/pic/secret
+set root password
+run linuxconf mgr
+(follow linuxconf instruction)
 ```
 
 <!--
@@ -21,7 +18,6 @@ echo "options cfg80211 internal_regdb=y" >> /etc/modprobe.d/cfg80211.conf
 echo "options cfg80211 crda_support=y" >> /etc/modprobe.d/cfg80211.conf
 pacman -S --noconfirm wireless-regdb
 -->
-
 
 - OPT: thunderbird
 
