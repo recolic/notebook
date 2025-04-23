@@ -192,6 +192,10 @@ docker commit rvpn 600163736385.dkr.ecr.us-west-2.amazonaws.com/openvpn-server
 docker push 600163736385.dkr.ecr.us-west-2.amazonaws.com/openvpn-server
 ```
 
+- nextcloud office bugfix
+
+in `/srv/nextcloud/data/appdata_oca5n8eadtqi/richdocuments`, `mkdir remoteData fonts && chmod 777 remoteData fonts`
+
 ## git.recolic.net
 
 deploy (using /srv as datadir)
