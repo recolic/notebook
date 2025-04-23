@@ -192,10 +192,6 @@ docker commit rvpn 600163736385.dkr.ecr.us-west-2.amazonaws.com/openvpn-server
 docker push 600163736385.dkr.ecr.us-west-2.amazonaws.com/openvpn-server
 ```
 
-- nextcloud office bugfix
-
-in `/srv/nextcloud/data/appdata_oca5n8eadtqi/richdocuments`, `mkdir remoteData fonts && chmod 777 remoteData fonts`
-
 ## git.recolic.net
 
 deploy (using /srv as datadir)
@@ -234,6 +230,10 @@ docker exec -u 33 -ti rdrive ./occ [args...]
 upgrade path: [Last minor-release in every BIG-version is a checkpoint.](https://docs.nextcloud.com/server/latest/admin_manual/maintenance/upgrade.html) just stop and run with new image version. 
 
 > if occ upgrade says "General error: 5 database is locked", maybe occ upgrade is already started by docker. You dont need to run it manually, just check and wait.
+
+- nextcloud office bugfix
+
+in `/srv/nextcloud/data/appdata_oca5n8eadtqi/richdocuments`, `mkdir remoteData fonts font-overviews && chmod 777 remoteData fonts font-overviews`
 
 ## rserver-monitor
 
