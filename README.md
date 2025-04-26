@@ -480,7 +480,7 @@ docker run -d --restart=always --name=rdrive2 --log-opt max-size=10M \
 --mount type=bind,source=/srv/cloudreve/cloudreve.db,target=/cloudreve/cloudreve.db \
 -v /srv/cloudreve/uploads:/cloudreve/uploads \
 -v /srv/cloudreve/avatar:/cloudreve/avatar \
-cloudreve/cloudreve:latest
+cloudreve/cloudreve:3.8.3
 ```
 
 ## samba share
