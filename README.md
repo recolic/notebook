@@ -8,7 +8,7 @@ If you want to deploy a similiar service, the following content may help. But be
 
 ## common
 
-currently using uswest server by DO, docker image is hosted by Amazon ECR (600163736385.dkr.ecr.us-west-2.amazonaws.com). 
+My docker image is hosted by Amazon ECR (600163736385.dkr.ecr.us-west-2.amazonaws.com). 
 
 Get login info (valid for 12h)
 ```
@@ -146,6 +146,49 @@ root, admin -> passwd(recolic.net)
     
 crontab should restart docker container every 3 month, to renew email server certificate. 
 
+## git.recolic.net
+
+deploy (using /srv as datadir)
+```
+docker run -d --restart always --log-opt max-size=10M --name rgit \
+  --hostname git.recolic.net \
+  -p 20443:443 -p 2080:80 -p [::]:22:22 -p 0.0.0.0:22:22 \
+  -v /srv/gitlab/config:/etc/gitlab -v /srv/gitlab/logs:/var/log/gitlab -v /srv/gitlab/data:/var/opt/gitlab \
+  gitlab/gitlab-ce:15.11.13-ce.0
+```
+
+debug console
+```
+docker exec -ti rgit /bin/bash
+```
+
+upgrade path: [doc](https://docs.gitlab.com/ee/update/index.html#upgrade-paths) ; [Upgrade path tool](https://gitlab-com.gitlab.io/support/toolbox/upgrade-path/)
+
+- customize (new deployment)
+
+Must disable monitoring basing on this guide: <https://docs.gitlab.com/ee/administration/monitoring/prometheus/#configuring-prometheus>
+
+## drive.recolic.net
+
+data dir: `/srv/nextcloud`.
+
+```
+docker run -d --restart always --log-opt max-size=10M --name rdrive -p 3083:80 -v /srv/nextcloud/nextcloud:/var/www/html -v /srv/nextcloud/apps:/var/www/html/custom_apps -v /srv/nextcloud/config:/var/www/html/config -v /srv/nextcloud/data:/var/www/html/data -v /srv/nextcloud/theme:/var/www/html/themes/rdef nextcloud
+```
+
+debug console:
+```
+docker exec -u 33 -ti rdrive ./occ [args...]
+```
+
+upgrade path: [Last minor-release in every BIG-version is a checkpoint.](https://docs.nextcloud.com/server/latest/admin_manual/maintenance/upgrade.html) just stop and run with new image version. 
+
+> if occ upgrade says "General error: 5 database is locked", maybe occ upgrade is already started by docker. You dont need to run it manually, just check and wait.
+
+- nextcloud office bugfix
+
+in `/srv/nextcloud/data/appdata_oca5n8eadtqi/richdocuments`, `mkdir remoteData fonts font-overviews && chmod 777 remoteData fonts font-overviews`
+
 ## openvpn-server
 
 build from stretch (modified from kylemanna)
@@ -191,49 +234,6 @@ push your changes(after adding some users)
 docker commit rvpn 600163736385.dkr.ecr.us-west-2.amazonaws.com/openvpn-server
 docker push 600163736385.dkr.ecr.us-west-2.amazonaws.com/openvpn-server
 ```
-
-## git.recolic.net
-
-deploy (using /srv as datadir)
-```
-docker run -d --restart always --log-opt max-size=10M --name rgit \
-  --hostname git.recolic.net \
-  -p 20443:443 -p 2080:80 -p [::]:22:22 -p 0.0.0.0:22:22 \
-  -v /srv/gitlab/config:/etc/gitlab -v /srv/gitlab/logs:/var/log/gitlab -v /srv/gitlab/data:/var/opt/gitlab \
-  gitlab/gitlab-ce:15.11.13-ce.0
-```
-
-debug console
-```
-docker exec -ti rgit /bin/bash
-```
-
-upgrade path: [doc](https://docs.gitlab.com/ee/update/index.html#upgrade-paths) ; [Upgrade path tool](https://gitlab-com.gitlab.io/support/toolbox/upgrade-path/)
-
-- customize (new deployment)
-
-Must disable monitoring basing on this guide: <https://docs.gitlab.com/ee/administration/monitoring/prometheus/#configuring-prometheus>
-
-## drive.recolic.net
-
-data dir: `/srv/nextcloud`.
-
-```
-docker run -d --restart always --log-opt max-size=10M --name rdrive -p 3083:80 -v /srv/nextcloud/nextcloud:/var/www/html -v /srv/nextcloud/apps:/var/www/html/custom_apps -v /srv/nextcloud/config:/var/www/html/config -v /srv/nextcloud/data:/var/www/html/data -v /srv/nextcloud/theme:/var/www/html/themes/rdef nextcloud
-```
-
-debug console:
-```
-docker exec -u 33 -ti rdrive ./occ [args...]
-```
-
-upgrade path: [Last minor-release in every BIG-version is a checkpoint.](https://docs.nextcloud.com/server/latest/admin_manual/maintenance/upgrade.html) just stop and run with new image version. 
-
-> if occ upgrade says "General error: 5 database is locked", maybe occ upgrade is already started by docker. You dont need to run it manually, just check and wait.
-
-- nextcloud office bugfix
-
-in `/srv/nextcloud/data/appdata_oca5n8eadtqi/richdocuments`, `mkdir remoteData fonts font-overviews && chmod 777 remoteData fonts font-overviews`
 
 ## rserver-monitor
 
