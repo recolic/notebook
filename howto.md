@@ -93,3 +93,9 @@ icpc -V
 aria2c --bt-seed-unverified -V --seed-ratio=0.0 -d/path/to/download xxx.torrent
 aria2c --bt-seed-unverified -V --seed-ratio=0.0 -d. xxx.torrent
 ```
+
+## Microsoft Office
+
+Use office pro plus 2021. It doesn't require login.
+
+DO NOT install Microsoft 365.
