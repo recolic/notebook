@@ -490,7 +490,6 @@ echo "
 FROM jenserat/samba-publicshare
 # Add an extra socket option
 RUN sed '/.global./a socket options = TCP_NODELAY SO_KEEPALIVE TCP_KEEPIDLE=20 TCP_KEEPCNT=2 TCP_KEEPINTVL=2' -i /etc/samba/smb.conf
-
 RUN echo 'valid users = test' >> /etc/samba/smb.conf
 RUN useradd -M -s /sbin/nologin test
 RUN (echo test; echo test) | smbpasswd -a test
