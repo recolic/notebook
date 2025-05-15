@@ -490,16 +490,17 @@ echo "
 FROM jenserat/samba-publicshare
 # Add an extra socket option
 RUN sed '/.global./a socket options = TCP_NODELAY SO_KEEPALIVE TCP_KEEPIDLE=20 TCP_KEEPCNT=2 TCP_KEEPINTVL=2' -i /etc/samba/smb.conf
+
+RUN echo 'valid users = test' >> /etc/samba/smb.conf
+RUN useradd -M -s /sbin/nologin test
+RUN (echo test; echo test) | smbpasswd -a test
 " > /tmp/Dockerfile
 docker build -t recolic/smbd -f /tmp/Dockerfile $(mktemp -d)
+
 docker run -tid --publish 445:445 --publish 137:137 --publish 138:138 --publish 139:139 --volume /mnt/fsdisk/nfs:/srv --name smbshare --restart=always recolic/smbd
 ```
 
-But SAW doesn't allow access public smb share.. use this naive solution
-
-```
-docker run -it --rm --name samba -p 445:445 -e "USER=samba" -e "PASS=secret" -v (pwd):/storage dockurr/samba
-```
+It has a `test` user if windows prevents you from using anonymous identity.
 
 ## simple http server
 
