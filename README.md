@@ -45,16 +45,8 @@ Requires docker > 20.10.2, edit `/etc/docker/daemon.json`:
 |port|service|
 |-----|-----|
 |2080|git|
-|3000|rocket|
-|3002|riot.backend|
-|3003|riot.web|
-|3004(https)|zulip|
-|3007|wishbox|
-|3008|onlyoffice|
 |3009|owncast|
 |3010|cloudreve|
-|3080|tm|
-|3081|baidupan_proxy|
 |3083|drive|
 |3091|www|
 |3092(https)|mail|
@@ -62,7 +54,6 @@ Requires docker > 20.10.2, edit `/etc/docker/daemon.json`:
 |6080|WebVirtMgr(VNC-Proxy)|
 |6081|WebVirtMgr|
 |6088|Android ADB Web|
-|8080|test_only|
 |8448(https)|matrix.api|
 |10000|v2ray|
 
@@ -75,8 +66,6 @@ Requires docker > 20.10.2, edit `/etc/docker/daemon.json`:
 |81|secondary-http|
 |443|https (nginx)|
 |444|secondary-https|
-|466|shadowsocksR|
-|588|shadowsocksR|
 |1080|socks5|
 |1194|openvpn|
 |1935|RTMP stream|
@@ -85,8 +74,6 @@ Requires docker > 20.10.2, edit `/etc/docker/daemon.json`:
 |4022|secondary-ssh|
 |4662-4672,4673|ed2k,torrent|
 |5700-5720|VNC|
-|9000-9389|Virtualbox dynamic ports (RDP)|
-|9399|Virtualbox web interface|
 |10808|socks5|
 |25551|shadowsocks|
 |25554|openvpn|
@@ -102,7 +89,6 @@ Requires docker > 20.10.2, edit `/etc/docker/daemon.json`:
 |30997|FRPC console|
 |30998|FRPS monitor|
 |30999|FRPS server|
-|31000-31499|Virtualbox dynamic ports (Other use)|
 
 --------
 
