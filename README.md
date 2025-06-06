@@ -35,7 +35,7 @@ Requires docker > 20.10.2, edit `/etc/docker/daemon.json`:
   "fixed-cidr-v6": "fd00:dead:beef::/48",
   "log-driver": "json-file",
   "log-opts": {
-    "max-size": "100m"
+    "max-size": "10m"
   }
 }
 ```
@@ -62,9 +62,9 @@ Requires docker > 20.10.2, edit `/etc/docker/daemon.json`:
 |port|service|
 |-----|-----|
 |22|ssh|
-|80|http (nginx)|
+|80|http|
 |81|secondary-http|
-|443|https (nginx)|
+|443|https|
 |444|secondary-https|
 |1080|socks5|
 |1194|openvpn|
@@ -78,13 +78,13 @@ Requires docker > 20.10.2, edit `/etc/docker/daemon.json`:
 |25551|shadowsocks|
 |25554|openvpn|
 |25565|minecraft|
-|25566|secondary-ssh|
-|25567|secondary-ssh|
+|25566-25567|secondary-ssh|
 |25580|shadowsocks|
 |25581|snakesocks|
 |25582|msauth-vm-adb|
 |25583|msauth-http-api|
-|30400-30499|Generic dynamic ports (use without doc)|
+|30400-30449|Generic dynamic ports (use without doc)|
+|30450-30499|simple-vmm reserved|
 |30500-30899|FRPS reserved, ref frps-recolic.ini|
 |30997|FRPC console|
 |30998|FRPS monitor|
