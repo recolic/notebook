@@ -44,7 +44,7 @@ Requires docker > 20.10.2, edit `/etc/docker/daemon.json`:
 
 |port|service|
 |-----|-----|
-|2080|git|
+|2080|gitlab|
 |3009|owncast|
 |3010|cloudreve|
 |3083|drive|
