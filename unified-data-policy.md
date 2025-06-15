@@ -38,8 +38,8 @@
 |M |Always, by GPG master key             |1P|Level 3H|nfs/backup/C2_M|
 |C2|Deniable encrpytion on trusted device |1P|Level 3H|nfs/backup/C2_M, RecoDrive|
 |C |Device-level encryption          |1P / 3P|Level 1|any encrypted devices|
-|H |Optional|1P / 3P|Level 2|TODO|
-|I2|Optional|1P / 3P|Level 2|nfs/backup/I2, RecoGit, RecoDrive|
+|H |Optional|1P / 3P|Level 2|nfs/backup/H|
+|I2|Optional|1P / 3P|Level 3H|nfs/backup/I2, RecoGit, RecoDrive|
 |I |Optional|1P / 3P|Level 1|any devices|
 
 |Properties|Important|Non-Important|
