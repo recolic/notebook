@@ -45,7 +45,7 @@
 |Properties|Important|Non-Important|
 |---|---|---|
 |Sensitive|MX,M,C2|C|
-|Non-sensitive|I2|I|
+|Non-sensitive|I2,H|I|
 
 ![](./.res/reco-file-types.png)
 
