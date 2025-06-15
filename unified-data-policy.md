@@ -2,9 +2,9 @@
 
 ## Replication policies
 
-- Level 4: at least 4 copies, in 3 location, 2 countries, 2 continents. 
+- Level 3H: Level 3 with encrypted history snapshots.
 
-- Level 3: at least 3 copies, in 2 location, 2 countries. 
+- Level 3: at least 4 copies, in 3 location, 2 countries, 2 continents. 
 
 - Level 2: at least 2 copies. 
 
@@ -18,7 +18,9 @@
 
 - type I: public personal data, or non-important public data.
 
-- type C2: sensitive important personal data, such as photos, game save, server data.
+- type H: Encrypted history archive (the "H" in replica level 3H)
+
+- type C2: sensitive important personal data, such as photos, game save, server data; 
 
 - type C: sensitive non-important personal data, such as system logs, chat logs, screenshots, web history, development environment.
 
@@ -32,12 +34,13 @@
 
 |Type|Encryption|Ownership|Replication|Current\_Solution|
 |---|---|---|---|---|
-|MX|Always, by cold key and super key|1P|Level 4|nfs/backup/MX|
-|M|Always, by GPG master key or super key|1P|Level 4|nfs/backup/C2_M|
-|C2|Only on untrusted device|1P / 3P|Level 3|nfs/backup/C2_M, RecoDrive|
-|C|Device-level encryption|1P / 3P|Level 1|any encrypted devices|
+|MX|Always, by cold key and super key     |1P|Level 3H|nfs/backup/MX|
+|M |Always, by GPG master key             |1P|Level 3H|nfs/backup/C2_M|
+|C2|Deniable encrpytion on trusted device |1P|Level 3H|nfs/backup/C2_M, RecoDrive|
+|C |Device-level encryption          |1P / 3P|Level 1|any encrypted devices|
+|H |Optional|1P / 3P|Level 2|TODO|
 |I2|Optional|1P / 3P|Level 2|nfs/backup/I2, RecoGit, RecoDrive|
-|I|Optional|1P / 3P|Level 1|any devices|
+|I |Optional|1P / 3P|Level 1|any devices|
 
 |Properties|Important|Non-Important|
 |---|---|---|
