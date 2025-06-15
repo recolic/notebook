@@ -34,7 +34,7 @@
 
 |Type|Encryption|Ownership|Replication|Current\_Solution|
 |---|---|---|---|---|
-|MX|Always, by cold key and super key     |1P|Level 3H|nfs/backup/MX|
+|MX|Always, by Project Hammer             ||          |Project Hammer|
 |M |Always, by GPG master key             |1P|Level 3H|nfs/backup/C2_M|
 |C2|Deniable encrpytion on trusted device |1P|Level 3H|nfs/backup/C2_M, RecoDrive|
 |C |Device-level encryption          |1P / 3P|Level 1|any encrypted devices|
