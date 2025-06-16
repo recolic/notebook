@@ -490,3 +490,9 @@ It has a `test` user if windows prevents you from using anonymous identity.
 ## simple http server
 
 <https://github.com/TheWaWaR/simple-http-server>
+
+## docker vnc desktop
+
+```
+docker run -d -p 6080:80 -p 5900:5900 -v /dev/shm:/dev/shm dorowu/ubuntu-desktop-lxde-vnc
+```
