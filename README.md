@@ -101,7 +101,7 @@ Requires docker > 20.10.2, edit `/etc/docker/daemon.json`:
 fresh deploy:
 201905 update: move all /var out.
 201911 update: remove https, remove zhixiang, logs, reconstructed.
-202106 update: re-written from stretch, simple state-less dockerfile. https://git.recolic.net/root/scripts/-/tree/one/groundup/php-nginx
+202106 update: re-written from stretch, simple state-less dockerfile. https://git.recolic.net/root/daily-scripts/-/tree/master/docker-php-nginx
 
 Put the website into /srv/html, and make sure `/srv/html/.config/nginx.conf` exists. 
 
