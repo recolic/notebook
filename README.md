@@ -175,6 +175,10 @@ upgrade path: [Last minor-release in every BIG-version is a checkpoint.](https:/
 
 in `/srv/nextcloud/data/appdata_oca5n8eadtqi/richdocuments`, `mkdir remoteData fonts font-overviews && chmod 777 remoteData fonts font-overviews`
 
+## storage.recolic.net
+
+Ref <https://git.recolic.net/root/daily-scripts/-/tree/master/storage-server-backup-sh>
+
 ## openvpn-server
 
 build from stretch (modified from kylemanna)
@@ -427,20 +431,6 @@ docker run -d --restart=always --log-opt max-size=10M --name rgitsync --env gith
 source=<https://git.recolic.net/root/aur-autobuild-mirror>
 
 Clone the repo and setup crontab. 
-
-## storage.recolic.net
-
-follow the guide at source=<https://git.recolic.net/root/scripts/-/tree/one/storage-server-backup-sh>
-
-<!--
-## dedicated v2ray
-
-usually, I run v2ray with a real web server, usually drive.recolic.net or git.recolic.net. However, sometimes, we want to setup v2ray on a dedicated toy cock. 
-
-```
-curl -O https://raw.githubusercontent.com/jinwyp/one_click_script/master/trojan_v2ray_install.sh && chmod +x ./trojan_v2ray_install.sh && ./trojan_v2ray_install.sh
-```
--->
 
 ## owncast
 
