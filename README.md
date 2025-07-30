@@ -461,21 +461,38 @@ cloudreve/cloudreve:3.8.3
 
 ## samba share
 
+- without password
+
 ```
 echo "
 FROM jenserat/samba-publicshare
 # Add an extra socket option
 RUN sed '/.global./a socket options = TCP_NODELAY SO_KEEPALIVE TCP_KEEPIDLE=20 TCP_KEEPCNT=2 TCP_KEEPINTVL=2' -i /etc/samba/smb.conf
-RUN echo 'valid users = test' >> /etc/samba/smb.conf
-RUN useradd -M -s /sbin/nologin test
-RUN (echo test; echo test) | smbpasswd -a test
 " > /tmp/Dockerfile
 docker build -t recolic/smbd -f /tmp/Dockerfile $(mktemp -d)
 
 docker run -tid --publish 445:445 --publish 137:137 --publish 138:138 --publish 139:139 --volume /mnt/fsdisk/nfs:/srv --name smbshare --restart=always recolic/smbd
 ```
 
-It has a `test` user if windows prevents you from using anonymous identity.
+- with password
+
+> some windows CORP policy prevents you from using anonymous identity.
+
+Username: r ; Password: 1
+
+```
+echo "
+FROM jenserat/samba-publicshare
+# Add an extra socket option
+RUN sed '/.global./a socket options = TCP_NODELAY SO_KEEPALIVE TCP_KEEPIDLE=20 TCP_KEEPCNT=2 TCP_KEEPINTVL=2' -i /etc/samba/smb.conf
+RUN echo 'valid users = r' >> /etc/samba/smb.conf
+RUN useradd -M -s /sbin/nologin r
+RUN (echo 1; echo 1) | smbpasswd -a r
+" > /tmp/Dockerfile
+docker build -t recolic/smbd_p -f /tmp/Dockerfile $(mktemp -d)
+
+docker run -tid --publish 445:445 --publish 137:137 --publish 138:138 --publish 139:139 --volume /mnt/fsdisk/nfs:/srv --name smbshare --restart=always recolic/smbd_p
+```
 
 ## simple http server
 
