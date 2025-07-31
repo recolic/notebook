@@ -461,7 +461,7 @@ cloudreve/cloudreve:3.8.3
 
 ## samba share
 
-- without password
+- Public
 
 ```
 echo "
@@ -474,24 +474,24 @@ docker build -t recolic/smbd -f /tmp/Dockerfile $(mktemp -d)
 docker run -tid --publish 445:445 --publish 137:137 --publish 138:138 --publish 139:139 --volume /mnt/fsdisk/nfs:/srv --name smbshare --restart=always recolic/smbd
 ```
 
-- with password
+- Password protect + Public subdir
 
 > some windows CORP policy prevents you from using anonymous identity.
 
-Username: r ; Password: 1
+Username: r ; Password: PASSWORD (please modify)
 
 ```
+cd $(mktemp -d)
+echo H4sIAAAAAAAAA22PUQuCMBSF3/cr9g8K330QHRQtlTIhJMZmo6TllW0a/vvmjILqvp3vHM69t7ooEFydEHZz5x22gC+9NBaHWPAz7o3U3jOy7nVjR8c/DOqbtBg620BrnFPEOUuzhNDoiPcZ2xCSR3RdEm9Map1QEgbLt47TIgw+blqUNAwQqowe5pM6bq+ueOGA1wNXzXzVtI+xQxptCctpFJNVRhOyY8zn5h/g5kIteKKlewdaNc4IVV0vVFP/rFk4/l0xSvOvY0JCw8NILpR85dATwGUXTlMBAAA= | base64 -d | gzip -d > smb.conf
 echo "
 FROM jenserat/samba-publicshare
-# Add an extra socket option
-RUN sed '/.global./a socket options = TCP_NODELAY SO_KEEPALIVE TCP_KEEPIDLE=20 TCP_KEEPCNT=2 TCP_KEEPINTVL=2' -i /etc/samba/smb.conf
-RUN echo 'valid users = r' >> /etc/samba/smb.conf
+add smb.conf /etc/samba/smb.conf
+RUN sed -i 's/__UNAME_PLACEHOLDER__/r/' /etc/samba/smb.conf
 RUN useradd -M -s /sbin/nologin r
-RUN (echo 1; echo 1) | smbpasswd -a r
-" > /tmp/Dockerfile
-docker build -t recolic/smbd_p -f /tmp/Dockerfile $(mktemp -d)
-
-docker run -tid --publish 445:445 --publish 137:137 --publish 138:138 --publish 139:139 --volume /mnt/fsdisk/nfs:/srv --name smbshare --restart=always recolic/smbd_p
+RUN (echo PASSWORD; echo PASSWORD) | smbpasswd -a r
+" > Dockerfile
+docker build -t recolic/smbd_sec -f Dockerfile .
+docker run -tid --publish 445:445 --publish 137:137 --publish 138:138 --publish 139:139 --volume /mnt/fsdisk/nfs:/srv --name smbshare --restart=always recolic/smbd_sec
 ```
 
 ## simple http server
