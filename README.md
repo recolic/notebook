@@ -8,7 +8,7 @@ If you want to deploy a similiar service, the following content may help. But be
 
 ## common
 
-My docker image is hosted by Amazon ECR (600163736385.dkr.ecr.us-west-2.amazonaws.com). 
+My docker image is hosted by Amazon ECR (sea.vultrcr.com/recoimg). 
 
 Get login info (valid for 12h)
 ```
@@ -117,8 +117,8 @@ too complicated. Refer to this article: https://recolic.net/blog/2020/10/self-bu
 
 mig: copy /srv/iredmail out, commit and push docker(nothing may changed).
 ```
-docker commit rmail 600163736385.dkr.ecr.us-west-2.amazonaws.com/mail.recolic.net
-docker push 600163736385.dkr.ecr.us-west-2.amazonaws.com/mail.recolic.net
+docker commit rmail sea.vultrcr.com/recoimg/mail.recolic.net
+docker push sea.vultrcr.com/recoimg/mail.recolic.net
 
 rsync -avz /srv/iredmail/mysql/ $newServerIp:/srv/iredmail/mysql
 rsync -avz /srv/iredmail/vmail/ $newServerIp:/srv/iredmail/vmail
@@ -197,8 +197,8 @@ docker run --log-opt max-size=10M -ti -p 1194:1194/udp --cap-add=NET_ADMIN --nam
 docker exec -ti rvpn /add_cli.sh recolic
 # add more users
 docker commit rvpn recolic/openvpn
-docker tag recolic/openvpn:latest 600163736385.dkr.ecr.us-west-2.amazonaws.com/openvpn-server:latest
-docker push 600163736385.dkr.ecr.us-west-2.amazonaws.com/openvpn-server:latest
+docker tag recolic/openvpn:latest sea.vultrcr.com/recoimg/openvpn-server:latest
+docker push sea.vultrcr.com/recoimg/openvpn-server:latest
 ```
 
 /add_cli.sh
@@ -216,13 +216,13 @@ easyrsa build-client-full "$client" nopass &&
 
 fresh deploy && mig (nodata!)
 ```
-docker run --log-opt max-size=10M -tid -p 1194:1194/udp --cap-add=NET_ADMIN --name rvpn --privileged --restart=always 600163736385.dkr.ecr.us-west-2.amazonaws.com/openvpn-server ovpn_run
+docker run --log-opt max-size=10M -tid -p 1194:1194/udp --cap-add=NET_ADMIN --name rvpn --privileged --restart=always sea.vultrcr.com/recoimg/openvpn-server ovpn_run
 ```
 
 push your changes(after adding some users)
 ```
-docker commit rvpn 600163736385.dkr.ecr.us-west-2.amazonaws.com/openvpn-server
-docker push 600163736385.dkr.ecr.us-west-2.amazonaws.com/openvpn-server
+docker commit rvpn sea.vultrcr.com/recoimg/openvpn-server
+docker push sea.vultrcr.com/recoimg/openvpn-server
 ```
 
 ## rserver-monitor
