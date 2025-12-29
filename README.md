@@ -2,7 +2,7 @@
 
 Some note about deploying my website and other services. 
 
-I'm just making it public for convenience. **Some commands need authentication to run.**
+I'm just making it public for convenience. **Some commands require login.**
 
 If you want to deploy a similiar service, the following content may help. But be careful, this is not a guide, this is my private notebook. 
 
