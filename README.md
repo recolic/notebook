@@ -8,37 +8,14 @@ If you want to deploy a similiar service, the following content may help. But be
 
 ## common
 
-My docker image is hosted by Amazon ECR (sea.vultrcr.com/recoimg). 
-
-Get login info (valid for 12h)
-```
-aws ecr get-login --no-include-email --region us-west-2
-```
-
 do not use docker attach. 
 ```
 docker exec -ti rweb /bin/bash
 ```
 
-Every server saves `acme.sh`, `nginx.conf`, `crontab.log`, `cert.sh`, `startup.sh` into `/srv/conf`. Every server has an nginx, which redirects 
-all HTTPS traffic to `http://localhost:xxxx`. 
-
-## docker-ipv6 support (NAT mode)
-
-Requires docker > 20.10.2, edit `/etc/docker/daemon.json`: 
-
-```json
-{
-  "experimental": true,
-  "ip6tables": true,
-  "ipv6": true,
-  "fixed-cidr-v6": "fd00:dead:beef::/48",
-  "log-driver": "json-file",
-  "log-opts": {
-    "max-size": "10m"
-  }
-}
-```
+Every server has `acme.sh`, `nginx.conf`, `crontab.log`, `cert.sh`, `startup.sh` in `/srv/conf`.  
+nginx redirects HTTP traffic to correct container.  
+/srv/conf must be backed-up.
 
 ## proxi-ed http port usage:
 
