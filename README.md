@@ -148,9 +148,9 @@ upgrade path: [Last minor-release in every BIG-version is a checkpoint.](https:/
 
 > if occ upgrade says "General error: 5 database is locked", maybe occ upgrade is already started by docker. You dont need to run it manually, just check and wait.
 
-- nextcloud office bugfix
+- bug fix
 
-in `/srv/nextcloud/data/appdata_oca5n8eadtqi/richdocuments`, `mkdir remoteData fonts font-overviews && chmod 777 remoteData fonts font-overviews`
+Admin dashboard, `Administration -> Logging -> Log Reader Settings`, `Set log level` to Error. (otherwise causing huge nextcloud.log)
 
 ## storage.recolic.net
 
