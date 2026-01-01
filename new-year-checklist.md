@@ -1,5 +1,5 @@
 1. Update copyright lines across recolic.net
-2. storage space cleanup from all servers
+2. storage cleanup from all servers before annual backup
 3. upgrade nextcloud / gitlab / iredmail
 4. renew all domains and VPSs
 5. New monthly budget questionnaire for River
