@@ -136,7 +136,7 @@ Must disable monitoring basing on this guide: <https://docs.gitlab.com/ee/admini
 data dir: `/srv/nextcloud`.
 
 ```
-docker run -d --restart always --log-opt max-size=10M --name rdrive -p 3083:80 -v /srv/nextcloud/nextcloud:/var/www/html -v /srv/nextcloud/apps:/var/www/html/custom_apps -v /srv/nextcloud/config:/var/www/html/config -v /srv/nextcloud/data:/var/www/html/data -v /srv/nextcloud/theme:/var/www/html/themes/rdef nextcloud
+docker run -d --restart always --log-opt max-size=10M --name rdrive -p 3083:80 -v /srv/nextcloud/nextcloud:/var/www/html -v /srv/nextcloud/apps:/var/www/html/custom_apps -v /srv/nextcloud/config:/var/www/html/config -v /srv/nextcloud/data:/var/www/html/data -v /srv/nextcloud/theme:/var/www/html/themes/rdef nextcloud:31.0.12
 ```
 
 debug console:
