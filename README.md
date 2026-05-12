@@ -191,15 +191,17 @@ easyrsa build-client-full "$client" nopass &&
     ovpn_getclient "$client"
 ```
 
-fresh deploy && mig (nodata!)
-```
-docker run --log-opt max-size=10M -tid -p 1194:1194/udp --cap-add=NET_ADMIN --name rvpn --privileged --restart=always sea.vultrcr.com/recoimg/openvpn-server ovpn_run
-```
-
 push your changes(after adding some users)
 ```
 docker commit rvpn sea.vultrcr.com/recoimg/openvpn-server
 docker push sea.vultrcr.com/recoimg/openvpn-server
+```
+
+fresh deploy && mig (nodata!)
+```
+## sea.vultrcr.com/recoimg/openvpn-server has secret.
+## this strip-secret img is good for deploy
+docker run --log-opt max-size=10M -tid -p 1194:1194/udp --cap-add=NET_ADMIN --name rvpn --privileged --restart=always recolic/ovpn-server-strip-secret ovpn_run
 ```
 
 ## rserver-monitor
