@@ -199,9 +199,10 @@ docker push sea.vultrcr.com/recoimg/openvpn-server
 
 fresh deploy && mig (nodata!)
 ```
-## sea.vultrcr.com/recoimg/openvpn-server has secret.
-## this strip-secret img is good for deploy
-docker run --log-opt max-size=10M -tid -p 1194:1194/udp --cap-add=NET_ADMIN --name rvpn --privileged --restart=always recolic/ovpn-server-strip-secret ovpn_run
+## no login
+k=(genpasswd ovpn@dummy v5.2)
+curl https://recolic.cc/res/$k/openvpn-server.tar.xz | xz -d | docker load
+docker run --log-opt max-size=10M -tid -p 1194:1194/udp --cap-add=NET_ADMIN --name rvpn --privileged --restart=always sea.vultrcr.com/recoimg/openvpn-server ovpn_run
 ```
 
 ## rserver-monitor
