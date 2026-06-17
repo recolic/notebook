@@ -458,9 +458,12 @@ docker run -tid --publish 445:445 --publish 137:137 --publish 138:138 --publish 
 
 > some windows CORP policy prevents you from using anonymous identity.
 
-Username: r ; Password: PASSWORD (please modify)
+Username: r
 
 ```
+## please modify
+set password $(genpasswd recolic/smbd_sec)
+
 cd $(mktemp -d)
 echo H4sIAAAAAAAAA22PUQuCMBSF3/cr9g8K330QHRQtlTIhJMZmo6TllW0a/vvmjILqvp3vHM69t7ooEFydEHZz5x22gC+9NBaHWPAz7o3U3jOy7nVjR8c/DOqbtBg620BrnFPEOUuzhNDoiPcZ2xCSR3RdEm9Map1QEgbLt47TIgw+blqUNAwQqowe5pM6bq+ueOGA1wNXzXzVtI+xQxptCctpFJNVRhOyY8zn5h/g5kIteKKlewdaNc4IVV0vVFP/rFk4/l0xSvOvY0JCw8NILpR85dATwGUXTlMBAAA= | base64 -d | gzip -d > smb.conf
 echo "
@@ -468,10 +471,11 @@ FROM jenserat/samba-publicshare
 add smb.conf /etc/samba/smb.conf
 RUN sed -i 's/__UNAME_PLACEHOLDER__/r/' /etc/samba/smb.conf
 RUN useradd -M -s /sbin/nologin r
-RUN (echo PASSWORD; echo PASSWORD) | smbpasswd -a r
+RUN (echo $password; echo $password) | smbpasswd -a r
 " > Dockerfile
-docker build -t recolic/smbd_sec -f Dockerfile .
-docker run -tid --publish 445:445 --publish 137:137 --publish 138:138 --publish 139:139 --volume /mnt/fsdisk/nfs:/srv --name smbshare --restart=always recolic/smbd_sec
+sudo docker build -t recolic/smbd_sec -f Dockerfile .
+
+sudo docker run -tid --publish 445:445 --publish 137:137 --publish 138:138 --publish 139:139 --volume /mnt/fsdisk/nfs:/srv --name smbshare --restart=always recolic/smbd_sec
 ```
 
 ## simple http server
