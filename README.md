@@ -60,7 +60,8 @@ nginx redirects HTTP traffic to correct container.
 |25581|snakesocks|
 |25582|msauth-vm-adb|
 |25583|msauth-http-api|
-|30400-30449|Generic dynamic ports (use without doc)|
+|30400-30429|Generic dynamic ports (use without doc)|
+|30440-30449|rsandbox reserved|
 |30450-30499|simple-vmm reserved|
 |30500-30899|FRPS reserved, ref frps-recolic.ini|
 |30997|FRPC console|
