@@ -211,7 +211,7 @@ docker run --log-opt max-size=10M -tid -p 1194:1194/udp --cap-add=NET_ADMIN --na
 source=<https://git.recolic.net/root/server-monitor>
 
 ```
-touch /srv/html/status.html
+touch /srv/html/.unmanaged/status.html
 docker run --log-opt max-size=10M -d --name rmon --restart=always -v /srv/html/.unmanaged/status.html:/app/status.html recolic/rserver-status
 ```
 
