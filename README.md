@@ -212,7 +212,7 @@ source=<https://git.recolic.net/root/server-monitor>
 
 ```
 touch /srv/html/status.html
-docker run --log-opt max-size=10M -d --name rmon --restart=always -v /srv/html/status.html:/app/status.html recolic/rserver-status
+docker run --log-opt max-size=10M -d --name rmon --restart=always -v /srv/html/.unmanaged/status.html:/app/status.html recolic/rserver-status
 ```
 
 ## new Shadowsocks server setup 2020
