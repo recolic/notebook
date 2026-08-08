@@ -219,10 +219,9 @@ docker run --log-opt max-size=10M -d --name rmon --restart=always -v /srv/html/.
 ## github-copilot proxy
 
 ```
-set k (rsec GITHUBEMU_TOKEN)
-docker run --log-opt max-size=10M -d --name rllm --restart=always -p 25584:4141 -e GH_TOKEN=$k recolic/copilot-api
-iptables -A INPUT -p tcp --dport 25584 -j DROP
-# ref: github.com/ericc-ch/copilot-api
+docker run --log-opt max-size=10M -d --name rllm --restart=always -p 25584:4141 recolic/copilot-api
+# built from: github.com/recolic/copilot-api - recolic/copilot-from-req
+# no multi-user support
 ```
 
 ## new Shadowsocks server setup 2020
