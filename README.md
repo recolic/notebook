@@ -1,6 +1,6 @@
 # recolic's private notebook
 
-Some note about deploying my website and other services. 
+Note about deploying my website and other services. 
 
 I'm just making it public for convenience. **Some commands require login.**
 
@@ -15,7 +15,7 @@ docker exec -ti rweb /bin/bash
 
 Every server has `acme.sh`, `nginx.conf`, `crontab.log`, `cert.sh`, `startup.sh` in `/srv/conf`.  
 nginx redirects HTTP traffic to correct container.  
-/srv/conf must be backed-up.
+backup active for /srv/conf/**.
 
 ## proxi-ed http port usage:
 
@@ -60,6 +60,7 @@ nginx redirects HTTP traffic to correct container.
 |25581|snakesocks|
 |25582|msauth-vm-adb|
 |25583|msauth-http-api|
+|25584|copilot-proxy-api|
 |30400-30429|Generic dynamic ports (use without doc)|
 |30440-30449|rsandbox reserved|
 |30450-30499|simple-vmm reserved|
@@ -215,6 +216,14 @@ touch /srv/html/.unmanaged/status.html
 docker run --log-opt max-size=10M -d --name rmon --restart=always -v /srv/html/.unmanaged/status.html:/app/status.html recolic/rserver-status
 ```
 
+## github-copilot proxy
+
+```
+set k (rsec GITHUBEMU_TOKEN)
+docker run --log-opt max-size=10M -d --name rllm --restart=always -p 25584:4141 -e GH_TOKEN=$k recolic/copilot-api
+# ref: github.com/ericc-ch/copilot-api
+```
+
 ## new Shadowsocks server setup 2020
 
 ```
@@ -299,6 +308,8 @@ Docker-in-docker: Set firewall rule to prevent Internet from accessing port 2375
 [Sample of CI file](https://git.recolic.net/root/server-monitor/-/blob/master/.gitlab-ci.yml)
 
 > disable tls if there's any problem. https://docs.gitlab.com/ee/ci/docker/using_docker_build.html
+
+
 
 <details><summary>Deprecated Contents</summary>
 
