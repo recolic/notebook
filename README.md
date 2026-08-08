@@ -221,6 +221,7 @@ docker run --log-opt max-size=10M -d --name rmon --restart=always -v /srv/html/.
 ```
 set k (rsec GITHUBEMU_TOKEN)
 docker run --log-opt max-size=10M -d --name rllm --restart=always -p 25584:4141 -e GH_TOKEN=$k recolic/copilot-api
+iptables -A INPUT -p tcp --dport 25584 -j DROP
 # ref: github.com/ericc-ch/copilot-api
 ```
 
