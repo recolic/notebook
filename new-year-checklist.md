@@ -7,3 +7,4 @@
 6. Fidelity: rebalance assets
 7. Rotate temporary email domain (xx@tmp.recolic.cc)
 8. budget-cal: archive all history cost info (incl spec)
+9. generate new build for OSS: https://github.com/recolic/freerdp-recolic/ https://github.com/recolic/Rabby-firefox
