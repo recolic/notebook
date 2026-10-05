@@ -28,6 +28,7 @@ backup active for /srv/conf/**.
 |3091|www|
 |3092(https)|mail|
 |3093|doorlock api server|
+|3094|genpasswd api|
 |6080|WebVirtMgr(VNC-Proxy)|
 |6081|WebVirtMgr|
 |6088|Android ADB Web|
